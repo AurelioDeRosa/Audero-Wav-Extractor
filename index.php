@@ -6,7 +6,7 @@
    </head>
    <body>
       <?php
-         require_once('AuderoWavExtractor.php');
+         require_once('./src/AuderoWavExtractor.php');
 
          $InputFile = './wav/sample.wav';
          $OutputFile = './wav/chunk.wav';

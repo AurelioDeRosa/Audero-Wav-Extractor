@@ -71,18 +71,22 @@ class AuderoWavExtractor
    const CHUNK_ID = 'ChunkId';
    const CHUNK_SIZE= 'ChunkSize';
    const CHUNK_FORMAT = 'ChunkFormat';
-   const SUBCHUNK1_ID = 'SubChunk1Id';
-   const SUBCHUNK1_SIZE = 'SubChunk1Size';
    const AUDIO_FORMAT = 'AudioFormat';
    const CHANNELS_NUMBER = 'ChannelsNumber';
    const SAMPLE_RATE = 'SampleRate';
    const DATA_RATE = 'DataRate';
    const BLOCK_SIZE = 'BlockSize';
    const BITS_PER_SAMPLE = 'BitsPerSample';
-   const SUBCHUNK2_ID = 'SubChunk2Id';
-   const SUBCHUNK2_SIZE = 'SubChunk2Size';
+   const DATA = 'Data';
+
+   const RIFF_CHUNK = 0x52494646;
+   const FMT_CHUNK = 0x666D7420;
+   const DATA_CHUNK = 0x64617461;
+   const FACT_CHUNK = 0x66616374;
 
    const BYTES_NOT_COUNTED = 8;
+   const CHUNK_ID_FORMAT = 'H8';
+   const CHUNK_ID_SIZE = 4;
 
    /**
     * 
@@ -130,15 +134,17 @@ class AuderoWavExtractor
    {
       if (! file_exists($FilePath))
          throw new InvalidArgumentException('The file does not exists: ' . $FilePath);
-      else if (filesize($FilePath) < $this->getHeadersSize())
+      else if (filesize($FilePath) < $this->getMinWavSize())
          throw new InvalidArgumentException('The file is too small to be a wav: ' . $FilePath);
       else
       {
          $this->FilePath = $FilePath;
          
          $Headers = $this->getHeaders();
-         if ( Converter::hexToString($Headers[self::CHUNK_ID]) !== 'RIFF' ||
-              Converter::hexToString($Headers[self::CHUNK_FORMAT]) !== 'WAVE'
+         if ( empty($Headers[self::RIFF_CHUNK][self::CHUNK_ID]) ||
+              empty($Headers[self::RIFF_CHUNK][self::CHUNK_FORMAT]) ||
+              Converter::hexToString($Headers[self::RIFF_CHUNK][self::CHUNK_ID]) !== 'RIFF' ||
+              Converter::hexToString($Headers[self::RIFF_CHUNK][self::CHUNK_FORMAT]) !== 'WAVE'
             )
          {
             $this->FilePath = NULL;
@@ -154,18 +160,31 @@ class AuderoWavExtractor
     */
    public function getHeaders()
    {
-      $Fields = $this->getHeaderFields();
       $File = @fopen($this->getFilePath(), 'r');
-      if ($File === false)
+      if ($File === FALSE)
          throw new Exception('Unable to open the file: ' . $this->getFilePath());
 
+      $Type = NULL;
       $Info = array();
-      foreach ($Fields as $Key => $Elem)
+      while($Type != self::DATA_CHUNK && !feof($File))
       {
-         $BytesRead = fread($File, $Elem['bytes']);
-         $Result = unpack($Elem['format'], $BytesRead);
-         $Info[$Key] = array_shift($Result);
+         $BytesRead = fread($File, self::CHUNK_ID_SIZE);
+         $Result = unpack(self::CHUNK_ID_FORMAT, $BytesRead);
+         $Type = intval('0x' . array_shift($Result), 16);
+         $Info[$Type][self::CHUNK_ID] = dechex($Type);
+
+         $Fields = $this->getHeadersFields($Type);
+         if ($Fields == NULL)
+            break;
+
+         foreach ($Fields as $Key => $Elem)
+         {
+            $BytesRead = fread($File, $Elem['bytes']);
+            $Result = unpack($Elem['format'], $BytesRead);
+            $Info[$Type][$Key] = array_shift($Result);
+         }
       }
+
       fclose($File);
       unset($File);
 
@@ -179,15 +198,15 @@ class AuderoWavExtractor
     */
    public function getDuration()
    {
-      $Header = $this->getHeaders();
+      $Headers = $this->getHeaders();
 
-      $Milliseconds = $Header[self::SAMPLE_RATE];
-      $Milliseconds *= ($Header[self::BITS_PER_SAMPLE] / 8);
-      $Milliseconds *= $Header[self::CHANNELS_NUMBER];      
-      $Milliseconds = ($Header[self::CHUNK_SIZE] - $this->getHeadersSize()) / $Milliseconds;
-      $Milliseconds *= 1000;
+      $Milliseconds = $Headers[self::FMT_CHUNK][self::SAMPLE_RATE];
+      $Milliseconds *= $Headers[self::FMT_CHUNK][self::BITS_PER_SAMPLE] / 8;
+      $Milliseconds *= $Headers[self::FMT_CHUNK][self::CHANNELS_NUMBER];      
+      $Milliseconds = ($Headers[self::RIFF_CHUNK][self::CHUNK_SIZE] - $this->getHeadersSize()) / $Milliseconds;
+      $Milliseconds = (int)ceil($Milliseconds * 1000);
       
-      unset($Header);
+      unset($Headers);
 
       return $Milliseconds;
    }
@@ -244,9 +263,15 @@ class AuderoWavExtractor
          throw new RuntimeException('Not enough memory to save the given range');
 
       $Headers = $this->getHeaders();
-      $Headers[self::SUBCHUNK2_SIZE] = ($End - $Start) * $Headers[self::DATA_RATE] / 1000;
-      $Headers[self::SUBCHUNK2_SIZE] = (int)$Headers[self::SUBCHUNK2_SIZE];
-      $Headers[self::CHUNK_SIZE] = $Headers[self::SUBCHUNK2_SIZE] + $this->getHeadersSize() - self::BYTES_NOT_COUNTED;
+
+      $Size = ($End - $Start) * $Headers[self::FMT_CHUNK][self::DATA_RATE] / 1000;
+      $Difference = $Size % $Headers[self::FMT_CHUNK][self::CHANNELS_NUMBER];
+      if ($Difference != 0)
+         $Size += $Difference;
+      $Size = (int)$Size;
+
+      $Headers[self::DATA_CHUNK][self::CHUNK_SIZE] = $Size;
+      $Headers[self::RIFF_CHUNK][self::CHUNK_SIZE] = $Size + $this->getHeadersSize() - self::BYTES_NOT_COUNTED;
 
       $Chunk = $this->headersToString($Headers);
       $Chunk .= $this->getWavChunk($Start, $End);
@@ -285,7 +310,7 @@ class AuderoWavExtractor
       if (! is_int($DataRate))
       {
          $Headers = $this->getHeaders();
-         $DataRate = $Headers[self::DATA_RATE];
+         $DataRate = $Headers[self::FMT_CHUNK][self::DATA_RATE];
          unset($Headers);
       }         
       $Byte = (int)($Milliseconds * $DataRate / 1000);
@@ -300,38 +325,112 @@ class AuderoWavExtractor
     * 
     * @return array 
     */
-   private function getHeaderFields()
+   private function getHeadersFields($Type)
+   {
+      switch ($Type)
+      {
+         case self::RIFF_CHUNK:
+            $Fields = $this->getRiffChunkHeaders();
+            break;
+
+         case self::FMT_CHUNK:
+            $Fields = $this->getFmtChunkHeaders();
+            break;
+
+         case self::DATA_CHUNK:
+            $Fields = $this->getDataChunkHeaders();
+            break;
+
+         case self::FACT_CHUNK:
+            $Fields = $this->getFactChunkHeaders();
+            break;
+
+         default:
+            $Fields = NULL;
+            break;
+      }
+
+      return $Fields;
+   }
+
+   /**
+    *
+    * @return array 
+    */
+   private function getRiffChunkHeaders()
    {
       $Fields = array();
 
-      $Fields[self::CHUNK_ID] = array('format' => 'H8', 'bytes' => 4);
       $Fields[self::CHUNK_SIZE] = array('format' => 'V', 'bytes' => 4);
       $Fields[self::CHUNK_FORMAT] = array('format' => 'H8', 'bytes' => 4);
-      $Fields[self::SUBCHUNK1_ID] = array('format' => 'H8', 'bytes' => 4);
-      $Fields[self::SUBCHUNK1_SIZE] = array('format' => 'V', 'bytes' => 4);
+
+      return $Fields;
+   }
+
+   /**
+    *
+    * @return array 
+    */
+   private function getFmtChunkHeaders()
+   {
+      $Fields = array();
+
+      $Fields[self::CHUNK_SIZE] = array('format' => 'V', 'bytes' => 4);
       $Fields[self::AUDIO_FORMAT] = array('format' => 'v', 'bytes' => 2);
       $Fields[self::CHANNELS_NUMBER] = array('format' => 'v', 'bytes' => 2);
       $Fields[self::SAMPLE_RATE] = array('format' => 'V', 'bytes' => 4);
       $Fields[self::DATA_RATE] = array('format' => 'V', 'bytes' => 4);
       $Fields[self::BLOCK_SIZE] = array('format' => 'v', 'bytes' => 2);
       $Fields[self::BITS_PER_SAMPLE] = array('format' => 'v', 'bytes' => 2);
-      $Fields[self::SUBCHUNK2_ID] = array('format' => 'H8', 'bytes' => 4);
-      $Fields[self::SUBCHUNK2_SIZE] = array('format' => 'V', 'bytes' => 4);
-      
+
+      return $Fields;
+   }
+
+   /**
+    *
+    * @return array 
+    */
+   private function getDataChunkHeaders()
+   {
+      $Fields = array();
+
+      $Fields[self::CHUNK_SIZE] = array('format' => 'V', 'bytes' => 4);
+
+      return $Fields;
+   }
+
+   /**
+    *
+    * @return array 
+    */
+   private function getFactChunkHeaders()
+   {
+      $Fields = array();
+
+      $Fields[self::CHUNK_SIZE] = array('format' => 'V', 'bytes' => 4);
+      $Fields[self::DATA] = array('format' => 'H8', 'bytes' => 4);
+
       return $Fields;
    }
 
    /**
     * Get the headers size in byte
     * 
+    * @param $Headers
     * @return int The number of bytes
     */
-   private function getHeadersSize()
+   private function getHeadersSize($Headers = NULL)
    {
       $Bytes = 0;
-      $Fields = $this->getHeaderFields();   
-      foreach ($Fields as $Elem)
-         $Bytes += $Elem['bytes'];
+      if ($Headers === NULL)
+         $Headers = $this->getHeaders();
+      $ChunkTypes = array_keys($Headers);
+      foreach($ChunkTypes as $Type)
+      {
+         $Fields = $this->getHeadersFields($Type);
+         foreach ($Fields as $Elem)
+            $Bytes += $Elem['bytes'];
+      }
 
       return $Bytes;
    }
@@ -344,10 +443,14 @@ class AuderoWavExtractor
     */
    private function headersToString($Headers)
    {
-      $Fields = $this->getHeaderFields();
       $String = '';
-      foreach($Headers as $Key => $Elem)
-         $String .= pack($Fields[$Key]['format'], $Elem);
+      foreach($Headers as $ChunkId => $Chunk)
+      {
+         $String .= pack(self::CHUNK_ID_FORMAT, $Chunk[self::CHUNK_ID]);
+         $Fields = $this->getHeadersFields($ChunkId);
+         foreach($Fields as $Key => $Elem)
+            $String .= pack($Elem['format'], $Chunk[$Key]);
+      }
 
       return $String;
    }
@@ -406,7 +509,8 @@ class AuderoWavExtractor
    }
 
    /**
-    *
+    * Try to check if the available memory is enough to extract the chunk
+    * 
     * @param int $Start
     * @param int $End
     * @return bool 
@@ -422,6 +526,21 @@ class AuderoWavExtractor
       $ExpectedMemoryAllocation = $this->getHeadersSize() + $ToByte - $FromByte;
 
       return ($ExpectedMemoryAllocation + $MemoryUsage <= $MemoryLimit);
+   }
+
+   /**
+    *
+    * @return int The min wav size in bytes 
+    */
+   private function getMinWavSize()
+   {
+      $Headers = array(
+          self::RIFF_CHUNK => $this->getHeadersFields(self::RIFF_CHUNK),
+          self::FMT_CHUNK  => $this->getHeadersFields(self::FMT_CHUNK),
+          self::DATA_CHUNK => $this->getHeadersFields(self::DATA_CHUNK)
+      );
+
+      return $this->getHeadersSize($Headers);
    }
 }
 
