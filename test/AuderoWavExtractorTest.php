@@ -3,16 +3,13 @@
 /**
  * Description of AuderoWavExtractorTest
  *
- * LICENSE: Permission is granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- * 
+ * LICENSE: This software is released under the CC BY-NC 3.0
+ * ("Creative Commons Attribution-NonCommercial 3.0") license.
+ * More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -20,21 +17,37 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- * 
- * @author     Aurelio De Rosa <aureliodersa@gmail.com>
- * @version    0.2
+ *
+ * @author Aurelio De Rosa <aurelioderosa@gmail.com>
+ * @version    1.0
  * @license    http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
  * @link       https://bitbucket.org/AurelioDeRosa/auderowavextractor
+ * 2-mag-2012
  */
-require_once '../src/AuderoWavExtractor.php';
 
 class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
 {
    private static $TestRepetition = 10;
 
+   private static function autoload()
+   {
+      set_include_path(implode(PATH_SEPARATOR,
+                      array(
+                  realpath(dirname(__FILE__) . '/Wav'),
+                  realpath(dirname(__FILE__) . '/Utility'),
+                  get_include_path(),
+              )));
+
+      $Files = glob('..\src\AuderoWavExtractor\*.php');
+      $Files = array_merge($Files, glob('..\src\AuderoWavExtractor\Chunk\*.php'));
+      foreach($Files as $File)
+         require_once ($File);
+   }
+
    public static function setUpBeforeClass()
    {
       parent::setUpBeforeClass();
+      self::autoload();
       $Files = glob('*.wav');
       foreach($Files as $File)
          unlink($File);
@@ -63,7 +76,6 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
       return array(
           array(NULL),
           array('../wav/not-exists.wav'),
-          array('../wav/too-small.wav'),
           array('../wav/not-a-wav.wav')
       );
    }
@@ -75,7 +87,7 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
           array('test.wav')
       );
    }
-   
+
    public function testConstructorFileExists()
    {
       $Filename = '../wav/sample.wav';
@@ -100,7 +112,7 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
     */
    public function testGetDuration(AuderoWavExtractor $Extractor)
    {
-      $this->assertGreaterThanOrEqual(0, $Extractor->getDuration());
+      $this->assertGreaterThanOrEqual(0, $Extractor->getWav()->getDuration());
    }
 
    /**
@@ -111,10 +123,10 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
    {
       for($i = 0; $i < self::$TestRepetition; $i++)
       {
-         $Start = rand(0, $Extractor->getDuration());
-         $End = rand($Start, $Extractor->getDuration());
+         $Start = rand(0, $Extractor->getWav()->getDuration());
+         $End = rand($Start, $Extractor->getWav()->getDuration());
 
-         $ExpectedException = ! $Extractor->isEnoughMemory($Start, $End);
+         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
 
          try
          {
@@ -149,10 +161,10 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
    {
       for($i = 0; $i < self::$TestRepetition; $i++)
       {
-         $Start = rand(0, $Extractor->getDuration());
-         $End = rand($Start, $Extractor->getDuration());
+         $Start = rand(0, $Extractor->getWav()->getDuration());
+         $End = rand($Start, $Extractor->getWav()->getDuration());
 
-         $ExpectedException = ! $Extractor->isEnoughMemory($Start, $End);
+         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
 
          try
          {
@@ -176,10 +188,10 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
    {
       for($i = 0; $i < self::$TestRepetition; $i++)
       {
-         $Start = rand(0, $Extractor->getDuration());
-         $End = rand($Start, $Extractor->getDuration());
+         $Start = rand(0, $Extractor->getWav()->getDuration());
+         $End = rand($Start, $Extractor->getWav()->getDuration());
 
-         $ExpectedException = ! $Extractor->isEnoughMemory($Start, $End);
+         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
 
          try
          {
@@ -205,10 +217,10 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
    {
       for($i = 0; $i < self::$TestRepetition; $i++)
       {
-         $Start = rand(0, $Extractor->getDuration());
-         $End = rand($Start, $Extractor->getDuration());
+         $Start = rand(0, $Extractor->getWav()->getDuration());
+         $End = rand($Start, $Extractor->getWav()->getDuration());
 
-         $ExpectedException = ! $Extractor->isEnoughMemory($Start, $End);
+         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
 
          try
          {

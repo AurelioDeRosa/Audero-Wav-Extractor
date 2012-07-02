@@ -1,62 +1,438 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-  <html xmlns="http://www.w3.org/1999/xhtml">
-		<head>
-			<!-- template designed by Marco Von Ballmoos -->
-			<title>phpDocumentor Parser Errors and Warnings</title>
-			<link rel="stylesheet" href="media/stylesheet.css" />
-			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
-		</head>
-		<body>
-						<a href="#Post-parsing">Post-parsing</a><br>
-<a href="#AuderoWavExtractorTest.php">AuderoWavExtractorTest.php</a><br>
-<a href="#Converter.php">Converter.php</a><br>
-<a href="#ConverterTest.php">ConverterTest.php</a><br>
-<a href="#index.php">index.php</a><br>
-<a name="Post-parsing"></a>
-<h1>Post-parsing</h1>
-<h2>Warnings:</h2><br>
-<b>Warning</b> - Class AuderoWavExtractorTest parent PHPUnit_Framework_TestCase not found<br>
-<b>Warning</b> - Class ConverterTest parent PHPUnit_Framework_TestCase not found<br>
-<a name="AuderoWavExtractor.php"></a>
-<h1>AuderoWavExtractor.php</h1>
-<h2>Warnings:</h2><br>
-<b>Warning on line 66</b> - no @package tag was used in a DocBlock for class AuderoWavExtractor<br>
-<b>Warning on line 546</b> - File "C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs\auderowavextractor\src\AuderoWavExtractor.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<a name="AuderoWavExtractorTest.php"></a>
-<h1>AuderoWavExtractorTest.php</h1>
-<h2>Warnings:</h2><br>
-<b>Warning on line 31</b> - no @package tag was used in a DocBlock for class AuderoWavExtractorTest<br>
-<b>Warning on line 90</b> - Unknown tag "@dataProvider" used<br>
-<b>Warning on line 90</b> - Unknown tag "@expectedException" used<br>
-<b>Warning on line 100</b> - Unknown tag "@depends" used<br>
-<b>Warning on line 109</b> - Unknown tag "@runInSeparateProcess" used<br>
-<b>Warning on line 109</b> - Unknown tag "@depends" used<br>
-<b>Warning on line 138</b> - Unknown tag "@depends" used<br>
-<b>Warning on line 138</b> - Unknown tag "@expectedException" used<br>
-<b>Warning on line 138</b> - Unknown tag "@dataProvider" used<br>
-<b>Warning on line 147</b> - Unknown tag "@depends" used<br>
-<b>Warning on line 147</b> - Unknown tag "@dataProvider" used<br>
-<b>Warning on line 174</b> - Unknown tag "@depends" used<br>
-<b>Warning on line 203</b> - Unknown tag "@dataProvider" used<br>
-<b>Warning on line 203</b> - Unknown tag "@depends" used<br>
-<b>Warning on line 230</b> - File "C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs\auderowavextractor\test\AuderoWavExtractorTest.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<a name="Converter.php"></a>
-<h1>Converter.php</h1>
-<h2>Warnings:</h2><br>
-<b>Warning on line 28</b> - no @package tag was used in a DocBlock for class Converter<br>
-<b>Warning on line 69</b> - File "C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs\auderowavextractor\src\Converter.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<a name="ConverterTest.php"></a>
-<h1>ConverterTest.php</h1>
-<h2>Warnings:</h2><br>
-<b>Warning on line 31</b> - no @package tag was used in a DocBlock for class ConverterTest<br>
-<b>Warning on line 59</b> - File "C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs\auderowavextractor\test\ConverterTest.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-<a name="index.php"></a>
-<h1>index.php</h1>
-<h2>Warnings:</h2><br>
-<b>Warning on line 28</b> - File "C:\Program Files (x86)\Apache Software Foundation\Apache2.2\htdocs\auderowavextractor\index.php" has no page-level DocBlock, use @package in the first DocBlock to create one<br>
-	<p class="notes" id="credit">
-		Documentation generated on Sun, 25 Dec 2011 07:59:36 +0100 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
-	</p>
-	</body>
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Audero Wav Extractor</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="css/template.css" rel="stylesheet" media="all">
+<script src="js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="js/bootstrap.js" type="text/javascript"></script><script src="js/template.js" type="text/javascript"></script><script src="js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="img/favicon.ico">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="index.html">Audero Wav Extractor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="packages/Audero.html"><i class="icon-folder-open"></i> Audero</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">57</span></a></li>
+<li><a href="markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4"><ul class="side-nav nav nav-list">
+<li class="nav-header">Filter type</li>
+<li><div class="btn-group type-filter" data-toggle="buttons-checkbox">
+<button class="btn critical">Critical</button><button class="btn error">Error</button><button class="btn notice">Notice</button>
+</div></li>
+<li class="nav-header">Navigation</li>
+<li><a href="#AuderoWavExtractor%5CWav%5CChunk%5CChunk.php"><i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Chunk.php</a></li>
+<li><a href="#AuderoWavExtractor%5CWav%5CChunk%5CCue.php"><i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Cue.php</a></li>
+<li><a href="#AuderoWavExtractor%5CWav%5CChunk%5CCuePoint.php"><i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\CuePoint.php</a></li>
+<li><a href="#AuderoWavExtractor%5CWav%5CChunk%5CFact.php"><i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Fact.php</a></li>
+<li><a href="#AuderoWavExtractor%5CWav%5CChunk%5CFmt.php"><i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Fmt.php</a></li>
+</ul></div>
+<div class="span8">
+<ul class="breadcrumb">
+<li>
+<a href=""><i class="icon-remove-sign"></i></a><span class="divider">\</span>
+</li>
+<li>Compilation Errors</li>
+</ul>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="AuderoWavExtractor%5CWav%5CChunk%5CChunk.php" id="AuderoWavExtractor\Wav\Chunk\Chunk.php"></a><h3>
+<i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Chunk.php<small style="float: right;padding-right: 10px;">1</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody><tr class="error">
+<td>error</td>
+<td>56</td>
+<td>No short description for method __get()</td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="AuderoWavExtractor%5CWav%5CChunk%5CCue.php" id="AuderoWavExtractor\Wav\Chunk\Cue.php"></a><h3>
+<i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Cue.php<small style="float: right;padding-right: 10px;">4</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>40</td>
+<td>No short description for property $CuePoints</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>77</td>
+<td>No short description for method getCuePoints()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>86</td>
+<td>No short description for method setCuePoints()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>172</td>
+<td>No short description for method getChunkSize()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="AuderoWavExtractor%5CWav%5CChunk%5CCuePoint.php" id="AuderoWavExtractor\Wav\Chunk\CuePoint.php"></a><h3>
+<i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\CuePoint.php<small style="float: right;padding-right: 10px;">19</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>32</td>
+<td>No short description for property $Id</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>38</td>
+<td>No short description for property $Position</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>44</td>
+<td>No short description for property $DataChunkId</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>50</td>
+<td>No short description for property $ChunkStart</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>56</td>
+<td>No short description for property $BlockStart</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>62</td>
+<td>No short description for property $SampleOffset</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>81</td>
+<td>No short description for method getId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>90</td>
+<td>No short description for method setId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>99</td>
+<td>No short description for method getPosition()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>108</td>
+<td>No short description for method setPosition()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>117</td>
+<td>No short description for method getDataChunkId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>126</td>
+<td>No short description for method setDataChunkId()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>135</td>
+<td>No short description for method getChunkStart()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>144</td>
+<td>No short description for method setChunkStart()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>153</td>
+<td>No short description for method getBlockStart()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>162</td>
+<td>No short description for method setBlockStart()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>171</td>
+<td>No short description for method getSampleOffset()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>180</td>
+<td>No short description for method setSampleOffset()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>227</td>
+<td>No short description for method getSize()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents">
+<a name="AuderoWavExtractor%5CWav%5CChunk%5CFact.php" id="AuderoWavExtractor\Wav\Chunk\Fact.php"></a><h3>
+<i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Fact.php<small style="float: right;padding-right: 10px;">3</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>35</td>
+<td>No short description for property $Data</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>50</td>
+<td>No short description for method getData()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>59</td>
+<td>No short description for method setData()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents">
+<a name="AuderoWavExtractor%5CWav%5CChunk%5CFmt.php" id="AuderoWavExtractor\Wav\Chunk\Fmt.php"></a><h3>
+<i class="icon-file"></i>AuderoWavExtractor\Wav\Chunk\Fmt.php<small style="float: right;padding-right: 10px;">30</small>
+</h3>
+<div><table class="table markers table-bordered">
+<thead><tr>
+<th>Type</th>
+<th>Line</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr class="critical">
+<td>critical</td>
+<td>36</td>
+<td>No short description for property $CompressionCode</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>42</td>
+<td>No short description for property $ChannelsNumber</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>48</td>
+<td>No short description for property $SampleRate</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>54</td>
+<td>No short description for property $DataRate</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>60</td>
+<td>No short description for property $BlockSize</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>66</td>
+<td>No short description for property $BitsPerSample</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>72</td>
+<td>No short description for property $ExtentionSize</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>78</td>
+<td>No short description for property $ValidBitsPerSample</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>84</td>
+<td>No short description for property $ChannelMask</td>
+</tr>
+<tr class="critical">
+<td>critical</td>
+<td>90</td>
+<td>No short description for property $Subformat</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>114</td>
+<td>No short description for method getCompressionCode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>123</td>
+<td>No short description for method setCompressionCode()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>132</td>
+<td>No short description for method getChannelsNumber()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>141</td>
+<td>No short description for method setChannelsNumber()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>150</td>
+<td>No short description for method getSampleRate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>159</td>
+<td>No short description for method setSampleRate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>168</td>
+<td>No short description for method getDataRate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>177</td>
+<td>No short description for method setDataRate()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>186</td>
+<td>No short description for method getBlockSize()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>195</td>
+<td>No short description for method setBlockSize()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>204</td>
+<td>No short description for method getBitsPerSample()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>213</td>
+<td>No short description for method setBitsPerSample()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>222</td>
+<td>No short description for method getExtentionSize()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>231</td>
+<td>No short description for method setExtentionSize()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>240</td>
+<td>No short description for method getValidBitsPerSample()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>249</td>
+<td>No short description for method setValidBitsPerSample()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>258</td>
+<td>No short description for method getChannelMask()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>267</td>
+<td>No short description for method setChannelMask()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>276</td>
+<td>No short description for method getSubformat()</td>
+</tr>
+<tr class="error">
+<td>error</td>
+<td>285</td>
+<td>No short description for method setSubformat()</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+<div class="package-contents"></div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a6</a> and<br>
+            generated on 2012-07-02T03:10:45+02:00.<br></footer></div>
+</div>
+</body>
 </html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Audero Wav Extractor » \Fmt</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Audero Wav Extractor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Audero.html"><i class="icon-folder-open"></i> Audero</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">57</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods</li>
+<li class="method public "><a href="#__construct" title="__construct :: The default constructor"><span class="description">The default constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#getBitsPerSample" title="getBitsPerSample :: "><span class="description">getBitsPerSample()
+        </span><pre>getBitsPerSample()</pre></a></li>
+<li class="method public "><a href="#getBlockSize" title="getBlockSize :: "><span class="description">getBlockSize()
+        </span><pre>getBlockSize()</pre></a></li>
+<li class="method public "><a href="#getChannelMask" title="getChannelMask :: "><span class="description">getChannelMask()
+        </span><pre>getChannelMask()</pre></a></li>
+<li class="method public "><a href="#getChannelsNumber" title="getChannelsNumber :: "><span class="description">getChannelsNumber()
+        </span><pre>getChannelsNumber()</pre></a></li>
+<li class="method public "><a href="#getCompressionCode" title="getCompressionCode :: "><span class="description">getCompressionCode()
+        </span><pre>getCompressionCode()</pre></a></li>
+<li class="method public "><a href="#getDataRate" title="getDataRate :: "><span class="description">getDataRate()
+        </span><pre>getDataRate()</pre></a></li>
+<li class="method public "><a href="#getExtentionSize" title="getExtentionSize :: "><span class="description">getExtentionSize()
+        </span><pre>getExtentionSize()</pre></a></li>
+<li class="method public "><a href="#getSampleRate" title="getSampleRate :: "><span class="description">getSampleRate()
+        </span><pre>getSampleRate()</pre></a></li>
+<li class="method public "><a href="#getSubformat" title="getSubformat :: "><span class="description">getSubformat()
+        </span><pre>getSubformat()</pre></a></li>
+<li class="method public "><a href="#getValidBitsPerSample" title="getValidBitsPerSample :: "><span class="description">getValidBitsPerSample()
+        </span><pre>getValidBitsPerSample()</pre></a></li>
+<li class="method public "><a href="#readData" title="readData :: Read the data inside the managed file to fill the properties of the
+current chunk."><span class="description">Read the data inside the managed file to fill the properties of the
+current chunk.</span><pre>readData()</pre></a></li>
+<li class="method public "><a href="#setBitsPerSample" title="setBitsPerSample :: "><span class="description">setBitsPerSample()
+        </span><pre>setBitsPerSample()</pre></a></li>
+<li class="method public "><a href="#setBlockSize" title="setBlockSize :: "><span class="description">setBlockSize()
+        </span><pre>setBlockSize()</pre></a></li>
+<li class="method public "><a href="#setChannelMask" title="setChannelMask :: "><span class="description">setChannelMask()
+        </span><pre>setChannelMask()</pre></a></li>
+<li class="method public "><a href="#setChannelsNumber" title="setChannelsNumber :: "><span class="description">setChannelsNumber()
+        </span><pre>setChannelsNumber()</pre></a></li>
+<li class="method public "><a href="#setCompressionCode" title="setCompressionCode :: "><span class="description">setCompressionCode()
+        </span><pre>setCompressionCode()</pre></a></li>
+<li class="method public "><a href="#setDataRate" title="setDataRate :: "><span class="description">setDataRate()
+        </span><pre>setDataRate()</pre></a></li>
+<li class="method public "><a href="#setExtentionSize" title="setExtentionSize :: "><span class="description">setExtentionSize()
+        </span><pre>setExtentionSize()</pre></a></li>
+<li class="method public "><a href="#setSampleRate" title="setSampleRate :: "><span class="description">setSampleRate()
+        </span><pre>setSampleRate()</pre></a></li>
+<li class="method public "><a href="#setSubformat" title="setSubformat :: "><span class="description">setSubformat()
+        </span><pre>setSubformat()</pre></a></li>
+<li class="method public "><a href="#setValidBitsPerSample" title="setValidBitsPerSample :: "><span class="description">setValidBitsPerSample()
+        </span><pre>setValidBitsPerSample()</pre></a></li>
+<li class="method public "><a href="#toString" title="toString :: Converts the current chunk into a string based on the values of its properties"><span class="description">Converts the current chunk into a string based on the values of its properties</span><pre>toString()</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties</li>
+<li class="nav-header private">» Private</li>
+<li class="property private "><a href="#%24BitsPerSample" title="$BitsPerSample :: "><span class="description">$BitsPerSample</span><pre>$BitsPerSample</pre></a></li>
+<li class="property private "><a href="#%24BlockSize" title="$BlockSize :: "><span class="description">$BlockSize</span><pre>$BlockSize</pre></a></li>
+<li class="property private "><a href="#%24ChannelMask" title="$ChannelMask :: "><span class="description">$ChannelMask</span><pre>$ChannelMask</pre></a></li>
+<li class="property private "><a href="#%24ChannelsNumber" title="$ChannelsNumber :: "><span class="description">$ChannelsNumber</span><pre>$ChannelsNumber</pre></a></li>
+<li class="property private "><a href="#%24CompressionCode" title="$CompressionCode :: "><span class="description">$CompressionCode</span><pre>$CompressionCode</pre></a></li>
+<li class="property private "><a href="#%24DataRate" title="$DataRate :: "><span class="description">$DataRate</span><pre>$DataRate</pre></a></li>
+<li class="property private "><a href="#%24ExtentionSize" title="$ExtentionSize :: "><span class="description">$ExtentionSize</span><pre>$ExtentionSize</pre></a></li>
+<li class="property private "><a href="#%24SampleRate" title="$SampleRate :: "><span class="description">$SampleRate</span><pre>$SampleRate</pre></a></li>
+<li class="property private "><a href="#%24Subformat" title="$Subformat :: "><span class="description">$Subformat</span><pre>$Subformat</pre></a></li>
+<li class="property private "><a href="#%24ValidBitsPerSample" title="$ValidBitsPerSample :: "><span class="description">$ValidBitsPerSample</span><pre>$ValidBitsPerSample</pre></a></li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants</li>
+<li class="constant  "><a href="#ID" title="ID :: "><span class="description">ID</span><pre>ID</pre></a></li>
+</ul>
+</div>
+<div class="span8">
+<a name="%5CFmt" id="\Fmt"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/.html"></a></li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Fmt.html">Fmt</a>
+</li>
+</ul>
+<div href="../classes/Fmt.html" class="element class">
+<p class="short_description">The class of the Fmt chunk.</p>
+<div class="details">
+<p class="long_description"><p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p></p>
+<table class="table table-bordered">
+<tr>
+<th>author</th>
+<td><a href="mailto:aureliodersa@gmail.com">Aurelio De Rosa</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="https://bitbucket.org/AurelioDeRosa/auderowavextractor">https://bitbucket.org/AurelioDeRosa/auderowavextractor</a></td>
+</tr>
+<tr>
+<th>package</th>
+<td><a href="../packages/Audero.AuderoWavExtractor.html">Audero\AuderoWavExtractor</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a name="__construct" id="__construct"></a><div class="element clickable method public __construct" data-toggle="collapse" data-target=".__construct .collapse">
+<h2>The default constructor</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="getBitsPerSample" id="getBitsPerSample"></a><div class="element clickable method public getBitsPerSample" data-toggle="collapse" data-target=".getBitsPerSample .collapse">
+<h2>getBitsPerSample()
+        </h2>
+<pre>getBitsPerSample() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getBlockSize" id="getBlockSize"></a><div class="element clickable method public getBlockSize" data-toggle="collapse" data-target=".getBlockSize .collapse">
+<h2>getBlockSize()
+        </h2>
+<pre>getBlockSize() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getChannelMask" id="getChannelMask"></a><div class="element clickable method public getChannelMask" data-toggle="collapse" data-target=".getChannelMask .collapse">
+<h2>getChannelMask()
+        </h2>
+<pre>getChannelMask() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getChannelsNumber" id="getChannelsNumber"></a><div class="element clickable method public getChannelsNumber" data-toggle="collapse" data-target=".getChannelsNumber .collapse">
+<h2>getChannelsNumber()
+        </h2>
+<pre>getChannelsNumber() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getCompressionCode" id="getCompressionCode"></a><div class="element clickable method public getCompressionCode" data-toggle="collapse" data-target=".getCompressionCode .collapse">
+<h2>getCompressionCode()
+        </h2>
+<pre>getCompressionCode() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getDataRate" id="getDataRate"></a><div class="element clickable method public getDataRate" data-toggle="collapse" data-target=".getDataRate .collapse">
+<h2>getDataRate()
+        </h2>
+<pre>getDataRate() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getExtentionSize" id="getExtentionSize"></a><div class="element clickable method public getExtentionSize" data-toggle="collapse" data-target=".getExtentionSize .collapse">
+<h2>getExtentionSize()
+        </h2>
+<pre>getExtentionSize() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getSampleRate" id="getSampleRate"></a><div class="element clickable method public getSampleRate" data-toggle="collapse" data-target=".getSampleRate .collapse">
+<h2>getSampleRate()
+        </h2>
+<pre>getSampleRate() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getSubformat" id="getSubformat"></a><div class="element clickable method public getSubformat" data-toggle="collapse" data-target=".getSubformat .collapse">
+<h2>getSubformat()
+        </h2>
+<pre>getSubformat() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="getValidBitsPerSample" id="getValidBitsPerSample"></a><div class="element clickable method public getValidBitsPerSample" data-toggle="collapse" data-target=".getValidBitsPerSample .collapse">
+<h2>getValidBitsPerSample()
+        </h2>
+<pre>getValidBitsPerSample() : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/ChunkField.html">\ChunkField</a></code></div>
+</div></div>
+</div>
+<a name="readData" id="readData"></a><div class="element clickable method public readData" data-toggle="collapse" data-target=".readData .collapse">
+<h2>Read the data inside the managed file to fill the properties of the
+current chunk.</h2>
+<pre>readData(resource $Handle) : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$Handle</h4>
+<code>resource</code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>The amount of bytes read</div>
+</div></div>
+</div>
+<a name="setBitsPerSample" id="setBitsPerSample"></a><div class="element clickable method public setBitsPerSample" data-toggle="collapse" data-target=".setBitsPerSample .collapse">
+<h2>setBitsPerSample()
+        </h2>
+<pre>setBitsPerSample(<a href="../classes/ChunkField.html">\ChunkField</a> $BitsPerSample) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$BitsPerSample</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setBlockSize" id="setBlockSize"></a><div class="element clickable method public setBlockSize" data-toggle="collapse" data-target=".setBlockSize .collapse">
+<h2>setBlockSize()
+        </h2>
+<pre>setBlockSize(<a href="../classes/ChunkField.html">\ChunkField</a> $BlockSize) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$BlockSize</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setChannelMask" id="setChannelMask"></a><div class="element clickable method public setChannelMask" data-toggle="collapse" data-target=".setChannelMask .collapse">
+<h2>setChannelMask()
+        </h2>
+<pre>setChannelMask(<a href="../classes/ChunkField.html">\ChunkField</a> $ChannelMask) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ChannelMask</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setChannelsNumber" id="setChannelsNumber"></a><div class="element clickable method public setChannelsNumber" data-toggle="collapse" data-target=".setChannelsNumber .collapse">
+<h2>setChannelsNumber()
+        </h2>
+<pre>setChannelsNumber(<a href="../classes/ChunkField.html">\ChunkField</a> $ChannelsNumber) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ChannelsNumber</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setCompressionCode" id="setCompressionCode"></a><div class="element clickable method public setCompressionCode" data-toggle="collapse" data-target=".setCompressionCode .collapse">
+<h2>setCompressionCode()
+        </h2>
+<pre>setCompressionCode(<a href="../classes/ChunkField.html">\ChunkField</a> $CompressionCode) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$CompressionCode</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setDataRate" id="setDataRate"></a><div class="element clickable method public setDataRate" data-toggle="collapse" data-target=".setDataRate .collapse">
+<h2>setDataRate()
+        </h2>
+<pre>setDataRate(<a href="../classes/ChunkField.html">\ChunkField</a> $DataRate) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$DataRate</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setExtentionSize" id="setExtentionSize"></a><div class="element clickable method public setExtentionSize" data-toggle="collapse" data-target=".setExtentionSize .collapse">
+<h2>setExtentionSize()
+        </h2>
+<pre>setExtentionSize(<a href="../classes/ChunkField.html">\ChunkField</a> $ExtentionSize) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ExtentionSize</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setSampleRate" id="setSampleRate"></a><div class="element clickable method public setSampleRate" data-toggle="collapse" data-target=".setSampleRate .collapse">
+<h2>setSampleRate()
+        </h2>
+<pre>setSampleRate(<a href="../classes/ChunkField.html">\ChunkField</a> $SampleRate) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$SampleRate</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setSubformat" id="setSubformat"></a><div class="element clickable method public setSubformat" data-toggle="collapse" data-target=".setSubformat .collapse">
+<h2>setSubformat()
+        </h2>
+<pre>setSubformat(<a href="../classes/ChunkField.html">\ChunkField</a> $Subformat) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$Subformat</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="setValidBitsPerSample" id="setValidBitsPerSample"></a><div class="element clickable method public setValidBitsPerSample" data-toggle="collapse" data-target=".setValidBitsPerSample .collapse">
+<h2>setValidBitsPerSample()
+        </h2>
+<pre>setValidBitsPerSample(<a href="../classes/ChunkField.html">\ChunkField</a> $ValidBitsPerSample) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$ValidBitsPerSample</h4>
+<code><a href="../classes/ChunkField.html">\ChunkField</a></code>
+</div>
+</div></div>
+</div>
+<a name="toString" id="toString"></a><div class="element clickable method public toString" data-toggle="collapse" data-target=".toString .collapse">
+<h2>Converts the current chunk into a string based on the values of its properties</h2>
+<pre>toString() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<p class="long_description"></p>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a name="%24BitsPerSample" id="$BitsPerSample"> </a><div class="element clickable property private $BitsPerSample" data-toggle="collapse" data-target=".$BitsPerSample .collapse">
+<h2>$BitsPerSample</h2>
+<pre>$BitsPerSample : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24BlockSize" id="$BlockSize"> </a><div class="element clickable property private $BlockSize" data-toggle="collapse" data-target=".$BlockSize .collapse">
+<h2>$BlockSize</h2>
+<pre>$BlockSize : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24ChannelMask" id="$ChannelMask"> </a><div class="element clickable property private $ChannelMask" data-toggle="collapse" data-target=".$ChannelMask .collapse">
+<h2>$ChannelMask</h2>
+<pre>$ChannelMask : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24ChannelsNumber" id="$ChannelsNumber"> </a><div class="element clickable property private $ChannelsNumber" data-toggle="collapse" data-target=".$ChannelsNumber .collapse">
+<h2>$ChannelsNumber</h2>
+<pre>$ChannelsNumber : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24CompressionCode" id="$CompressionCode"> </a><div class="element clickable property private $CompressionCode" data-toggle="collapse" data-target=".$CompressionCode .collapse">
+<h2>$CompressionCode</h2>
+<pre>$CompressionCode : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24DataRate" id="$DataRate"> </a><div class="element clickable property private $DataRate" data-toggle="collapse" data-target=".$DataRate .collapse">
+<h2>$DataRate</h2>
+<pre>$DataRate : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24ExtentionSize" id="$ExtentionSize"> </a><div class="element clickable property private $ExtentionSize" data-toggle="collapse" data-target=".$ExtentionSize .collapse">
+<h2>$ExtentionSize</h2>
+<pre>$ExtentionSize : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24SampleRate" id="$SampleRate"> </a><div class="element clickable property private $SampleRate" data-toggle="collapse" data-target=".$SampleRate .collapse">
+<h2>$SampleRate</h2>
+<pre>$SampleRate : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24Subformat" id="$Subformat"> </a><div class="element clickable property private $Subformat" data-toggle="collapse" data-target=".$Subformat .collapse">
+<h2>$Subformat</h2>
+<pre>$Subformat : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<a name="%24ValidBitsPerSample" id="$ValidBitsPerSample"> </a><div class="element clickable property private $ValidBitsPerSample" data-toggle="collapse" data-target=".$ValidBitsPerSample .collapse">
+<h2>$ValidBitsPerSample</h2>
+<pre>$ValidBitsPerSample : <a href="../classes/ChunkField.html">\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a name="ID" id="ID"> </a><div class="element clickable constant  ID" data-toggle="collapse" data-target=".ID .collapse">
+<h2>ID</h2>
+<pre>ID </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><p class="long_description"></p></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a6</a> and<br>
+            generated on 2012-07-02T03:10:45+02:00.<br></footer></div>
+</div>
+</body>
+</html>

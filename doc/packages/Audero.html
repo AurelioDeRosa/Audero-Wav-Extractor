@@ -1,0 +1,189 @@
+<!DOCTYPE html><html xmlns:date="http://exslt.org/dates-and-times" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>Audero Wav Extractor » Audero</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">Audero Wav Extractor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Packages</a></li>
+<li><a href="../packages/Audero.html"><i class="icon-folder-open"></i> Audero</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">57</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">0</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-map-marker"></i> Packages</li>
+<li>
+<span class="empty-package"><i class="icon-folder-close"></i>Audero</span><ul class="nav nav-list nav-packages"><li>
+<a href="../packages/Audero.AuderoWavExtractor.html" title="AuderoWavExtractor"><i class="icon-folder-open"></i>AuderoWavExtractor</a><ul class="nav nav-list nav-packages"></ul>
+</li></ul>
+</li>
+</ul>
+</div>
+<div class="span8 package-contents">
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span>
+</li>
+<li class="active"><a href="../packages/Audero.html">Audero</a></li>
+</ul>
+<div class="package-indent">
+<ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-folder-open"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../packages/Audero.html">Audero</a></li>
+<span class="divider">\</span><li class="active"><a href="../packages/Audero.AuderoWavExtractor.html">AuderoWavExtractor</a></li>
+</ul>
+<div class="package-indent">
+<h3>
+<i class="icon-custom icon-class"></i> Classes and interfaces</h3>
+<a name="AuderoWavExtractor" id="AuderoWavExtractor"></a><div class="element ajax clickable class" href="../classes/AuderoWavExtractor.html">
+<h1>AuderoWavExtractor<a href="../classes/AuderoWavExtractor.html">¶</a>
+</h1>
+<p class="short_description">"Audero Wav Extractor" is a PHP library that allows to extract a chunk from a
+wav file. The extracted chunk of the wav file can be saved on the hard disk,
+can be forced to be prompted as download by the user's browser, returned
+as a string for a later processing or a combination of the first and second
+possibilities. It is very easy to use "Audero Wav Extractor" to extract a piece
+of audio from a wav file. All you have to do is give the name of the file,
+the start and the end time to extract (optionally you can provide a name
+for the extracted chunk).</p>
+<div class="details collapse"></div>
+<a href="../classes/AuderoWavExtractor.html" class="more">« More »</a>
+</div>
+<a name="Chunk" id="Chunk"></a><div class="element ajax clickable class" href="../classes/Chunk.html">
+<h1>Chunk<a href="../classes/Chunk.html">¶</a>
+</h1>
+<p class="short_description">This is a generic class which represents a chunk. Every chunk which a wav file is
+composed of, has common features and that is a unique id for its type
+and a size. Thus in Audero Wav Extractor library every chunk extends this
+generic class that contains a set of methods which are valid and useful for
+every extended class.</p>
+<div class="details collapse"></div>
+<a href="../classes/Chunk.html" class="more">« More »</a>
+</div>
+<a name="ChunkField" id="ChunkField"></a><div class="element ajax clickable class" href="../classes/ChunkField.html">
+<h1>ChunkField<a href="../classes/ChunkField.html">¶</a>
+</h1>
+<p class="short_description">This class represents the value of a chunk. Although a value in the chunks
+is always a string, which of course can also represent an integer, I created
+a whole class to keep track of other info about the value. Infact, every value
+has potentially a different format (used by pack and unpack function of PHP
+to extract the value - more info here: http://php.net/manual/en/function.pack.php)
+and size (in bytes).</p>
+<div class="details collapse"></div>
+<a href="../classes/ChunkField.html" class="more">« More »</a>
+</div>
+<a name="Converter" id="Converter"></a><div class="element ajax clickable class" href="../classes/Converter.html">
+<h1>Converter<a href="../classes/Converter.html">¶</a>
+</h1>
+<p class="short_description">This class allows to make some convertion and it is used as an utility by
+other classes of the library. For example, this class allows to convert
+an hex string into a decimal one and viceversa.</p>
+<div class="details collapse"></div>
+<a href="../classes/Converter.html" class="more">« More »</a>
+</div>
+<a name="Cue" id="Cue"></a><div class="element ajax clickable class" href="../classes/Cue.html">
+<h1>Cue<a href="../classes/Cue.html">¶</a>
+</h1>
+<p class="short_description">The class of the Cue chunk.</p>
+<div class="details collapse"></div>
+<a href="../classes/Cue.html" class="more">« More »</a>
+</div>
+<a name="CuePoint" id="CuePoint"></a><div class="element ajax clickable class" href="../classes/CuePoint.html">
+<h1>CuePoint<a href="../classes/CuePoint.html">¶</a>
+</h1>
+<p class="short_description">The class that maps the Cue Points which is part of the Cue chunk.</p>
+<div class="details collapse"></div>
+<a href="../classes/CuePoint.html" class="more">« More »</a>
+</div>
+<a name="Data" id="Data"></a><div class="element ajax clickable class" href="../classes/Data.html">
+<h1>Data<a href="../classes/Data.html">¶</a>
+</h1>
+<p class="short_description">The class of the Data chunk.</p>
+<div class="details collapse"></div>
+<a href="../classes/Data.html" class="more">« More »</a>
+</div>
+<a name="Fact" id="Fact"></a><div class="element ajax clickable class" href="../classes/Fact.html">
+<h1>Fact<a href="../classes/Fact.html">¶</a>
+</h1>
+<p class="short_description">The class of the Fact chunk.</p>
+<div class="details collapse"></div>
+<a href="../classes/Fact.html" class="more">« More »</a>
+</div>
+<a name="Fmt" id="Fmt"></a><div class="element ajax clickable class" href="../classes/Fmt.html">
+<h1>Fmt<a href="../classes/Fmt.html">¶</a>
+</h1>
+<p class="short_description">The class of the Fmt chunk.</p>
+<div class="details collapse"></div>
+<a href="../classes/Fmt.html" class="more">« More »</a>
+</div>
+<a name="Riff" id="Riff"></a><div class="element ajax clickable class" href="../classes/Riff.html">
+<h1>Riff<a href="../classes/Riff.html">¶</a>
+</h1>
+<p class="short_description">The class of the Riff chunk.</p>
+<div class="details collapse"></div>
+<a href="../classes/Riff.html" class="more">« More »</a>
+</div>
+<a name="Wav" id="Wav"></a><div class="element ajax clickable class" href="../classes/Wav.html">
+<h1>Wav<a href="../classes/Wav.html">¶</a>
+</h1>
+<p class="short_description">This class maps the current analyzed wav file. It has the methods to extract
+the chunk and the data from the file.</p>
+<div class="details collapse"></div>
+<a href="../classes/Wav.html" class="more">« More »</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a6</a> and<br>
+            generated on 2012-07-02T03:10:45+02:00.<br></footer></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,2305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a6" title="Audero Wav Extractor">
+  <file path="AuderoWavExtractor\AuderoWavExtractor.php" hash="9e85b5f0abb41319034eef589f8ddba1" package="Default">
+    <include line="3" type="Require Once" package="Default">
+      <name>Utility/Converter.php</name>
+    </include>
+    <include line="4" type="Require Once" package="Default">
+      <name>Wav/Wav.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="62" package="Audero\AuderoWavExtractor">
+      <extends/>
+      <name>AuderoWavExtractor</name>
+      <full_name>\AuderoWavExtractor</full_name>
+      <docblock line="62">
+        <description><![CDATA["Audero Wav Extractor" is a PHP library that allows to extract a chunk from a
+wav file. The extracted chunk of the wav file can be saved on the hard disk,
+can be forced to be prompted as download by the user's browser, returned
+as a string for a later processing or a combination of the first and second
+possibilities. It is very easy to use "Audero Wav Extractor" to extract a piece
+of audio from a wav file. All you have to do is give the name of the file,
+the start and the end time to extract (optionally you can provide a name
+for the extracted chunk).]]></description>
+        <long-description><![CDATA[<p>The follow is an example of how to extract a chunk from a wav file and force the
+download using this class:</p>
+
+<pre>
+   require_once('AuderoWavExtractor/AuderoWavExtractor.php');
+
+   $InputFile = 'audio.wav'; // path to input wav file
+   $OutputFile = 'chunk.wav'; // path to the output chunk
+   $Start = 0 * 1000; // Start time of the chunk
+   $End = 20 * 1000; // End time of the chunk
+
+   $Extractor = new AuderoWavExtractor($InputFile);
+   $Extractor->extractChunk($Start, $End);
+</pre>
+
+<p>The follow is an example of how to extract a chunk from a wav file and save it
+into the local disk:</p>
+
+<pre>
+   require_once('AuderoWavExtractor.php');
+
+   $InputFile = 'audio.wav'; // path to input wav file
+   $OutputFile = 'chunk.wav'; // path to the output chunk
+   $Start = 12 * 1000; // Start time of the chunk
+   $End = 20 * 1000; // End time of the chunk
+
+   $Extractor = new AuderoWavExtractor($InputFile);
+   $Extractor->extractChunk($Start, $End, 2, $OutputFile);
+</pre>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="62" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="62" name="version" description="1.0"/>
+        <tag line="62" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="62" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="62" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="70" namespace="" package="Default">
+        <name>$Wav</name>
+        <default><![CDATA[]]></default>
+        <docblock line="70">
+          <description><![CDATA[The current wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="70" name="var" description="" type="\Wav">
+            <type by_reference="false">\Wav</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="75" package="Audero\AuderoWavExtractor">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="75">
+          <description><![CDATA[This method sets the include paths in order to allow the library to work]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="91" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="91">
+          <description><![CDATA[The constructor of the object. It loads all the required class and create
+the Wav object that represents the choosen one.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="91" name="param" description="The filename, including the path, of the managed file wav" type="string" variable="$FilePath">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="91">
+          <name>$FilePath</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="102" package="Audero\AuderoWavExtractor">
+        <name>getWav</name>
+        <full_name>getWav</full_name>
+        <docblock line="102">
+          <description><![CDATA[Get the instance of the current wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="102" name="return" description="The current wav file" type="\Wav">
+            <type by_reference="false">\Wav</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="116" package="Audero\AuderoWavExtractor">
+        <name>getFilename</name>
+        <full_name>getFilename</full_name>
+        <docblock line="116">
+          <description><![CDATA[Get the filename (include the path) of the current wav file.]]></description>
+          <long-description><![CDATA[<p>If false is passed, the extention of the file is stripped.</p>]]></long-description>
+          <tag line="116" name="param" description="Include or not the extention (.wav) of the file. Default is true." type="boolean" variable="$IncludeExtention">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="116" name="return" description="The filename of the managed wav file" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="116">
+          <name>$IncludeExtention</name>
+          <default><![CDATA[TRUE]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="Audero\AuderoWavExtractor">
+        <name>extractChunk</name>
+        <full_name>extractChunk</full_name>
+        <docblock line="168">
+          <description><![CDATA[Extract a portion of the current, from the $Start to $End. The chunk will be
+saved, with name $Filename, in the local server, the browser or the user and
+so on based on the value of $Destination.]]></description>
+          <long-description><![CDATA[<p>The possible value of $Destination are:</p>
+
+<ul>
+   <li>
+      <b>1</b>: send the file to the browser and force the download with the
+      name given by $Filename.
+   </li>
+   <li>
+      <b>2</b>: save into the local disk the file with the name given by $Filename.
+   </li>
+   <li>
+      <b>3</b>: return the wav as a string. In this case $Filename is ignored.
+   </li>
+   <li>
+      <b>4</b>: both 2 and 3
+   </li>
+</ul>]]></long-description>
+          <tag line="168" name="param" description="The start time, in milliseconds, of the portion to extract" type="int" variable="$Start">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="168" name="param" description="The end time, in milliseconds, of the portion to extract" type="int" variable="$End">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="168" name="param" description="Where to save the extracted chunk" type="int" variable="$Destination">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="168" name="param" description="&amp;$Filename The name to assing to the chunk. If no name is provided the method generate one using this rule: &quot;InputFilename-Start-End.wav&quot;" type="string" variable="$Filename">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="168" name="return" description="The chunk to extract, including the headers" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="168" name="throws" description="If the give boundary is invalid (for example if the end is lower than start) or if the destination value isn't valid (for example greater than 4)." type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+          <tag line="168" name="throws" description="If there's not enough memory to save the given range" type="\RuntimeException">
+            <type by_reference="false">\RuntimeException</type>
+          </tag>
+        </docblock>
+        <argument line="168">
+          <name>$Start</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="168">
+          <name>$End</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="168">
+          <name>$Destination</name>
+          <default><![CDATA[1]]></default>
+          <type/>
+        </argument>
+        <argument line="168">
+          <name>$Filename</name>
+          <default><![CDATA['']]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="230" package="Audero\AuderoWavExtractor">
+        <name>downloadChuck</name>
+        <full_name>downloadChuck</full_name>
+        <docblock line="230">
+          <description><![CDATA[This method sets the headers to force the download and send the data
+of the chunk.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="230" name="param" description="The string containing the bytes of the chunk" type="string" variable="$Chunk">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="230" name="param" description="The filename that will be shown by the browser" type="string" variable="$Filename">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="230">
+          <name>$Chunk</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="230">
+          <name>$Filename</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="258" package="Audero\AuderoWavExtractor">
+        <name>saveChunk</name>
+        <full_name>saveChunk</full_name>
+        <docblock line="258">
+          <description><![CDATA[Save the extracted chunk on the harddisk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="258" name="param" description="The string containing the bytes of the chunk" type="string" variable="$Chunk">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="258" name="param" description="The filename to use to save the file on the harddisk" type="string" variable="$Filename">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="258" name="throws" description="If the chunk is empty" type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+          <tag line="258" name="throws" description="If the library is unable to create the file on the harddisk" type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="258">
+          <name>$Chunk</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="258">
+          <name>$Filename</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="280" package="Audero\AuderoWavExtractor">
+        <name>isEnoughMemory</name>
+        <full_name>isEnoughMemory</full_name>
+        <docblock line="280">
+          <description><![CDATA[Try to test if the available memory is enough to extract the chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="280" name="param" description="The start time, in milliseconds, of the chunk that has to be extracted" type="int" variable="$Start">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="280" name="param" description="The end time, in milliseconds, of the chunk that has to be extracted" type="int" variable="$End">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="280" name="return" description="True if the memory is enough. False otherwise." type="bool">
+            <type by_reference="false">bool</type>
+          </tag>
+        </docblock>
+        <argument line="280">
+          <name>$Start</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="280">
+          <name>$End</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="AuderoWavExtractor\Utility\Converter.php" hash="c1a274601b2db5b6c92f440549fafdaa" package="Default">
+    <class final="false" abstract="false" namespace="" line="25" package="Audero\AuderoWavExtractor">
+      <extends/>
+      <name>Converter</name>
+      <full_name>\Converter</full_name>
+      <docblock line="25">
+        <description><![CDATA[This class allows to make some convertion and it is used as an utility by
+other classes of the library. For example, this class allows to convert
+an hex string into a decimal one and viceversa.]]></description>
+        <long-description><![CDATA[<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="25" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="25" name="version" description="1.0"/>
+        <tag line="25" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="25" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="25" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="33" package="Audero\AuderoWavExtractor">
+        <name>hexToString</name>
+        <full_name>hexToString</full_name>
+        <docblock line="33">
+          <description><![CDATA[Converts a string composed of hex chars into a string of decimal chars]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="33" name="param" description="A string of hex chars" type="string" variable="$Hex">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="33" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="33">
+          <name>$Hex</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="48" package="Audero\AuderoWavExtractor">
+        <name>stringToHex</name>
+        <full_name>stringToHex</full_name>
+        <docblock line="48">
+          <description><![CDATA[Converts a string composed of decimal chars into a string of hex chars]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="param" description="A string of decimal chars" type="string" variable="$String">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="48" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="48">
+          <name>$String</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="63" package="Audero\AuderoWavExtractor">
+        <name>megabyteToByte</name>
+        <full_name>megabyteToByte</full_name>
+        <docblock line="63">
+          <description><![CDATA[Converts a number expressed in megabyte into one expressed in bytes]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="63" name="param" description="" type="float" variable="$Megabyte">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="63" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="63">
+          <name>$Megabyte</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="82" package="Audero\AuderoWavExtractor">
+        <name>millisecondsToByte</name>
+        <full_name>millisecondsToByte</full_name>
+        <docblock line="82">
+          <description><![CDATA[Converts a number expressed in milliseconds into the corresponding number
+of bytes which is dependent by the data rate of the wav current file.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="82" name="param" description="The number of milliseconds to convert" type="int" variable="$Milliseconds">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="82" name="param" description="The data rate of the current wav file" type="int" variable="$DataRate">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="82" name="return" description="The corrisponding number of bytes" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="82">
+          <name>$Milliseconds</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="82">
+          <name>$DataRate</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\Chunk.php" hash="ebc25edac71775b3bec145f29e6199a0" package="Default">
+    <include line="3" type="Require Once" package="Default">
+      <name>ChunkField.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="30" package="Audero\AuderoWavExtractor">
+      <extends/>
+      <name>Chunk</name>
+      <full_name>\Chunk</full_name>
+      <docblock line="30">
+        <description><![CDATA[This is a generic class which represents a chunk. Every chunk which a wav file is
+composed of, has common features and that is a unique id for its type
+and a size. Thus in Audero Wav Extractor library every chunk extends this
+generic class that contains a set of methods which are valid and useful for
+every extended class.]]></description>
+        <long-description><![CDATA[<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="30" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="30" name="version" description="1.0"/>
+        <tag line="30" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="30" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="30" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <constant namespace="" line="33" package="Audero\AuderoWavExtractor">
+        <name>ID_SIZE</name>
+        <full_name>ID_SIZE</full_name>
+        <value><![CDATA[4]]></value>
+      </constant>
+      <constant namespace="" line="34" package="Audero\AuderoWavExtractor">
+        <name>ID_FORMAT</name>
+        <full_name>ID_FORMAT</full_name>
+        <value><![CDATA['H8']]></value>
+      </constant>
+      <property final="false" static="false" visibility="protected" line="41" namespace="" package="Default">
+        <name>$Id</name>
+        <default><![CDATA[]]></default>
+        <docblock line="41">
+          <description><![CDATA[The id of the chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="41" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="protected" line="48" namespace="" package="Default">
+        <name>$Size</name>
+        <default><![CDATA[]]></default>
+        <docblock line="48">
+          <description><![CDATA[The size of the chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="56" package="Audero\AuderoWavExtractor">
+        <name>__get</name>
+        <full_name>__get</full_name>
+        <docblock line="56">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="56" name="param" description="" type="string" variable="$Name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="56" name="return" description="" type="\method">
+            <type by_reference="false">\method</type>
+          </tag>
+        </docblock>
+        <argument line="56">
+          <name>$Name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="67" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="67">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="67" name="param" description="The id of the chunk. If not provided 0 will be used" type="int" variable="$Id">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="67">
+          <name>$Id</name>
+          <default><![CDATA[0]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="77" package="Audero\AuderoWavExtractor">
+        <name>init</name>
+        <full_name>init</full_name>
+        <docblock line="77">
+          <description><![CDATA[Initialize the chunk setting the Id and the Size properties]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="77" name="param" description="The id of the chunk" type="int" variable="$Id">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="77">
+          <name>$Id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="89" package="Audero\AuderoWavExtractor">
+        <name>getId</name>
+        <full_name>getId</full_name>
+        <docblock line="89">
+          <description><![CDATA[Gets the id of the chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="89" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="99" package="Audero\AuderoWavExtractor">
+        <name>setId</name>
+        <full_name>setId</full_name>
+        <docblock line="99">
+          <description><![CDATA[Sets the id of the chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="99" name="param" description="" type="\ChunkField" variable="$Id">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="99">
+          <name>$Id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="109" package="Audero\AuderoWavExtractor">
+        <name>getSize</name>
+        <full_name>getSize</full_name>
+        <docblock line="109">
+          <description><![CDATA[Gets the size of the chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="109" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="119" package="Audero\AuderoWavExtractor">
+        <name>setSize</name>
+        <full_name>setSize</full_name>
+        <docblock line="119">
+          <description><![CDATA[Sets the size of the chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="119" name="param" description="" type="\ChunkField" variable="$Size">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="119">
+          <name>$Size</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="130" package="Audero\AuderoWavExtractor">
+        <name>getChunkType</name>
+        <full_name>getChunkType</full_name>
+        <docblock line="130">
+          <description><![CDATA[Retrieves the type of the chunk based on the id passed.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="130" name="param" description="The id of the chunk" type="string" variable="$Id">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="130" name="return" description="A string if the chunk is recognized. Null otherwise" type="string|null">
+            <type by_reference="false">string</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+        <argument line="130">
+          <name>$Id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="148" package="Audero\AuderoWavExtractor">
+        <name>toString</name>
+        <full_name>toString</full_name>
+        <docblock line="148">
+          <description><![CDATA[Converts the current chunk into a string based on the values of its properties]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="148" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="172" package="Audero\AuderoWavExtractor">
+        <name>readData</name>
+        <full_name>readData</full_name>
+        <docblock line="172">
+          <description><![CDATA[Read the data inside the managed file to fill the properties of the
+current chunk.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="172" name="param" description="The handle of the managed file" type="resource" variable="$Handle">
+            <type by_reference="false">resource</type>
+          </tag>
+          <tag line="172" name="return" description="The amount of bytes read" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="172">
+          <name>$Handle</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="203" package="Audero\AuderoWavExtractor">
+        <name>getChunkSize</name>
+        <full_name>getChunkSize</full_name>
+        <docblock line="203">
+          <description><![CDATA[Retrieves the size of the current chunk]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="203" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="56" code="50012">No short description for method __get()</error>
+    </parse_markers>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\ChunkField.php" hash="b89f246c783a37f8aae784d1d99b600a" package="Default">
+    <class final="false" abstract="false" namespace="" line="29" package="Audero\AuderoWavExtractor">
+      <extends/>
+      <name>ChunkField</name>
+      <full_name>\ChunkField</full_name>
+      <docblock line="29">
+        <description><![CDATA[This class represents the value of a chunk. Although a value in the chunks
+is always a string, which of course can also represent an integer, I created
+a whole class to keep track of other info about the value. Infact, every value
+has potentially a different format (used by pack and unpack function of PHP
+to extract the value - more info here: http://php.net/manual/en/function.pack.php)
+and size (in bytes).]]></description>
+        <long-description><![CDATA[<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="29" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="29" name="version" description="1.0"/>
+        <tag line="29" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="29" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="29" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="36" namespace="" package="Default">
+        <name>$Format</name>
+        <default><![CDATA[]]></default>
+        <docblock line="36">
+          <description><![CDATA[The format of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="36" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="43" namespace="" package="Default">
+        <name>$Bytes</name>
+        <default><![CDATA[]]></default>
+        <docblock line="43">
+          <description><![CDATA[The size in bytes of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="43" name="var" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="50" namespace="" package="Default">
+        <name>$Value</name>
+        <default><![CDATA[]]></default>
+        <docblock line="50">
+          <description><![CDATA[The value of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="50" name="var" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="58" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="58">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="58" name="param" description="The format of the field" type="string" variable="$Format">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="58" name="param" description="The size of the field" type="int" variable="$Bytes">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="58">
+          <name>$Format</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="58">
+          <name>$Bytes</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="69" package="Audero\AuderoWavExtractor">
+        <name>getFormat</name>
+        <full_name>getFormat</full_name>
+        <docblock line="69">
+          <description><![CDATA[Gets the format of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="69" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="79" package="Audero\AuderoWavExtractor">
+        <name>setFormat</name>
+        <full_name>setFormat</full_name>
+        <docblock line="79">
+          <description><![CDATA[Sets the format of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="79" name="param" description="" type="string" variable="$Format">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="79">
+          <name>$Format</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="89" package="Audero\AuderoWavExtractor">
+        <name>getBytes</name>
+        <full_name>getBytes</full_name>
+        <docblock line="89">
+          <description><![CDATA[Gets the size of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="89" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="101" package="Audero\AuderoWavExtractor">
+        <name>setBytes</name>
+        <full_name>setBytes</full_name>
+        <docblock line="101">
+          <description><![CDATA[Sets the size of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="101" name="param" description="" type="int" variable="$Bytes">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="101" name="throws" description="If the value isn't positive or integer" type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+        </docblock>
+        <argument line="101">
+          <name>$Bytes</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="114" package="Audero\AuderoWavExtractor">
+        <name>getValue</name>
+        <full_name>getValue</full_name>
+        <docblock line="114">
+          <description><![CDATA[Gets the value of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="return" description="" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="124" package="Audero\AuderoWavExtractor">
+        <name>setValue</name>
+        <full_name>setValue</full_name>
+        <docblock line="124">
+          <description><![CDATA[Sets the value of the field]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="124" name="param" description="" type="mixed" variable="$Value">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="124">
+          <name>$Value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\Cue.php" hash="787706aa93df8e7bb269f51e2c3d6457" package="Default">
+    <class final="false" abstract="false" namespace="" line="25" package="Audero\AuderoWavExtractor">
+      <extends>Chunk</extends>
+      <name>Cue</name>
+      <full_name>\Cue</full_name>
+      <docblock line="25">
+        <description><![CDATA[The class of the Cue chunk.]]></description>
+        <long-description><![CDATA[<p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="25" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="25" name="version" description="1.0"/>
+        <tag line="25" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="25" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="25" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <constant namespace="" line="27" package="Audero\AuderoWavExtractor">
+        <name>ID</name>
+        <full_name>ID</full_name>
+        <value><![CDATA[1668637984]]></value>
+      </constant>
+      <property final="false" static="false" visibility="private" line="34" namespace="" package="Default">
+        <name>$CuePointsNumber</name>
+        <default><![CDATA[]]></default>
+        <docblock line="34">
+          <description><![CDATA[The number of Cue Points in the wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="34" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="40" namespace="" package="Default">
+        <name>$CuePoints</name>
+        <default><![CDATA[]]></default>
+        <docblock line="40">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="40" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="45" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="45">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="58" package="Audero\AuderoWavExtractor">
+        <name>getCuePointsNumber</name>
+        <full_name>getCuePointsNumber</full_name>
+        <docblock line="58">
+          <description><![CDATA[Gets the number of Cue Points in the wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="58" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="68" package="Audero\AuderoWavExtractor">
+        <name>setCuePointsNumber</name>
+        <full_name>setCuePointsNumber</full_name>
+        <docblock line="68">
+          <description><![CDATA[Sets the number of Cue Points in the wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="68" name="param" description="" type="\ChunkField" variable="$CuePointsNumber">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="68">
+          <name>$CuePointsNumber</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="77" package="Audero\AuderoWavExtractor">
+        <name>getCuePoints</name>
+        <full_name>getCuePoints</full_name>
+        <docblock line="77">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="77" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="86" package="Audero\AuderoWavExtractor">
+        <name>setCuePoints</name>
+        <full_name>setCuePoints</full_name>
+        <docblock line="86">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="86" name="param" description="" type="array" variable="$CuePoints">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="86">
+          <name>$CuePoints</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="96" package="Audero\AuderoWavExtractor">
+        <name>addCuePoint</name>
+        <full_name>addCuePoint</full_name>
+        <docblock line="96">
+          <description><![CDATA[Push a new CuePoint into the current set of CuePoints]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="96" name="param" description="" type="\CuePoint" variable="$CuePoint">
+            <type by_reference="false">\CuePoint</type>
+          </tag>
+        </docblock>
+        <argument line="96">
+          <name>$CuePoint</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="108" package="Audero\AuderoWavExtractor">
+        <name>calculateCuePointsNumber</name>
+        <full_name>calculateCuePointsNumber</full_name>
+        <docblock line="108">
+          <description><![CDATA[Retrieves actual number of CuePoints]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="108" name="param" description="" type="int" variable="$CueSize">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="108" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="108">
+          <name>$CueSize</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="119" package="Audero\AuderoWavExtractor">
+        <name>toString</name>
+        <full_name>toString</full_name>
+        <docblock line="119">
+          <description><![CDATA[Converts the current chunk into a string based on the values of its properties]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="119" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="Audero\AuderoWavExtractor">
+        <name>readData</name>
+        <full_name>readData</full_name>
+        <docblock line="141">
+          <description><![CDATA[Read the data inside the managed file to fill the properties of the
+current chunk.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="141" name="param" description="The handle of the managed file" type="resource" variable="$Handle">
+            <type by_reference="false">resource</type>
+          </tag>
+          <tag line="141" name="return" description="The amount of bytes read" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="141">
+          <name>$Handle</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="172" package="Audero\AuderoWavExtractor">
+        <name>getChunkSize</name>
+        <full_name>getChunkSize</full_name>
+        <docblock line="172">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="172" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <critical line="40" code="50019">No short description for property $CuePoints</critical>
+      <error line="77" code="50012">No short description for method getCuePoints()</error>
+      <error line="86" code="50012">No short description for method setCuePoints()</error>
+      <error line="172" code="50012">No short description for method getChunkSize()</error>
+    </parse_markers>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\CuePoint.php" hash="1cac4f91fd6c884830507defffc46810" package="Default">
+    <class final="false" abstract="false" namespace="" line="25" package="Audero\AuderoWavExtractor">
+      <extends/>
+      <name>CuePoint</name>
+      <full_name>\CuePoint</full_name>
+      <docblock line="25">
+        <description><![CDATA[The class that maps the Cue Points which is part of the Cue chunk.]]></description>
+        <long-description><![CDATA[<p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="25" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="25" name="version" description="1.0"/>
+        <tag line="25" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="25" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="25" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="32" namespace="" package="Default">
+        <name>$Id</name>
+        <default><![CDATA[]]></default>
+        <docblock line="32">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="38" namespace="" package="Default">
+        <name>$Position</name>
+        <default><![CDATA[]]></default>
+        <docblock line="38">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="38" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="44" namespace="" package="Default">
+        <name>$DataChunkId</name>
+        <default><![CDATA[]]></default>
+        <docblock line="44">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="44" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="50" namespace="" package="Default">
+        <name>$ChunkStart</name>
+        <default><![CDATA[]]></default>
+        <docblock line="50">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="50" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="56" namespace="" package="Default">
+        <name>$BlockStart</name>
+        <default><![CDATA[]]></default>
+        <docblock line="56">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="56" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="62" namespace="" package="Default">
+        <name>$SampleOffset</name>
+        <default><![CDATA[]]></default>
+        <docblock line="62">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="62" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="67" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="67">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="81" package="Audero\AuderoWavExtractor">
+        <name>getId</name>
+        <full_name>getId</full_name>
+        <docblock line="81">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="81" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="90" package="Audero\AuderoWavExtractor">
+        <name>setId</name>
+        <full_name>setId</full_name>
+        <docblock line="90">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="90" name="param" description="" type="\ChunkField" variable="$Id">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="90">
+          <name>$Id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="99" package="Audero\AuderoWavExtractor">
+        <name>getPosition</name>
+        <full_name>getPosition</full_name>
+        <docblock line="99">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="99" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="108" package="Audero\AuderoWavExtractor">
+        <name>setPosition</name>
+        <full_name>setPosition</full_name>
+        <docblock line="108">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="108" name="param" description="" type="\ChunkField" variable="$Position">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="108">
+          <name>$Position</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="117" package="Audero\AuderoWavExtractor">
+        <name>getDataChunkId</name>
+        <full_name>getDataChunkId</full_name>
+        <docblock line="117">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="117" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="126" package="Audero\AuderoWavExtractor">
+        <name>setDataChunkId</name>
+        <full_name>setDataChunkId</full_name>
+        <docblock line="126">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="126" name="param" description="" type="\ChunkField" variable="$DataChunkId">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="126">
+          <name>$DataChunkId</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="135" package="Audero\AuderoWavExtractor">
+        <name>getChunkStart</name>
+        <full_name>getChunkStart</full_name>
+        <docblock line="135">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="135" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="144" package="Audero\AuderoWavExtractor">
+        <name>setChunkStart</name>
+        <full_name>setChunkStart</full_name>
+        <docblock line="144">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="144" name="param" description="" type="\ChunkField" variable="$ChunkStart">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="144">
+          <name>$ChunkStart</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="153" package="Audero\AuderoWavExtractor">
+        <name>getBlockStart</name>
+        <full_name>getBlockStart</full_name>
+        <docblock line="153">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="153" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="162" package="Audero\AuderoWavExtractor">
+        <name>setBlockStart</name>
+        <full_name>setBlockStart</full_name>
+        <docblock line="162">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="162" name="param" description="" type="\ChunkField" variable="$BlockStart">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="162">
+          <name>$BlockStart</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="171" package="Audero\AuderoWavExtractor">
+        <name>getSampleOffset</name>
+        <full_name>getSampleOffset</full_name>
+        <docblock line="171">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="171" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="180" package="Audero\AuderoWavExtractor">
+        <name>setSampleOffset</name>
+        <full_name>setSampleOffset</full_name>
+        <docblock line="180">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="180" name="param" description="" type="\ChunkField" variable="$SampleOffset">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="180">
+          <name>$SampleOffset</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="193" package="Audero\AuderoWavExtractor">
+        <name>readData</name>
+        <full_name>readData</full_name>
+        <docblock line="193">
+          <description><![CDATA[Read the data inside the managed file to fill the properties of the
+current chunk.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="193" name="param" description="The handle of the managed file" type="resource" variable="$Handle">
+            <type by_reference="false">resource</type>
+          </tag>
+          <tag line="193" name="return" description="The amount of bytes read" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="193">
+          <name>$Handle</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="213" package="Audero\AuderoWavExtractor">
+        <name>toString</name>
+        <full_name>toString</full_name>
+        <docblock line="213">
+          <description><![CDATA[Converts the current chunk into a string based on the values of its properties]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="213" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="227" package="Audero\AuderoWavExtractor">
+        <name>getSize</name>
+        <full_name>getSize</full_name>
+        <docblock line="227">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="227" name="return" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <critical line="32" code="50019">No short description for property $Id</critical>
+      <critical line="38" code="50019">No short description for property $Position</critical>
+      <critical line="44" code="50019">No short description for property $DataChunkId</critical>
+      <critical line="50" code="50019">No short description for property $ChunkStart</critical>
+      <critical line="56" code="50019">No short description for property $BlockStart</critical>
+      <critical line="62" code="50019">No short description for property $SampleOffset</critical>
+      <error line="81" code="50012">No short description for method getId()</error>
+      <error line="90" code="50012">No short description for method setId()</error>
+      <error line="99" code="50012">No short description for method getPosition()</error>
+      <error line="108" code="50012">No short description for method setPosition()</error>
+      <error line="117" code="50012">No short description for method getDataChunkId()</error>
+      <error line="126" code="50012">No short description for method setDataChunkId()</error>
+      <error line="135" code="50012">No short description for method getChunkStart()</error>
+      <error line="144" code="50012">No short description for method setChunkStart()</error>
+      <error line="153" code="50012">No short description for method getBlockStart()</error>
+      <error line="162" code="50012">No short description for method setBlockStart()</error>
+      <error line="171" code="50012">No short description for method getSampleOffset()</error>
+      <error line="180" code="50012">No short description for method setSampleOffset()</error>
+      <error line="227" code="50012">No short description for method getSize()</error>
+    </parse_markers>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\Data.php" hash="191006bf0f1d23c47a82c776d461586c" package="Default">
+    <include line="3" type="Require Once" package="Default">
+      <name>Chunk.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="27" package="Audero\AuderoWavExtractor">
+      <extends>Chunk</extends>
+      <name>Data</name>
+      <full_name>\Data</full_name>
+      <docblock line="27">
+        <description><![CDATA[The class of the Data chunk.]]></description>
+        <long-description><![CDATA[<p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="27" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="27" name="version" description="1.0"/>
+        <tag line="27" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="27" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="27" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <constant namespace="" line="30" package="Audero\AuderoWavExtractor">
+        <name>ID</name>
+        <full_name>ID</full_name>
+        <value><![CDATA[1684108385]]></value>
+      </constant>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="35" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="35">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\Fact.php" hash="f6903615da52e9cf3aadfca37c1083cc" package="Default">
+    <include line="3" type="Require Once" package="Default">
+      <name>Chunk.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="27" package="Audero\AuderoWavExtractor">
+      <extends>Chunk</extends>
+      <name>Fact</name>
+      <full_name>\Fact</full_name>
+      <docblock line="27">
+        <description><![CDATA[The class of the Fact chunk.]]></description>
+        <long-description><![CDATA[<p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="27" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="27" name="version" description="1.0"/>
+        <tag line="27" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="27" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="27" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <constant namespace="" line="29" package="Audero\AuderoWavExtractor">
+        <name>ID</name>
+        <full_name>ID</full_name>
+        <value><![CDATA[1717658484]]></value>
+      </constant>
+      <property final="false" static="false" visibility="private" line="35" namespace="" package="Default">
+        <name>$Data</name>
+        <default><![CDATA[]]></default>
+        <docblock line="35">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="35" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="40" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="40">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="50" package="Audero\AuderoWavExtractor">
+        <name>getData</name>
+        <full_name>getData</full_name>
+        <docblock line="50">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="50" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="59" package="Audero\AuderoWavExtractor">
+        <name>setData</name>
+        <full_name>setData</full_name>
+        <docblock line="59">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="59" name="param" description="" type="\ChunkField" variable="$Data">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="59">
+          <name>$Data</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <critical line="35" code="50019">No short description for property $Data</critical>
+      <error line="50" code="50012">No short description for method getData()</error>
+      <error line="59" code="50012">No short description for method setData()</error>
+    </parse_markers>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\Fmt.php" hash="8c70254910e095069f3242567c60b02c" package="Default">
+    <include line="3" type="Require Once" package="Default">
+      <name>Chunk.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="27" package="Audero\AuderoWavExtractor">
+      <extends>Chunk</extends>
+      <name>Fmt</name>
+      <full_name>\Fmt</full_name>
+      <docblock line="27">
+        <description><![CDATA[The class of the Fmt chunk.]]></description>
+        <long-description><![CDATA[<p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="27" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="27" name="version" description="1.0"/>
+        <tag line="27" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="27" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="27" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <constant namespace="" line="30" package="Audero\AuderoWavExtractor">
+        <name>ID</name>
+        <full_name>ID</full_name>
+        <value><![CDATA[1718449184]]></value>
+      </constant>
+      <property final="false" static="false" visibility="private" line="36" namespace="" package="Default">
+        <name>$CompressionCode</name>
+        <default><![CDATA[]]></default>
+        <docblock line="36">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="36" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="42" namespace="" package="Default">
+        <name>$ChannelsNumber</name>
+        <default><![CDATA[]]></default>
+        <docblock line="42">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="42" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="48" namespace="" package="Default">
+        <name>$SampleRate</name>
+        <default><![CDATA[]]></default>
+        <docblock line="48">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="48" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="54" namespace="" package="Default">
+        <name>$DataRate</name>
+        <default><![CDATA[]]></default>
+        <docblock line="54">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="54" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="60" namespace="" package="Default">
+        <name>$BlockSize</name>
+        <default><![CDATA[]]></default>
+        <docblock line="60">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="60" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="66" namespace="" package="Default">
+        <name>$BitsPerSample</name>
+        <default><![CDATA[]]></default>
+        <docblock line="66">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="66" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="72" namespace="" package="Default">
+        <name>$ExtentionSize</name>
+        <default><![CDATA[]]></default>
+        <docblock line="72">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="72" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="78" namespace="" package="Default">
+        <name>$ValidBitsPerSample</name>
+        <default><![CDATA[]]></default>
+        <docblock line="78">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="78" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="84" namespace="" package="Default">
+        <name>$ChannelMask</name>
+        <default><![CDATA[]]></default>
+        <docblock line="84">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="84" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="90" namespace="" package="Default">
+        <name>$Subformat</name>
+        <default><![CDATA[]]></default>
+        <docblock line="90">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="90" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="95" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="95">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="114" package="Audero\AuderoWavExtractor">
+        <name>getCompressionCode</name>
+        <full_name>getCompressionCode</full_name>
+        <docblock line="114">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="114" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="123" package="Audero\AuderoWavExtractor">
+        <name>setCompressionCode</name>
+        <full_name>setCompressionCode</full_name>
+        <docblock line="123">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="123" name="param" description="" type="\ChunkField" variable="$CompressionCode">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="123">
+          <name>$CompressionCode</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="132" package="Audero\AuderoWavExtractor">
+        <name>getChannelsNumber</name>
+        <full_name>getChannelsNumber</full_name>
+        <docblock line="132">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="132" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="141" package="Audero\AuderoWavExtractor">
+        <name>setChannelsNumber</name>
+        <full_name>setChannelsNumber</full_name>
+        <docblock line="141">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="141" name="param" description="" type="\ChunkField" variable="$ChannelsNumber">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="141">
+          <name>$ChannelsNumber</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="150" package="Audero\AuderoWavExtractor">
+        <name>getSampleRate</name>
+        <full_name>getSampleRate</full_name>
+        <docblock line="150">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="150" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="159" package="Audero\AuderoWavExtractor">
+        <name>setSampleRate</name>
+        <full_name>setSampleRate</full_name>
+        <docblock line="159">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="159" name="param" description="" type="\ChunkField" variable="$SampleRate">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="159">
+          <name>$SampleRate</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="168" package="Audero\AuderoWavExtractor">
+        <name>getDataRate</name>
+        <full_name>getDataRate</full_name>
+        <docblock line="168">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="168" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="177" package="Audero\AuderoWavExtractor">
+        <name>setDataRate</name>
+        <full_name>setDataRate</full_name>
+        <docblock line="177">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="177" name="param" description="" type="\ChunkField" variable="$DataRate">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="177">
+          <name>$DataRate</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="186" package="Audero\AuderoWavExtractor">
+        <name>getBlockSize</name>
+        <full_name>getBlockSize</full_name>
+        <docblock line="186">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="186" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="195" package="Audero\AuderoWavExtractor">
+        <name>setBlockSize</name>
+        <full_name>setBlockSize</full_name>
+        <docblock line="195">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="195" name="param" description="" type="\ChunkField" variable="$BlockSize">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="195">
+          <name>$BlockSize</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="204" package="Audero\AuderoWavExtractor">
+        <name>getBitsPerSample</name>
+        <full_name>getBitsPerSample</full_name>
+        <docblock line="204">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="204" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="213" package="Audero\AuderoWavExtractor">
+        <name>setBitsPerSample</name>
+        <full_name>setBitsPerSample</full_name>
+        <docblock line="213">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="213" name="param" description="" type="\ChunkField" variable="$BitsPerSample">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="213">
+          <name>$BitsPerSample</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="222" package="Audero\AuderoWavExtractor">
+        <name>getExtentionSize</name>
+        <full_name>getExtentionSize</full_name>
+        <docblock line="222">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="222" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="231" package="Audero\AuderoWavExtractor">
+        <name>setExtentionSize</name>
+        <full_name>setExtentionSize</full_name>
+        <docblock line="231">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="231" name="param" description="" type="\ChunkField" variable="$ExtentionSize">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="231">
+          <name>$ExtentionSize</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="240" package="Audero\AuderoWavExtractor">
+        <name>getValidBitsPerSample</name>
+        <full_name>getValidBitsPerSample</full_name>
+        <docblock line="240">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="240" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="249" package="Audero\AuderoWavExtractor">
+        <name>setValidBitsPerSample</name>
+        <full_name>setValidBitsPerSample</full_name>
+        <docblock line="249">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="249" name="param" description="" type="\ChunkField" variable="$ValidBitsPerSample">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="249">
+          <name>$ValidBitsPerSample</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="258" package="Audero\AuderoWavExtractor">
+        <name>getChannelMask</name>
+        <full_name>getChannelMask</full_name>
+        <docblock line="258">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="258" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="267" package="Audero\AuderoWavExtractor">
+        <name>setChannelMask</name>
+        <full_name>setChannelMask</full_name>
+        <docblock line="267">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="267" name="param" description="" type="\ChunkField" variable="$ChannelMask">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="267">
+          <name>$ChannelMask</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="276" package="Audero\AuderoWavExtractor">
+        <name>getSubformat</name>
+        <full_name>getSubformat</full_name>
+        <docblock line="276">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="276" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="285" package="Audero\AuderoWavExtractor">
+        <name>setSubformat</name>
+        <full_name>setSubformat</full_name>
+        <docblock line="285">
+          <description><![CDATA[]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="285" name="param" description="" type="\ChunkField" variable="$Subformat">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="285">
+          <name>$Subformat</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="295" package="Audero\AuderoWavExtractor">
+        <name>toString</name>
+        <full_name>toString</full_name>
+        <docblock line="295">
+          <description><![CDATA[Converts the current chunk into a string based on the values of its properties]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="295" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="319" package="Audero\AuderoWavExtractor">
+        <name>readData</name>
+        <full_name>readData</full_name>
+        <docblock line="319">
+          <description><![CDATA[Read the data inside the managed file to fill the properties of the
+current chunk.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="319" name="param" description="" type="resource" variable="$Handle">
+            <type by_reference="false">resource</type>
+          </tag>
+          <tag line="319" name="return" description="The amount of bytes read" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="319">
+          <name>$Handle</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <critical line="36" code="50019">No short description for property $CompressionCode</critical>
+      <critical line="42" code="50019">No short description for property $ChannelsNumber</critical>
+      <critical line="48" code="50019">No short description for property $SampleRate</critical>
+      <critical line="54" code="50019">No short description for property $DataRate</critical>
+      <critical line="60" code="50019">No short description for property $BlockSize</critical>
+      <critical line="66" code="50019">No short description for property $BitsPerSample</critical>
+      <critical line="72" code="50019">No short description for property $ExtentionSize</critical>
+      <critical line="78" code="50019">No short description for property $ValidBitsPerSample</critical>
+      <critical line="84" code="50019">No short description for property $ChannelMask</critical>
+      <critical line="90" code="50019">No short description for property $Subformat</critical>
+      <error line="114" code="50012">No short description for method getCompressionCode()</error>
+      <error line="123" code="50012">No short description for method setCompressionCode()</error>
+      <error line="132" code="50012">No short description for method getChannelsNumber()</error>
+      <error line="141" code="50012">No short description for method setChannelsNumber()</error>
+      <error line="150" code="50012">No short description for method getSampleRate()</error>
+      <error line="159" code="50012">No short description for method setSampleRate()</error>
+      <error line="168" code="50012">No short description for method getDataRate()</error>
+      <error line="177" code="50012">No short description for method setDataRate()</error>
+      <error line="186" code="50012">No short description for method getBlockSize()</error>
+      <error line="195" code="50012">No short description for method setBlockSize()</error>
+      <error line="204" code="50012">No short description for method getBitsPerSample()</error>
+      <error line="213" code="50012">No short description for method setBitsPerSample()</error>
+      <error line="222" code="50012">No short description for method getExtentionSize()</error>
+      <error line="231" code="50012">No short description for method setExtentionSize()</error>
+      <error line="240" code="50012">No short description for method getValidBitsPerSample()</error>
+      <error line="249" code="50012">No short description for method setValidBitsPerSample()</error>
+      <error line="258" code="50012">No short description for method getChannelMask()</error>
+      <error line="267" code="50012">No short description for method setChannelMask()</error>
+      <error line="276" code="50012">No short description for method getSubformat()</error>
+      <error line="285" code="50012">No short description for method setSubformat()</error>
+    </parse_markers>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Chunk\Riff.php" hash="4076801729dc8151329ea53f8394500a" package="Default">
+    <include line="3" type="Require Once" package="Default">
+      <name>Chunk.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="" line="27" package="Audero\AuderoWavExtractor">
+      <extends>Chunk</extends>
+      <name>Riff</name>
+      <full_name>\Riff</full_name>
+      <docblock line="27">
+        <description><![CDATA[The class of the Riff chunk.]]></description>
+        <long-description><![CDATA[<p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="27" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="27" name="version" description="1.0"/>
+        <tag line="27" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="27" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="27" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <constant namespace="" line="29" package="Audero\AuderoWavExtractor">
+        <name>ID</name>
+        <full_name>ID</full_name>
+        <value><![CDATA[1380533830]]></value>
+      </constant>
+      <constant namespace="" line="30" package="Audero\AuderoWavExtractor">
+        <name>BYTES_NOT_COUNTED</name>
+        <full_name>BYTES_NOT_COUNTED</full_name>
+        <value><![CDATA[8]]></value>
+      </constant>
+      <property final="false" static="false" visibility="private" line="38" namespace="" package="Default">
+        <name>$Format</name>
+        <default><![CDATA[]]></default>
+        <docblock line="38">
+          <description><![CDATA[The format of the file. This property should always contains
+as value the string "WAVE"]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="38" name="var" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="43" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="43">
+          <description><![CDATA[The default constructor]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="54" package="Audero\AuderoWavExtractor">
+        <name>getFormat</name>
+        <full_name>getFormat</full_name>
+        <docblock line="54">
+          <description><![CDATA[Gets the format of the wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="54" name="return" description="" type="\ChunkField">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="Audero\AuderoWavExtractor">
+        <name>setFormat</name>
+        <full_name>setFormat</full_name>
+        <docblock line="64">
+          <description><![CDATA[Sets the format of the wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="64" name="param" description="" type="\ChunkField" variable="$Format">
+            <type by_reference="false">\ChunkField</type>
+          </tag>
+        </docblock>
+        <argument line="64">
+          <name>$Format</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="AuderoWavExtractor\Wav\Wav.php" hash="e8827c8e0d033e1a165aeaa0eacbc726" package="Default">
+    <include line="56" type="Require Once" package="Default">
+      <name/>
+    </include>
+    <class final="false" abstract="false" namespace="" line="25" package="Audero\AuderoWavExtractor">
+      <extends/>
+      <name>Wav</name>
+      <full_name>\Wav</full_name>
+      <docblock line="25">
+        <description><![CDATA[This class maps the current analyzed wav file. It has the methods to extract
+the chunk and the data from the file.]]></description>
+        <long-description><![CDATA[<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p>]]></long-description>
+        <tag line="25" name="author" description="Aurelio De Rosa &lt;aureliodersa@gmail.com&gt;"/>
+        <tag line="25" name="version" description="1.0"/>
+        <tag line="25" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="25" name="link" description="https://bitbucket.org/AurelioDeRosa/auderowavextractor" link="https://bitbucket.org/AurelioDeRosa/auderowavextractor"/>
+        <tag line="25" name="package" description="Audero\AuderoWavExtractor"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="32" namespace="" package="Default">
+        <name>$FilePath</name>
+        <default><![CDATA[]]></default>
+        <docblock line="32">
+          <description><![CDATA[The filename, including the path, of the managed file wav]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="32" name="var" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="39" namespace="" package="Default">
+        <name>$Headers</name>
+        <default><![CDATA[]]></default>
+        <docblock line="39">
+          <description><![CDATA[An array containing the headers of the wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="39" name="var" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="46" namespace="" package="Default">
+        <name>$HeadersSize</name>
+        <default><![CDATA[]]></default>
+        <docblock line="46">
+          <description><![CDATA[The size in byte of the wav file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="46" name="var" description="" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="51" package="Audero\AuderoWavExtractor">
+        <name>autoload</name>
+        <full_name>autoload</full_name>
+        <docblock line="51">
+          <description><![CDATA[This method is used to load all the needed classes to let this class works.]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="65" package="Audero\AuderoWavExtractor">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="65">
+          <description><![CDATA[The constructor of the object. It initialized the object and set
+the filename of the wav file.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="65" name="param" description="The filename, including the path, of the managed file wav" type="string" variable="$FilePath">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="65">
+          <name>$FilePath</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="76" package="Audero\AuderoWavExtractor">
+        <name>getFilePath</name>
+        <full_name>getFilePath</full_name>
+        <docblock line="76">
+          <description><![CDATA[Retrieves the path to the current file]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="76" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="89" package="Audero\AuderoWavExtractor">
+        <name>setFilePath</name>
+        <full_name>setFilePath</full_name>
+        <docblock line="89">
+          <description><![CDATA[Set the path to the wav file that has to be managed]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="89" name="param" description="" type="string" variable="$FilePath">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="89" name="throws" description="If the file does not exist or if the file does not appear to be a wav." type="\InvalidArgumentException">
+            <type by_reference="false">\InvalidArgumentException</type>
+          </tag>
+        </docblock>
+        <argument line="89">
+          <name>$FilePath</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="117" package="Audero\AuderoWavExtractor">
+        <name>getHeaders</name>
+        <full_name>getHeaders</full_name>
+        <docblock line="117">
+          <description><![CDATA[Get the headers of the current wav file. If the headers contains not recognize
+chunks, these will be drop.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="117" name="param" description="The amount of bytes of the current wav headers (including dropped chunks)" type="int" variable="$HeaderSize">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="117" name="return" description="The array that contains the headers (excluding dropped chunks)" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="117" name="throws" description="If the wav file is not available or cannot be open." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="117">
+          <name>$HeaderSize</name>
+          <default><![CDATA[0]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="183" package="Audero\AuderoWavExtractor">
+        <name>getHeadersSize</name>
+        <full_name>getHeadersSize</full_name>
+        <docblock line="183">
+          <description><![CDATA[Get the headers size in byte]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="183" name="param" description="If the value is FALSE (default), the method will calculate the size of the actual headers. This means that, if there were any dropped chunks, these will be counted. Otherwise, the method returns just the bytes of the recognized chunks." type="\$OnlyRecognizedChunks" variable="$OnlyRecognizedChunks">
+            <type by_reference="false">\$OnlyRecognizedChunks</type>
+          </tag>
+          <tag line="183" name="return" description="The number of bytes" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="183">
+          <name>$OnlyRecognizedChunks</name>
+          <default><![CDATA[TRUE]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="208" package="Audero\AuderoWavExtractor">
+        <name>headersToString</name>
+        <full_name>headersToString</full_name>
+        <docblock line="208">
+          <description><![CDATA[Convert the array that contain the headers in a string]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="208" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="222" package="Audero\AuderoWavExtractor">
+        <name>getChannelsNumber</name>
+        <full_name>getChannelsNumber</full_name>
+        <docblock line="222">
+          <description><![CDATA[Retrieves the number of channles of the current file.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="222" name="return" description="" type="int|null">
+            <type by_reference="false">int</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="232" package="Audero\AuderoWavExtractor">
+        <name>getDataRate</name>
+        <full_name>getDataRate</full_name>
+        <docblock line="232">
+          <description><![CDATA[Retrieves the number of sample slices per second.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="232" name="return" description="" type="int|null">
+            <type by_reference="false">int</type>
+            <type by_reference="false">null</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="242" package="Audero\AuderoWavExtractor">
+        <name>setDataChunkSize</name>
+        <full_name>setDataChunkSize</full_name>
+        <docblock line="242">
+          <description><![CDATA[Set the size of the data chunk.]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="242" name="param" description="" type="int" variable="$Size">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="242">
+          <name>$Size</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="253" package="Audero\AuderoWavExtractor">
+        <name>getDuration</name>
+        <full_name>getDuration</full_name>
+        <docblock line="253">
+          <description><![CDATA[This method get the current file duration]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="253" name="return" description="The duration of the file in milliseconds" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="274" package="Audero\AuderoWavExtractor">
+        <name>getWavChunk</name>
+        <full_name>getWavChunk</full_name>
+        <docblock line="274">
+          <description><![CDATA[Extract the portion from the original audio]]></description>
+          <long-description><![CDATA[]]></long-description>
+          <tag line="274" name="param" description="The time in milliseconds from which to start" type="int" variable="$Start">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="274" name="param" description="The time in milliseconds from which to end" type="int" variable="$End">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="274" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="274" name="throws" description="If the file wav is not available or cannot be open." type="\Exception">
+            <type by_reference="false">\Exception</type>
+          </tag>
+        </docblock>
+        <argument line="274">
+          <name>$Start</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="274">
+          <name>$End</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="index.php" hash="cda81817768debab21801a83003a017d" package="Default">
+    <include line="9" type="Require Once" package="Default">
+      <name>AuderoWavExtractor/AuderoWavExtractor.php</name>
+    </include>
+  </file>
+  <package name="Audero" full_name="Audero">
+    <package name="AuderoWavExtractor" full_name="Audero\AuderoWavExtractor"/>
+  </package>
+  <package name="Default" full_name="Default"/>
+  <namespace name="" full_name=""/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
