@@ -38,10 +38,11 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
                   get_include_path(),
               )));
 
-      $Files = glob('..\src\AuderoWavExtractor\*.php');
-      $Files = array_merge($Files, glob('..\src\AuderoWavExtractor\Chunk\*.php'));
-      foreach($Files as $File)
-         require_once ($File);
+      $files = glob('..\src\Audero\*.php');
+      $files = array_merge($files, glob('..\src\Audero\Chunk\*.php'));
+      foreach($files as $file) {
+         require_once $file;
+      }
    }
 
    public static function setUpBeforeClass()
@@ -239,5 +240,3 @@ class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
       }
    }
 }
-
-?>
