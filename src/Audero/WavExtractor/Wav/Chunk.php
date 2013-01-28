@@ -163,6 +163,9 @@ class Chunk
         $string = '';
         $class = new \ReflectionClass($this);
         foreach ($class->getProperties(\ReflectionProperty::IS_PROTECTED) as $property) {
+            if ($this->{$property->name}->getValue() === null) {
+                continue;
+            }
             $string .= pack(
                 $this->{$property->name}->getFormat(),
                 $this->{$property->name}->getValue()
@@ -170,6 +173,9 @@ class Chunk
         }
 
         foreach ($class->getProperties(\ReflectionProperty::IS_PRIVATE) as $property) {
+            if ($this->{$property->name}->getValue() === null) {
+                continue;
+            }
             $string .= pack(
                 $this->{$property->name}->getFormat(),
                 $this->{$property->name}->getValue()
@@ -198,7 +204,16 @@ class Chunk
             $this->{$property->name}->setValue(array_shift($result));
         }
 
+        $bytesLeft = $this->size->getValue();
         foreach ($class->getProperties(\ReflectionProperty::IS_PRIVATE) as $property) {
+            if ($bytesLeft === 0) {
+                break;
+            } else if ($bytesLeft < $this->{$property->name}->getBytes()) {
+                // Drop the extra bytes
+                fread($handle, $bytesLeft);
+                break;
+            }
+            $bytesLeft -= $this->{$property->name}->getBytes();
             $totalBytes += $this->{$property->name}->getBytes();
             $dataRead = fread($handle, $this->{$property->name}->getBytes());
             $result = unpack($this->{$property->name}->getFormat(), $dataRead);
