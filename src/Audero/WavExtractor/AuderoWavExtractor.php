@@ -124,6 +124,8 @@ class AuderoWavExtractor
      * if the end is lower than start) or if the destination value isn't valid
      * (for example greater than 4).
      * @throws \RuntimeException If there's not enough memory to save the given range
+     *
+     * @deprecated Since version 2.0.0
      */
     public function extractChunk($start, $end, $destination = 1, &$filename = '')
     {
@@ -163,19 +165,19 @@ class AuderoWavExtractor
 
         switch ($destination) {
             case 1:
-                $this->downloadChuck($chunk, $filename);
+                $this->downloadChuck($start, $end, $filename);
                 unset($chunk);
                 $chunk = null;
                 break;
             case 2:
-                $this->saveChunk($chunk, $filename);
+                $this->saveChunk($start, $end, $filename);
                 unset($chunk);
                 $chunk = null;
                 break;
             case 3:
                 break;
             case 4:
-                $this->saveChunk($chunk, $filename);
+                $this->saveChunk($start, $end, $filename);
                 break;
         }
 
@@ -183,16 +185,65 @@ class AuderoWavExtractor
     }
 
     /**
-     * This method sets the headers to force the download and send the data
-     * of the chunk.
+     * Extract a portion of the current, from the $start to $end and return it as a string
      *
-     * @param string $chunk    The string containing the bytes of the chunk
+     * @param int $start The start time, in milliseconds, of the portion to extract
+     * @param int $end   The end time, in milliseconds, of the portion to extract
+     *
+     * @return string The chunk to extract, including the headers
+     *
+     * @throws \InvalidArgumentException If the give boundary is invalid (for example
+     * if the end is lower than start) or if the destination value isn't valid
+     * (for example greater than 4).
+     * @throws \RuntimeException If there's not enough memory to save the given range
+     */
+    public function getChunk($start, $end)
+    {
+        $start = (int)$start;
+        $end = (int)$end;
+        if ($start < 0 || $start > $this->wav->getDuration()
+            || $end < 0 || $end > $this->wav->getDuration()
+            || $start >= $end
+        ) {
+            throw new \InvalidArgumentException('Invalid chunk boundaries');
+        }
+
+        if ($this->isEnoughMemory($start, $end) === false) {
+            throw new \RuntimeException('Not enough memory to save the given range');
+        }
+
+        $size = ($end - $start) * $this->wav->getDataRate() / 1000;
+        $difference = $size % $this->wav->getChannelsNumber();
+        if ($difference != 0) {
+            $size += $difference;
+        }
+        $size = (int)$size;
+
+        $this->wav->setDataChunkSize($size);
+
+        $chunk = $this->wav->headersToString();
+        $chunk .= $this->wav->getWavChunk($start, $end);
+
+        return $chunk;
+    }
+
+    /**
+     * Extract a chunk and force the download to the user's browser
+     *
+     * @param int    $start    The start time, in milliseconds, of the portion to extract
+     * @param int    $end      The end time, in milliseconds, of the portion to extract
      * @param string $filename The filename that will be shown by the browser
      *
      * @return void
      */
-    private function downloadChuck($chunk, $filename)
+    public function downloadChuck($start, $end, &$filename = '')
     {
+        $chunk = $this->getChunk($start, $end);
+
+        if (empty($filename)) {
+            $filename = $this->getFilename(false) . "-$start-$end.wav";
+        }
+
         // Clear any previous data sent
         $output = ob_get_contents();
         if (!empty($output) || headers_sent() === true) {
@@ -214,7 +265,8 @@ class AuderoWavExtractor
     /**
      * Save the extracted chunk on the hard disk
      *
-     * @param string $chunk    The string containing the bytes of the chunk
+     * @param int    $start    The start time, in milliseconds, of the portion to extract
+     * @param int    $end      The end time, in milliseconds, of the portion to extract
      * @param string $filename The filename to use to save the file on the hard disk
      *
      * @return void
@@ -222,10 +274,15 @@ class AuderoWavExtractor
      * @throws \InvalidArgumentException If the chunk is empty
      * @throws \Exception If the library is unable to create the file on the hard disk
      */
-    private function saveChunk($chunk, $filename)
+    private function saveChunk($start, $end, &$filename = '')
     {
+        $chunk = $this->getChunk($start, $end);
         if (empty($chunk)) {
             throw new \InvalidArgumentException('Invalid chunk');
+        }
+
+        if (empty($filename)) {
+            $filename = $this->getFilename(false) . "-$start-$end.wav";
         }
 
         $file = @fopen($filename, 'wb');
