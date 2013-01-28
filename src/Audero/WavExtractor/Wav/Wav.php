@@ -247,14 +247,16 @@ class Wav
      */
     public function getDuration()
     {
-        $Milliseconds = $this->headers[Chunk\Fmt::ID]->getSampleRate()->getValue();
-        $Milliseconds *= $this->headers[Chunk\Fmt::ID]->getBitsPerSample()->getValue() / 8;
-        $Milliseconds *= $this->headers[Chunk\Fmt::ID]->getChannelsNumber()->getValue();
-        $Milliseconds = ($this->headers[Chunk\Riff::ID]->getSize()->getValue() -
-            $this->getHeadersSize()) / $Milliseconds;
-        $Milliseconds = (int)ceil($Milliseconds * 1000);
+        $milliseconds = $this->headers[Chunk\Fmt::ID]->getSampleRate()->getValue();
+        $milliseconds *= $this->headers[Chunk\Fmt::ID]->getBitsPerSample()->getValue() / 8;
+        $milliseconds *= $this->headers[Chunk\Fmt::ID]->getChannelsNumber()->getValue();
+        if ($milliseconds !== 0) {
+            $milliseconds = ($this->headers[Chunk\Riff::ID]->getSize()->getValue() - $this->getHeadersSize()) /
+                $milliseconds;
+        }
+        $milliseconds = (int)ceil($milliseconds * 1000);
 
-        return $Milliseconds;
+        return $milliseconds;
     }
 
     /**
