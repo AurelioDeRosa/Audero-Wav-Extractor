@@ -1,242 +1,200 @@
 <?php
 
 /**
- * Description of AuderoWavExtractorTest
+ * The class test for the Audero Wav Extractor class
  *
- * LICENSE: This software is released under the CC BY-NC 3.0
- * ("Creative Commons Attribution-NonCommercial 3.0") license.
+ * LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+ * the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
  * More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/
  *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
+ * WARRANTY: The software is provided "as is", without warranty of any kind,
+ * express or implied, including but not limited to the warranties of merchantability,
+ * fitness for a particular purpose and noninfringement. In no event shall the
+ * authors or copyright holders be liable for any claim, damages or other
+ * liability, whether in an action of contract, tort or otherwise, arising from,
+ * out of or in connection with the software or the use or other dealings in
+ * the software.
  *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- *
- * @author Aurelio De Rosa <aurelioderosa@gmail.com>
- * @version    1.0
- * @license    http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
- * @link       https://bitbucket.org/AurelioDeRosa/auderowavextractor
- * 2-mag-2012
+ * @author  Aurelio De Rosa <aurelioderosa@gmail.com>
+ * @license http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
+ * @link    https://bitbucket.org/AurelioDeRosa/auderowavextractor
  */
-
 class AuderoWavExtractorTest extends PHPUnit_Framework_TestCase
 {
-   private static $TestRepetition = 10;
+    private static $testRepetition = 10;
 
-   private static function autoload()
-   {
-      set_include_path(implode(PATH_SEPARATOR,
-                      array(
-                  realpath(dirname(__FILE__) . '/Wav'),
-                  realpath(dirname(__FILE__) . '/Utility'),
-                  get_include_path(),
-              )));
+    public static function setUpBeforeClass()
+    {
+        parent::setUpBeforeClass();
+        $files = glob('*.wav');
+        foreach ($files as $file) {
+            unlink($file);
+        }
+    }
 
-      $files = glob('..\src\Audero\*.php');
-      $files = array_merge($files, glob('..\src\Audero\Chunk\*.php'));
-      foreach($files as $file) {
-         require_once $file;
-      }
-   }
+    public static function tearDownAfterClass()
+    {
+        parent::tearDownAfterClass();
+        $files = glob('*.wav');
+        foreach ($files as $file) {
+            unlink($file);
+        }
+    }
 
-   public static function setUpBeforeClass()
-   {
-      parent::setUpBeforeClass();
-      self::autoload();
-      $Files = glob('*.wav');
-      foreach($Files as $File)
-         unlink($File);
-   }
+    public function dataProviderBadBoundaries()
+    {
+        return array(
+            array(-1, -1),
+            array(-1, 1),
+            array(0, -1),
+            array(1, 0)
+        );
+    }
 
-   public static function tearDownAfterClass()
-   {
-      parent::tearDownAfterClass();
-      $Files = glob('*.wav');
-      foreach($Files as $File)
-         unlink($File);
-   }
+    public function dataProviderBadInputFilenames()
+    {
+        return array(
+            array(null),
+            array('../wav/not-exists.wav'),
+            array('../wav/not-a-wav.wav')
+        );
+    }
 
-   public function dataProviderBadBoundaries()
-   {
-      return array(
-          array(-1, -1),
-          array(-1, 1),
-          array(0, -1),
-          array(1, 0)
-      );
-   }
+    public function dataProviderOutputFilenames()
+    {
+        return array(
+            array(null),
+            array('test.wav')
+        );
+    }
 
-   public function dataProviderBadInputFilenames()
-   {
-      return array(
-          array(NULL),
-          array('../wav/not-exists.wav'),
-          array('../wav/not-a-wav.wav')
-      );
-   }
+    public function testConstructorFileExists()
+    {
+        return new \Audero\WavExtractor\AuderoWavExtractor('../wav/sample.wav');
+    }
 
-   public function dataProviderOutputFilenames()
-   {
-      return array(
-          array(NULL),
-          array('test.wav')
-      );
-   }
+    /**
+     * @dataProvider dataProviderBadInputFilenames
+     * @expectedException InvalidArgumentException
+     */
+    public function testConstructorBadFilenames($filename)
+    {
+        return new \Audero\WavExtractor\AuderoWavExtractor($filename);
+    }
 
-   public function testConstructorFileExists()
-   {
-      $Filename = '../wav/sample.wav';
-      $Extractor = new AuderoWavExtractor($Filename);
+    /**
+     * @depends  testConstructorFileExists
+     */
+    public function testGetDuration(\Audero\WavExtractor\AuderoWavExtractor $extractor)
+    {
+        $this->assertGreaterThanOrEqual(0, $extractor->getWav()->getDuration());
+    }
 
-      return $Extractor;
-   }
+    /**
+     * @depends testConstructorFileExists
+     * @runInSeparateProcess
+     */
+    public function testGetWavChunk(\Audero\WavExtractor\AuderoWavExtractor $extractor)
+    {
+        for ($i = 0; $i < self::$testRepetition; $i++) {
+            $start = rand(0, $extractor->getWav()->getDuration());
+            $end = rand($start, $extractor->getWav()->getDuration());
 
-   /**
-    * @dataProvider dataProviderBadInputFilenames
-    * @expectedException InvalidArgumentException
-    */
-   public function testConstructorBadFilenames($Filename)
-   {
-      $Extractor = new AuderoWavExtractor($Filename);
+            $expectedException = (!$extractor->isEnoughMemory($start, $end)) || ($start >= $end);
 
-      return $Extractor;
-   }
+            try {
+                $chunk = $extractor->extractChunk($start, $end);
 
-   /**
-    * @depends  testConstructorFileExists
-    */
-   public function testGetDuration(AuderoWavExtractor $Extractor)
-   {
-      $this->assertGreaterThanOrEqual(0, $Extractor->getWav()->getDuration());
-   }
+                $this->assertFalse($expectedException);
+                $this->expectOutputString($chunk);
+                $this->assertNull($chunk);
+            } catch (\Exception $ex) {
+                $this->assertTrue($expectedException);
+            }
+        }
+    }
 
-   /**
-    * @depends testConstructorFileExists
-    * @runInSeparateProcess
-    */
-   public function testGetWavChunk(AuderoWavExtractor $Extractor)
-   {
-      for($i = 0; $i < self::$TestRepetition; $i++)
-      {
-         $Start = rand(0, $Extractor->getWav()->getDuration());
-         $End = rand($Start, $Extractor->getWav()->getDuration());
+    /**
+     * @dataProvider dataProviderBadBoundaries
+     * @expectedException InvalidArgumentException
+     * @depends testConstructorFileExists
+     */
+    public function testGetWavChunkBadParams($start, $end, \Audero\WavExtractor\AuderoWavExtractor $extractor)
+    {
+        $extractor->extractChunk($start, $end);
+    }
 
-         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
+    /**
+     * @dataProvider dataProviderOutputFilenames
+     * @depends testConstructorFileExists
+     */
+    public function testSaveChunk($filename, \Audero\WavExtractor\AuderoWavExtractor $extractor)
+    {
+        for ($i = 0; $i < self::$testRepetition; $i++) {
+            $start = rand(0, $extractor->getWav()->getDuration());
+            $end = rand($start, $extractor->getWav()->getDuration());
 
-         try
-         {
-            $Chunk = $Extractor->extractChunk($Start, $End);
+            $expectedException = (!$extractor->isEnoughMemory($start, $end)) || ($start >= $end);
 
-            $this->assertFalse($ExpectedException);
-            $this->expectOutputString($Chunk);
-            $this->assertNull($Chunk);
-         }
-         catch(Exception $Ex)
-         {
-            $this->assertTrue($ExpectedException);
-         }
-      }
-   }
+            try {
+                $chunk = $extractor->extractChunk($start, $end, 2, $filename);
 
-   /**
-    * @dataProvider dataProviderBadBoundaries
-    * @expectedException InvalidArgumentException
-    * @depends testConstructorFileExists
-    */
-   public function testGetWavChunkBadParams($Start, $End, AuderoWavExtractor $Extractor)
-   {
-      $Extractor->extractChunk($Start, $End);
-   }
+                $this->assertFalse($expectedException);
+                $this->assertFileExists($filename);
+                $this->assertNull($chunk);
+            } catch (Exception $ex) {
+                $this->assertTrue($expectedException);
+            }
+        }
+    }
 
-   /**
-    * @dataProvider dataProviderOutputFilenames
-    * @depends testConstructorFileExists
-    */
-   public function testSaveChunk($Filename, AuderoWavExtractor $Extractor)
-   {
-      for($i = 0; $i < self::$TestRepetition; $i++)
-      {
-         $Start = rand(0, $Extractor->getWav()->getDuration());
-         $End = rand($Start, $Extractor->getWav()->getDuration());
+    /**
+     * @depends testConstructorFileExists
+     */
+    public function testGetChunk(\Audero\WavExtractor\AuderoWavExtractor $extractor)
+    {
+        for ($i = 0; $i < self::$testRepetition; $i++) {
+            $start = rand(0, $extractor->getWav()->getDuration());
+            $end = rand($start, $extractor->getWav()->getDuration());
 
-         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
+            $expectedException = (!$extractor->isEnoughMemory($start, $end)) || ($start >= $end);
 
-         try
-         {
-            $Chunk = $Extractor->extractChunk($Start, $End, 2, $Filename);
+            try {
+                $chunk = $extractor->extractChunk($start, $end, 3);
 
-            $this->assertFalse($ExpectedException);
-            $this->assertFileExists($Filename);
-            $this->assertNull($Chunk);
-         }
-         catch(Exception $Ex)
-         {
-            $this->assertTrue($ExpectedException);
-         }
-      }
-   }
+                $this->assertFalse($expectedException);
+                $this->assertNotNull($chunk);
+            } catch (Exception $ex) {
+                $this->assertTrue($expectedException);
+            }
 
-   /**
-    * @depends testConstructorFileExists
-    */
-   public function testGetChunk(AuderoWavExtractor $Extractor)
-   {
-      for($i = 0; $i < self::$TestRepetition; $i++)
-      {
-         $Start = rand(0, $Extractor->getWav()->getDuration());
-         $End = rand($Start, $Extractor->getWav()->getDuration());
+            unset($chunk);
+        }
+    }
 
-         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
+    /**
+     * @dataProvider dataProviderOutputFilenames
+     * @depends testConstructorFileExists
+     */
+    public function testSaveAndGetChunk($filename, \Audero\WavExtractor\AuderoWavExtractor $extractor)
+    {
+        for ($i = 0; $i < self::$testRepetition; $i++) {
+            $start = rand(0, $extractor->getWav()->getDuration());
+            $end = rand($start, $extractor->getWav()->getDuration());
 
-         try
-         {
-            $Chunk = $Extractor->extractChunk($Start, $End, 3);
+            $expectedException = (!$extractor->isEnoughMemory($start, $end)) || ($start >= $end);
 
-            $this->assertFalse($ExpectedException);
-            $this->assertNotNull($Chunk);
-         }
-         catch(Exception $Ex)
-         {
-            $this->assertTrue($ExpectedException);
-         }
+            try {
+                $chunk = $extractor->extractChunk($start, $end, 4, $filename);
 
-         unset($Chunk);
-      }
-   }
+                $this->assertFalse($expectedException);
+                $this->assertFileExists($filename);
+                $this->assertNotNull($chunk);
+            } catch (Exception $ex) {
+                $this->assertTrue($expectedException);
+            }
 
-   /**
-    * @dataProvider dataProviderOutputFilenames
-    * @depends testConstructorFileExists
-    */
-   public function testSaveAndGetChunk($Filename, AuderoWavExtractor $Extractor)
-   {
-      for($i = 0; $i < self::$TestRepetition; $i++)
-      {
-         $Start = rand(0, $Extractor->getWav()->getDuration());
-         $End = rand($Start, $Extractor->getWav()->getDuration());
-
-         $ExpectedException = (! $Extractor->isEnoughMemory($Start, $End)) || ($Start >= $End);
-
-         try
-         {
-            $Chunk = $Extractor->extractChunk($Start, $End, 4, $Filename);
-
-            $this->assertFalse($ExpectedException);
-            $this->assertFileExists($Filename);
-            $this->assertNotNull($Chunk);
-         }
-         catch(Exception $Ex)
-         {
-            $this->assertTrue($ExpectedException);
-         }
-
-         unset($Chunk);
-      }
-   }
+            unset($chunk);
+        }
+    }
 }
