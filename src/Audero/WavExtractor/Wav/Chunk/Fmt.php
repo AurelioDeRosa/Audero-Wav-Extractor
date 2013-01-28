@@ -117,10 +117,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $compressionCode
+     *
+     * @return Fmt
      */
     public function setCompressionCode($compressionCode)
     {
         $this->compressionCode = $compressionCode;
+
+        return $this;
     }
 
     /**
@@ -135,10 +139,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $channelsNumber
+     *
+     * @return Fmt
      */
     public function setChannelsNumber($channelsNumber)
     {
         $this->channelsNumber = $channelsNumber;
+
+        return $this;
     }
 
     /**
@@ -153,10 +161,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $sampleRate
+     *
+     * @return Fmt
      */
     public function setSampleRate($sampleRate)
     {
         $this->sampleRate = $sampleRate;
+
+        return $this;
     }
 
     /**
@@ -171,10 +183,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $dataRate
+     *
+     * @return Fmt
      */
     public function setDataRate($dataRate)
     {
         $this->dataRate = $dataRate;
+
+        return $this;
     }
 
     /**
@@ -189,10 +205,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $blockSize
+     *
+     * @return Fmt
      */
     public function setBlockSize($blockSize)
     {
         $this->blockSize = $blockSize;
+
+        return $this;
     }
 
     /**
@@ -207,10 +227,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $bitsPerSample
+     *
+     * @return Fmt
      */
     public function setBitsPerSample($bitsPerSample)
     {
         $this->bitsPerSample = $bitsPerSample;
+
+        return $this;
     }
 
     /**
@@ -225,10 +249,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $extensionSize
+     *
+     * @return Fmt
      */
     public function setExtensionSize($extensionSize)
     {
         $this->extensionSize = $extensionSize;
+
+        return $this;
     }
 
     /**
@@ -243,10 +271,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $validBitsPerSample
+     *
+     * @return Fmt
      */
     public function setValidBitsPerSample($validBitsPerSample)
     {
         $this->validBitsPerSample = $validBitsPerSample;
+
+        return $this;
     }
 
     /**
@@ -261,10 +293,14 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $channelMask
+     *
+     * @return Fmt
      */
     public function setChannelMask($channelMask)
     {
         $this->channelMask = $channelMask;
+
+        return $this;
     }
 
     /**
@@ -279,9 +315,13 @@ class Fmt extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $subFormat
+     *
+     * @return Fmt
      */
     public function setSubFormat($subFormat)
     {
         $this->subFormat = $subFormat;
+
+        return $this;
     }
 }

@@ -59,10 +59,12 @@ class Riff extends \Audero\WavExtractor\Wav\Chunk
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $format The format of the wav file
      *
-     * @return void
+     * @return Riff
      */
     public function setFormat($format)
     {
         $this->format = $format;
+
+        return $this;
     }
 }

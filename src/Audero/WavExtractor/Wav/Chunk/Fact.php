@@ -53,9 +53,13 @@ class Fact extends \Audero\WavExtractor\Wav\Chunk
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $data
+     *
+     * @return Fact
      */
     public function setData($data)
     {
         $this->data = $data;
+
+        return $this;
     }
 }

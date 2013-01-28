@@ -66,11 +66,13 @@ class Cue extends \Audero\WavExtractor\Wav\Chunk
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $cuePointsNumber The number of Cue Points in the wav file
      *
-     * @return void
+     * @return Cue
      */
     public function setCuePointsNumber($cuePointsNumber)
     {
         $this->cuePointsNumber = $cuePointsNumber;
+
+        return $this;
     }
 
     /**
@@ -88,11 +90,13 @@ class Cue extends \Audero\WavExtractor\Wav\Chunk
      *
      * @param array $cuePoints The cue points
      *
-     * @return void
+     * @return Cue
      */
     public function setCuePoints($cuePoints)
     {
         $this->cuePoints = $cuePoints;
+
+        return $this;
     }
 
     /**

@@ -91,13 +91,18 @@ class CuePoint
      * Set the id of the point
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $id
+     *
+     * @return CuePoint
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
+     * Get the position that this point has into the set of the Cue points
      *
      * @return \Audero\WavExtractor\Wav\ChunkField
      */
@@ -107,12 +112,17 @@ class CuePoint
     }
 
     /**
+     * Set the position that this point has into the set of the Cue points
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $position
+     *
+     * @return CuePoint
      */
     public function setPosition($position)
     {
         $this->position = $position;
+
+        return $this;
     }
 
     /**
@@ -127,10 +137,14 @@ class CuePoint
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $dataChunkId
+     *
+     * @return CuePoint
      */
     public function setDataChunkId($dataChunkId)
     {
         $this->dataChunkId = $dataChunkId;
+
+        return $this;
     }
 
     /**
@@ -145,10 +159,14 @@ class CuePoint
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $chunkStart
+     *
+     * @return CuePoint
      */
     public function setChunkStart($chunkStart)
     {
         $this->chunkStart = $chunkStart;
+
+        return $this;
     }
 
     /**
@@ -163,10 +181,14 @@ class CuePoint
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $blockStart
+     *
+     * @return CuePoint
      */
     public function setBlockStart($blockStart)
     {
         $this->blockStart = $blockStart;
+
+        return $this;
     }
 
     /**
@@ -181,10 +203,14 @@ class CuePoint
     /**
      *
      * @param \Audero\WavExtractor\Wav\ChunkField $sampleOffset
+     *
+     * @return CuePoint
      */
     public function setSampleOffset($sampleOffset)
     {
         $this->sampleOffset = $sampleOffset;
+
+        return $this;
     }
 
     /**

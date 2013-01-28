@@ -90,11 +90,13 @@ class Chunk
      *
      * @param ChunkField $id The id of the chunk
      *
-     * @return void
+     * @return Chunk
      */
     public function setId($id)
     {
         $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -112,11 +114,13 @@ class Chunk
      *
      * @param ChunkField $size The size of the chunk
      *
-     * @return void
+     * @return Chunk
      */
     public function setSize($size)
     {
         $this->size = $size;
+
+        return $this;
     }
 
     /**
