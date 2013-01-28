@@ -139,10 +139,10 @@ class Wav
 
             $chunk = Chunk::getChunkType($id);
             fseek($file, ftell($file) - Chunk::ID_SIZE);
+            // Ignore the unrecognized chunks and drop the extra bytes
             if (strcasecmp(get_class($chunk), get_class(new Chunk())) === 0) {
-                $headerSize += $chunk->readData($file);
-                $headerSize += $chunk->getSize()->getValue();
-                // Drop the extra bytes in the header chunk and update the chunk size
+                $chunk->readData($file);
+                // Drop the extra bytes in the header chunk
                 if ($chunk->getSize()->getValue() > 0) {
                     fread($file, $chunk->getSize()->getValue());
                 }
