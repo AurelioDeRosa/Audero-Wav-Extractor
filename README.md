@@ -2,7 +2,7 @@
 [Audero Wav Extractor](https://bitbucket.org/AurelioDeRosa/auderowavextractor) is a PHP library that allows to extract a chunk from a wav file. The extracted chunk can be saved on the hard disk, can be forced to be prompted as download by the user's browser, returned as a string for a later processing or a combination of the first and second possibilities. It is very easy to use "Audero Wav Extractor" to extract a piece of audio from a wav file. All you have to do is give the name of the file, the start and the end time to extract (optionally you can provide a name for the extracted chunk).
 
 ## Requirements ##
-This class requires PHP version 5.3 or higher
+This library requires PHP version 5.3 or higher
 
 ## Usage ##
 "Audero Wav Extractor" is very easy to use. Since it uses namespaces, you can use your own autoloader or the one included in the library to dynamically load the classes needed. If you already have your class' loader, you've to just add the path to the library to the include path. Otherwise, you can set the included loader as shown in the following example. After that, you can simply create an AuderoWavExtractor instance and call the library's main method `extractChunk()`.
