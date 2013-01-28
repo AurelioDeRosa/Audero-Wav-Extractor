@@ -14,34 +14,6 @@ use Audero\Utility\Converter;
  * the start and the end time to extract (optionally you can provide a name
  * for the extracted chunk).
  *
- * The follow is an example of how to extract a chunk from a wav file and force the
- * download using this class:
- * <pre>
- *    require_once('Audero/Audero.php');
- *
- *    $inputFile = 'audio.wav'; // path to input wav file
- *    $outputFile = 'chunk.wav'; // path to the output chunk
- *    $start = 0 * 1000; // Start time of the chunk
- *    $end = 20 * 1000; // End time of the chunk
- *
- *    $extractor = new Audero($inputFile);
- *    $extractor->extractChunk($start, $end);
- * </pre>
- *
- * The follow is an example of how to extract a chunk from a wav file and save it
- * into the local disk:
- * <pre>
- *    require_once('Audero.php');
- *
- *    $inputFile = 'audio.wav'; // path to input wav file
- *    $outputFile = 'chunk.wav'; // path to the output chunk
- *    $start = 12 * 1000; // Start time of the chunk
- *    $end = 20 * 1000; // End time of the chunk
- *
- *    $extractor = new Audero($inputFile);
- *    $extractor->extractChunk($start, $end, 2, $outputFile);
- * </pre>
- *
  * LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
  * the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
  * More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/
@@ -54,7 +26,7 @@ use Audero\Utility\Converter;
  * out of or in connection with the software or the use or other dealings in
  * the software.
  *
- * @package Audero\Audero
+ * @package Audero\WavExtractor
  * @author  Aurelio De Rosa <aurelioderosa@gmail.com>
  * @license http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
  * @link    https://bitbucket.org/AurelioDeRosa/auderowavextractor
@@ -214,16 +186,16 @@ class AuderoWavExtractor
      * This method sets the headers to force the download and send the data
      * of the chunk.
      *
-     * @param string $Chunk    The string containing the bytes of the chunk
-     * @param string $Filename The filename that will be shown by the browser
+     * @param string $chunk    The string containing the bytes of the chunk
+     * @param string $filename The filename that will be shown by the browser
      *
      * @return void
      */
-    private function downloadChuck($Chunk, $Filename)
+    private function downloadChuck($chunk, $filename)
     {
         // Clear any previous data sent
-        $Output = ob_get_contents();
-        if (!empty($Output) || headers_sent() === true) {
+        $output = ob_get_contents();
+        if (!empty($output) || headers_sent() === true) {
             ob_clean();
         }
 
@@ -233,57 +205,57 @@ class AuderoWavExtractor
         header('Expires: Fri, 06 Nov 1987 12:00:00 GMT');
         header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
         header('Content-Type: audio/x-wav', false);
-        header('Content-Disposition: attachment; filename="' . basename($Filename) . '";');
+        header('Content-Disposition: attachment; filename="' . basename($filename) . '";');
         header('Content-Transfer-Encoding: binary');
-        header('Content-Length: ' . strlen($Chunk));
-        echo $Chunk;
+        header('Content-Length: ' . strlen($chunk));
+        echo $chunk;
     }
 
     /**
      * Save the extracted chunk on the hard disk
      *
-     * @param string $Chunk    The string containing the bytes of the chunk
-     * @param string $Filename The filename to use to save the file on the hard disk
+     * @param string $chunk    The string containing the bytes of the chunk
+     * @param string $filename The filename to use to save the file on the hard disk
      *
      * @return void
      *
      * @throws \InvalidArgumentException If the chunk is empty
      * @throws \Exception If the library is unable to create the file on the hard disk
      */
-    private function saveChunk($Chunk, $Filename)
+    private function saveChunk($chunk, $filename)
     {
-        if (empty($Chunk)) {
+        if (empty($chunk)) {
             throw new \InvalidArgumentException('Invalid chunk');
         }
 
-        $File = @fopen($Filename, 'wb');
-        if ($File === false) {
+        $file = @fopen($filename, 'wb');
+        if ($file === false) {
             throw new \Exception('Unable to create the file on the disk');
         }
-        fwrite($File, $Chunk);
-        fclose($File);
+        fwrite($file, $chunk);
+        fclose($file);
     }
 
     /**
      * Try to test if the available memory is enough to extract the chunk
      *
-     * @param int $Start The start time, in milliseconds, of the chunk that
+     * @param int $start The start time, in milliseconds, of the chunk that
      *                   has to be extracted
-     * @param int $End   The end time, in milliseconds, of the chunk that
+     * @param int $end   The end time, in milliseconds, of the chunk that
      *                   has to be extracted
      *
-     * @return bool <code>true</code> if the memory is enough. <code>False</code> otherwise.
+     * @return bool <code>true</code> if the memory is enough. <code>false</code> otherwise.
      */
-    public function isEnoughMemory($Start, $End)
+    public function isEnoughMemory($start, $end)
     {
-        $FromByte = Converter::millisecondsToByte($Start, $this->wav->getDataRate());
-        $ToByte = Converter::millisecondsToByte($End, $this->wav->getDataRate());
+        $fromByte = Converter::millisecondsToByte($start, $this->wav->getDataRate());
+        $toByte = Converter::millisecondsToByte($end, $this->wav->getDataRate());
 
-        $MemoryLimit = (int)ini_get('memory_limit');
-        $MemoryLimit = Converter::megabyteToByte($MemoryLimit);
-        $MemoryUsage = memory_get_usage();
-        $ExpectedMemoryAllocation = $this->wav->getHeadersSize() + $ToByte - $FromByte;
+        $memoryLimit = (int)ini_get('memory_limit');
+        $memoryLimit = Converter::megabyteToByte($memoryLimit);
+        $memoryUsage = memory_get_usage();
+        $expectedMemoryAllocation = $this->wav->getHeadersSize() + $toByte - $fromByte;
 
-        return ($ExpectedMemoryAllocation + $MemoryUsage <= $MemoryLimit);
+        return ($expectedMemoryAllocation + $memoryUsage <= $memoryLimit);
     }
 }
