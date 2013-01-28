@@ -273,8 +273,8 @@ class Wav
     */
    public function getWavChunk($Start, $End)
    {
-      $FromByte = Creator::millisecondsToByte($Start, $this->getDataRate());
-      $ToByte = Creator::millisecondsToByte($End, $this->getDataRate());
+      $FromByte = Utility::millisecondsToByte($Start, $this->getDataRate());
+      $ToByte = Utility::millisecondsToByte($End, $this->getDataRate());
 
       $FileInput = @fopen($this->getFilePath(), 'r');
       if ($FileInput === FALSE)
