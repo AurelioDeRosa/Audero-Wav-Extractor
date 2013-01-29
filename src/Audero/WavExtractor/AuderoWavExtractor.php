@@ -274,7 +274,7 @@ class AuderoWavExtractor
      * @throws \InvalidArgumentException If the chunk is empty
      * @throws \Exception If the library is unable to create the file on the hard disk
      */
-    private function saveChunk($start, $end, &$filename = '')
+    public function saveChunk($start, $end, &$filename = '')
     {
         $chunk = $this->getChunk($start, $end);
         if (empty($chunk)) {
