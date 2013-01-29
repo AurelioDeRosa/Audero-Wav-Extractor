@@ -21,7 +21,7 @@
          // Extract the chunk and save it on the hard disk
          try {
             $extractor = new \Audero\WavExtractor\AuderoWavExtractor($inputFile);
-            $extractor->extractChunk($start, $end, 2, $outputFile);
+            $extractor->saveChunk($start, $end, $outputFile);
             echo 'Chunk extraction completed.';
          } catch (\Exception $ex) {
             echo 'An error has occurred: ' . $ex->getMessage();
@@ -30,7 +30,7 @@
            // Extract the chunk and force the download to the user browser
 //         try {
 //            $extractor = new \Audero\WavExtractor\AuderoWavExtractor($inputFile);
-//            $extractor->extractChunk($start, $end, 1, $outputFile);
+//            $extractor->downloadChunk($start, $end, $outputFile);
 //            echo 'Chunk extraction completed.';
 //         } catch (\Exception $ex) {
 //            echo 'An error has occurred: ' . $ex->getMessage();
