@@ -22,6 +22,7 @@
     "autoload": {
         "psr-0": {
             "Audero\\WavExtractor": "src/"
-        }
+        },
+        "target-dir": "Audero/WavExtractor"
     }
 }
