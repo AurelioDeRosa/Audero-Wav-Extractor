@@ -20,7 +20,7 @@ namespace Audero\WavExtractor\Wav\Chunk;
  * @package Audero\Audero\Wav\Chunk
  * @author  Aurelio De Rosa <aurelioderosa@gmail.com>
  * @license http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
- * @link    https://bitbucket.org/AurelioDeRosa/auderowavextractor
+ * @link    https://bitbucket.org/AurelioDeRosa/audero-wav-extractor
  */
 class Fact extends \Audero\WavExtractor\Wav\Chunk
 {

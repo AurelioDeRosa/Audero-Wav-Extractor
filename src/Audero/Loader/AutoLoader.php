@@ -19,7 +19,7 @@ namespace Audero\Loader;
  * @package Audero\Loader
  * @author  Aurelio De Rosa <aurelioderosa@gmail.com>
  * @license http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0
- * @link    https://bitbucket.org/AurelioDeRosa/auderowavextractor
+ * @link    https://bitbucket.org/AurelioDeRosa/audero-wav-extractor
  */
 class AutoLoader
 {
