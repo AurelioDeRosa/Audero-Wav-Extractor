@@ -1,0 +1,764 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Audero\WavExtractor\Wav\Chunk\Fmt</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Audero.html"><i class="icon-th"></i> Audero</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Audero.html"><i class="icon-folder-open"></i> Audero</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">58</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">1</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: The default constructor"><span class="description">The default constructor</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#method___get" title="__get :: Magic method to execute the getter associated to the property name given"><span class="description">Magic method to execute the getter associated to the property name given</span><pre>__get()</pre></a></li>
+<li class="method public "><a href="#method_getBitsPerSample" title="getBitsPerSample :: "><span class="description">getBitsPerSample()
+        </span><pre>getBitsPerSample()</pre></a></li>
+<li class="method public "><a href="#method_getBlockSize" title="getBlockSize :: "><span class="description">getBlockSize()
+        </span><pre>getBlockSize()</pre></a></li>
+<li class="method public "><a href="#method_getChannelMask" title="getChannelMask :: "><span class="description">getChannelMask()
+        </span><pre>getChannelMask()</pre></a></li>
+<li class="method public "><a href="#method_getChannelsNumber" title="getChannelsNumber :: "><span class="description">getChannelsNumber()
+        </span><pre>getChannelsNumber()</pre></a></li>
+<li class="method public inherited"><a href="#method_getChunkSize" title="getChunkSize :: Retrieves the size of the current chunk"><span class="description">Retrieves the size of the current chunk</span><pre>getChunkSize()</pre></a></li>
+<li class="method public inherited"><a href="#method_getChunkType" title="getChunkType :: Retrieves the chunk type based on the given id"><span class="description">Retrieves the chunk type based on the given id</span><pre>getChunkType()</pre></a></li>
+<li class="method public "><a href="#method_getCompressionCode" title="getCompressionCode :: "><span class="description">getCompressionCode()
+        </span><pre>getCompressionCode()</pre></a></li>
+<li class="method public "><a href="#method_getDataRate" title="getDataRate :: "><span class="description">getDataRate()
+        </span><pre>getDataRate()</pre></a></li>
+<li class="method public "><a href="#method_getExtensionSize" title="getExtensionSize :: "><span class="description">getExtensionSize()
+        </span><pre>getExtensionSize()</pre></a></li>
+<li class="method public inherited"><a href="#method_getId" title="getId :: Get the id of the chunk"><span class="description">Get the id of the chunk</span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getSampleRate" title="getSampleRate :: "><span class="description">getSampleRate()
+        </span><pre>getSampleRate()</pre></a></li>
+<li class="method public inherited"><a href="#method_getSize" title="getSize :: Get the size of the chunk"><span class="description">Get the size of the chunk</span><pre>getSize()</pre></a></li>
+<li class="method public "><a href="#method_getSubFormat" title="getSubFormat :: "><span class="description">getSubFormat()
+        </span><pre>getSubFormat()</pre></a></li>
+<li class="method public "><a href="#method_getValidBitsPerSample" title="getValidBitsPerSample :: "><span class="description">getValidBitsPerSample()
+        </span><pre>getValidBitsPerSample()</pre></a></li>
+<li class="method public inherited"><a href="#method_readData" title="readData :: Read the data inside the managed file to fill the properties of the
+current chunk."><span class="description">Read the data inside the managed file to fill the properties of the
+current chunk.</span><pre>readData()</pre></a></li>
+<li class="method public "><a href="#method_setBitsPerSample" title="setBitsPerSample :: "><span class="description">setBitsPerSample()
+        </span><pre>setBitsPerSample()</pre></a></li>
+<li class="method public "><a href="#method_setBlockSize" title="setBlockSize :: "><span class="description">setBlockSize()
+        </span><pre>setBlockSize()</pre></a></li>
+<li class="method public "><a href="#method_setChannelMask" title="setChannelMask :: "><span class="description">setChannelMask()
+        </span><pre>setChannelMask()</pre></a></li>
+<li class="method public "><a href="#method_setChannelsNumber" title="setChannelsNumber :: "><span class="description">setChannelsNumber()
+        </span><pre>setChannelsNumber()</pre></a></li>
+<li class="method public "><a href="#method_setCompressionCode" title="setCompressionCode :: "><span class="description">setCompressionCode()
+        </span><pre>setCompressionCode()</pre></a></li>
+<li class="method public "><a href="#method_setDataRate" title="setDataRate :: "><span class="description">setDataRate()
+        </span><pre>setDataRate()</pre></a></li>
+<li class="method public "><a href="#method_setExtensionSize" title="setExtensionSize :: "><span class="description">setExtensionSize()
+        </span><pre>setExtensionSize()</pre></a></li>
+<li class="method public inherited"><a href="#method_setId" title="setId :: Set the id of the chunk"><span class="description">Set the id of the chunk</span><pre>setId()</pre></a></li>
+<li class="method public "><a href="#method_setSampleRate" title="setSampleRate :: "><span class="description">setSampleRate()
+        </span><pre>setSampleRate()</pre></a></li>
+<li class="method public inherited"><a href="#method_setSize" title="setSize :: Set the size of the chunk"><span class="description">Set the size of the chunk</span><pre>setSize()</pre></a></li>
+<li class="method public "><a href="#method_setSubFormat" title="setSubFormat :: "><span class="description">setSubFormat()
+        </span><pre>setSubFormat()</pre></a></li>
+<li class="method public "><a href="#method_setValidBitsPerSample" title="setValidBitsPerSample :: "><span class="description">setValidBitsPerSample()
+        </span><pre>setValidBitsPerSample()</pre></a></li>
+<li class="method public inherited"><a href="#method_toString" title="toString :: Converts the current chunk into a string based on the values of its properties"><span class="description">Converts the current chunk into a string based on the values of its properties</span><pre>toString()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected inherited"><a href="#property_id" title="$id :: The id of the chunk"><span class="description"></span><pre>$id</pre></a></li>
+<li class="property protected inherited"><a href="#property_size" title="$size :: The size of the chunk"><span class="description"></span><pre>$size</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_bitsPerSample" title="$bitsPerSample :: "><span class="description"></span><pre>$bitsPerSample</pre></a></li>
+<li class="property private "><a href="#property_blockSize" title="$blockSize :: "><span class="description"></span><pre>$blockSize</pre></a></li>
+<li class="property private "><a href="#property_channelMask" title="$channelMask :: "><span class="description"></span><pre>$channelMask</pre></a></li>
+<li class="property private "><a href="#property_channelsNumber" title="$channelsNumber :: "><span class="description"></span><pre>$channelsNumber</pre></a></li>
+<li class="property private "><a href="#property_compressionCode" title="$compressionCode :: "><span class="description"></span><pre>$compressionCode</pre></a></li>
+<li class="property private "><a href="#property_dataRate" title="$dataRate :: "><span class="description"></span><pre>$dataRate</pre></a></li>
+<li class="property private "><a href="#property_extensionSize" title="$extensionSize :: "><span class="description"></span><pre>$extensionSize</pre></a></li>
+<li class="property private "><a href="#property_sampleRate" title="$sampleRate :: "><span class="description"></span><pre>$sampleRate</pre></a></li>
+<li class="property private "><a href="#property_subFormat" title="$subFormat :: "><span class="description"></span><pre>$subFormat</pre></a></li>
+<li class="property private "><a href="#property_validBitsPerSample" title="$validBitsPerSample :: "><span class="description"></span><pre>$validBitsPerSample</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-constant"></i> Constants
+                    <ul>
+<li class="constant  "><a href="#constant_ID" title="ID :: "><span class="description">ID</span><pre>ID</pre></a></li>
+<li class="constant  inherited"><a href="#constant_ID_FORMAT" title="ID_FORMAT :: "><span class="description">ID_FORMAT</span><pre>ID_FORMAT</pre></a></li>
+<li class="constant  inherited"><a href="#constant_ID_SIZE" title="ID_SIZE :: "><span class="description">ID_SIZE</span><pre>ID_SIZE</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Audero\WavExtractor\Wav\Chunk\Fmt"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Audero.html">Audero</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.html">WavExtractor</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.Wav.html">Wav</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.Wav.Chunk.html">Chunk</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">Fmt</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">The class of the Fmt chunk.</p>
+<div class="details">
+<div class="long_description"><p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/Audero.Audero.Wav.Chunk.html">Audero\Audero\Wav\Chunk</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:aurelioderosa@gmail.com">Aurelio De Rosa</a></td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor">https://bitbucket.org/AurelioDeRosa/audero-wav-extractor</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>The default constructor</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method___get"></a><div class="element clickable method public method___get" data-toggle="collapse" data-target=".method___get .collapse">
+<h2>Magic method to execute the getter associated to the property name given</h2>
+<pre>__get(string $name) : mixed</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::__get()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$name</h4>
+<code>string</code><p>The name of the property</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If the method doesn't exists</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>The result of the invoked method</div>
+</div></div>
+</div>
+<a id="method_getBitsPerSample"></a><div class="element clickable method public method_getBitsPerSample" data-toggle="collapse" data-target=".method_getBitsPerSample .collapse">
+<h2>getBitsPerSample()
+        </h2>
+<pre>getBitsPerSample() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getBlockSize"></a><div class="element clickable method public method_getBlockSize" data-toggle="collapse" data-target=".method_getBlockSize .collapse">
+<h2>getBlockSize()
+        </h2>
+<pre>getBlockSize() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getChannelMask"></a><div class="element clickable method public method_getChannelMask" data-toggle="collapse" data-target=".method_getChannelMask .collapse">
+<h2>getChannelMask()
+        </h2>
+<pre>getChannelMask() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getChannelsNumber"></a><div class="element clickable method public method_getChannelsNumber" data-toggle="collapse" data-target=".method_getChannelsNumber .collapse">
+<h2>getChannelsNumber()
+        </h2>
+<pre>getChannelsNumber() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getChunkSize"></a><div class="element clickable method public method_getChunkSize" data-toggle="collapse" data-target=".method_getChunkSize .collapse">
+<h2>Retrieves the size of the current chunk</h2>
+<pre>getChunkSize() : int</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::getChunkSize()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>int</code></div>
+</div></div>
+</div>
+<a id="method_getChunkType"></a><div class="element clickable method public method_getChunkType" data-toggle="collapse" data-target=".method_getChunkType .collapse">
+<h2>Retrieves the chunk type based on the given id</h2>
+<pre>getChunkType(string $id) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.html">\Audero\WavExtractor\Wav\Chunk</a></pre>
+<div class="labels">
+<span class="label">Inherited</span><span class="label">Static</span>
+</div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::getChunkType()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$id</h4>
+<code>string</code><p>The id of the chunk</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.html">\Audero\WavExtractor\Wav\Chunk</a></code></div>
+</div></div>
+</div>
+<a id="method_getCompressionCode"></a><div class="element clickable method public method_getCompressionCode" data-toggle="collapse" data-target=".method_getCompressionCode .collapse">
+<h2>getCompressionCode()
+        </h2>
+<pre>getCompressionCode() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getDataRate"></a><div class="element clickable method public method_getDataRate" data-toggle="collapse" data-target=".method_getDataRate .collapse">
+<h2>getDataRate()
+        </h2>
+<pre>getDataRate() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getExtensionSize"></a><div class="element clickable method public method_getExtensionSize" data-toggle="collapse" data-target=".method_getExtensionSize .collapse">
+<h2>getExtensionSize()
+        </h2>
+<pre>getExtensionSize() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse">
+<h2>Get the id of the chunk</h2>
+<pre>getId() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::getId()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getSampleRate"></a><div class="element clickable method public method_getSampleRate" data-toggle="collapse" data-target=".method_getSampleRate .collapse">
+<h2>getSampleRate()
+        </h2>
+<pre>getSampleRate() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getSize"></a><div class="element clickable method public method_getSize" data-toggle="collapse" data-target=".method_getSize .collapse">
+<h2>Get the size of the chunk</h2>
+<pre>getSize() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::getSize()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getSubFormat"></a><div class="element clickable method public method_getSubFormat" data-toggle="collapse" data-target=".method_getSubFormat .collapse">
+<h2>getSubFormat()
+        </h2>
+<pre>getSubFormat() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getValidBitsPerSample"></a><div class="element clickable method public method_getValidBitsPerSample" data-toggle="collapse" data-target=".method_getValidBitsPerSample .collapse">
+<h2>getValidBitsPerSample()
+        </h2>
+<pre>getValidBitsPerSample() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_readData"></a><div class="element clickable method public method_readData" data-toggle="collapse" data-target=".method_readData .collapse">
+<h2>Read the data inside the managed file to fill the properties of the
+current chunk.</h2>
+<pre>readData(resource $handle) : int</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::readData()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$handle</h4>
+<code>resource</code><p>The handle of the managed file</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>The amount of bytes read</div>
+</div></div>
+</div>
+<a id="method_setBitsPerSample"></a><div class="element clickable method public method_setBitsPerSample" data-toggle="collapse" data-target=".method_setBitsPerSample .collapse">
+<h2>setBitsPerSample()
+        </h2>
+<pre>setBitsPerSample(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $bitsPerSample) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$bitsPerSample</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setBlockSize"></a><div class="element clickable method public method_setBlockSize" data-toggle="collapse" data-target=".method_setBlockSize .collapse">
+<h2>setBlockSize()
+        </h2>
+<pre>setBlockSize(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $blockSize) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$blockSize</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setChannelMask"></a><div class="element clickable method public method_setChannelMask" data-toggle="collapse" data-target=".method_setChannelMask .collapse">
+<h2>setChannelMask()
+        </h2>
+<pre>setChannelMask(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $channelMask) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$channelMask</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setChannelsNumber"></a><div class="element clickable method public method_setChannelsNumber" data-toggle="collapse" data-target=".method_setChannelsNumber .collapse">
+<h2>setChannelsNumber()
+        </h2>
+<pre>setChannelsNumber(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $channelsNumber) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$channelsNumber</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setCompressionCode"></a><div class="element clickable method public method_setCompressionCode" data-toggle="collapse" data-target=".method_setCompressionCode .collapse">
+<h2>setCompressionCode()
+        </h2>
+<pre>setCompressionCode(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $compressionCode) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$compressionCode</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setDataRate"></a><div class="element clickable method public method_setDataRate" data-toggle="collapse" data-target=".method_setDataRate .collapse">
+<h2>setDataRate()
+        </h2>
+<pre>setDataRate(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $dataRate) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dataRate</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setExtensionSize"></a><div class="element clickable method public method_setExtensionSize" data-toggle="collapse" data-target=".method_setExtensionSize .collapse">
+<h2>setExtensionSize()
+        </h2>
+<pre>setExtensionSize(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $extensionSize) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$extensionSize</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setId"></a><div class="element clickable method public method_setId" data-toggle="collapse" data-target=".method_setId .collapse">
+<h2>Set the id of the chunk</h2>
+<pre>setId(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $id) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.html">\Audero\WavExtractor\Wav\Chunk</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::setId()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$id</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code><p>The id of the chunk</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.html">\Audero\WavExtractor\Wav\Chunk</a></code></div>
+</div></div>
+</div>
+<a id="method_setSampleRate"></a><div class="element clickable method public method_setSampleRate" data-toggle="collapse" data-target=".method_setSampleRate .collapse">
+<h2>setSampleRate()
+        </h2>
+<pre>setSampleRate(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $sampleRate) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sampleRate</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setSize"></a><div class="element clickable method public method_setSize" data-toggle="collapse" data-target=".method_setSize .collapse">
+<h2>Set the size of the chunk</h2>
+<pre>setSize(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $size) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.html">\Audero\WavExtractor\Wav\Chunk</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::setSize()</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$size</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code><p>The size of the chunk</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.html">\Audero\WavExtractor\Wav\Chunk</a></code></div>
+</div></div>
+</div>
+<a id="method_setSubFormat"></a><div class="element clickable method public method_setSubFormat" data-toggle="collapse" data-target=".method_setSubFormat .collapse">
+<h2>setSubFormat()
+        </h2>
+<pre>setSubFormat(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $subFormat) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$subFormat</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_setValidBitsPerSample"></a><div class="element clickable method public method_setValidBitsPerSample" data-toggle="collapse" data-target=".method_setValidBitsPerSample .collapse">
+<h2>setValidBitsPerSample()
+        </h2>
+<pre>setValidBitsPerSample(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $validBitsPerSample) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$validBitsPerSample</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.Fmt.html">\Audero\WavExtractor\Wav\Chunk\Fmt</a></code></div>
+</div></div>
+</div>
+<a id="method_toString"></a><div class="element clickable method public method_toString" data-toggle="collapse" data-target=".method_toString .collapse">
+<h2>Converts the current chunk into a string based on the values of its properties</h2>
+<pre>toString() : string</pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::toString()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_id"> </a><div class="element clickable property protected property_id" data-toggle="collapse" data-target=".property_id .collapse">
+<h2></h2>
+<pre>$id : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::$$id</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_size"> </a><div class="element clickable property protected property_size" data-toggle="collapse" data-target=".property_size .collapse">
+<h2></h2>
+<pre>$size : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::$$size</td>
+</tr></table>
+</div></div>
+</div>
+<a id="property_bitsPerSample"> </a><div class="element clickable property private property_bitsPerSample" data-toggle="collapse" data-target=".property_bitsPerSample .collapse">
+<h2></h2>
+<pre>$bitsPerSample : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_blockSize"> </a><div class="element clickable property private property_blockSize" data-toggle="collapse" data-target=".property_blockSize .collapse">
+<h2></h2>
+<pre>$blockSize : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_channelMask"> </a><div class="element clickable property private property_channelMask" data-toggle="collapse" data-target=".property_channelMask .collapse">
+<h2></h2>
+<pre>$channelMask : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_channelsNumber"> </a><div class="element clickable property private property_channelsNumber" data-toggle="collapse" data-target=".property_channelsNumber .collapse">
+<h2></h2>
+<pre>$channelsNumber : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_compressionCode"> </a><div class="element clickable property private property_compressionCode" data-toggle="collapse" data-target=".property_compressionCode .collapse">
+<h2></h2>
+<pre>$compressionCode : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_dataRate"> </a><div class="element clickable property private property_dataRate" data-toggle="collapse" data-target=".property_dataRate .collapse">
+<h2></h2>
+<pre>$dataRate : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_extensionSize"> </a><div class="element clickable property private property_extensionSize" data-toggle="collapse" data-target=".property_extensionSize .collapse">
+<h2></h2>
+<pre>$extensionSize : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_sampleRate"> </a><div class="element clickable property private property_sampleRate" data-toggle="collapse" data-target=".property_sampleRate .collapse">
+<h2></h2>
+<pre>$sampleRate : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_subFormat"> </a><div class="element clickable property private property_subFormat" data-toggle="collapse" data-target=".property_subFormat .collapse">
+<h2></h2>
+<pre>$subFormat : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_validBitsPerSample"> </a><div class="element clickable property private property_validBitsPerSample" data-toggle="collapse" data-target=".property_validBitsPerSample .collapse">
+<h2></h2>
+<pre>$validBitsPerSample : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<h3>
+<i class="icon-custom icon-constant"></i> Constants</h3>
+<a id="constant_ID"> </a><div class="element clickable constant  constant_ID" data-toggle="collapse" data-target=".constant_ID .collapse">
+<h2>ID</h2>
+<pre>ID </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="constant_ID_FORMAT"> </a><div class="element clickable constant  constant_ID_FORMAT" data-toggle="collapse" data-target=".constant_ID_FORMAT .collapse">
+<h2>ID_FORMAT</h2>
+<pre>ID_FORMAT </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::ID_FORMAT</td>
+</tr></table>
+</div></div>
+</div>
+<a id="constant_ID_SIZE"> </a><div class="element clickable constant  constant_ID_SIZE" data-toggle="collapse" data-target=".constant_ID_SIZE .collapse">
+<h2>ID_SIZE</h2>
+<pre>ID_SIZE </pre>
+<div class="labels"><span class="label">Inherited</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>inherited_from</th>
+<td>\Audero\WavExtractor\Wav\Chunk::ID_SIZE</td>
+</tr></table>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-02-02T13:14:40+01:00.<br></footer></div>
+</div>
+</body>
+</html>

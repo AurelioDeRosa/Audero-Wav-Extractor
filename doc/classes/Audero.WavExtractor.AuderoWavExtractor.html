@@ -1,0 +1,360 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Audero\WavExtractor\AuderoWavExtractor</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Audero.html"><i class="icon-th"></i> Audero</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Audero.html"><i class="icon-folder-open"></i> Audero</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">58</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">1</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: The constructor of the object."><span class="description">The constructor of the object.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_downloadChuck" title="downloadChuck :: Extract a chunk and force the download to the user's browser"><span class="description">Extract a chunk and force the download to the user's browser</span><pre>downloadChuck()</pre></a></li>
+<li class="method public "><a href="#method_extractChunk" title="extractChunk :: Extract a portion of the current, from the $start to $end."><span class="description">Extract a portion of the current, from the $start to $end.</span><pre>extractChunk()</pre></a></li>
+<li class="method public "><a href="#method_getChunk" title="getChunk :: Extract a portion of the current, from the $start to $end and return it as a string"><span class="description">Extract a portion of the current, from the $start to $end and return it as a string</span><pre>getChunk()</pre></a></li>
+<li class="method public "><a href="#method_getWav" title="getWav :: Get the instance of the current wav file"><span class="description">Get the instance of the current wav file</span><pre>getWav()</pre></a></li>
+<li class="method public "><a href="#method_isEnoughMemory" title="isEnoughMemory :: Try to test if the available memory is enough to extract the chunk"><span class="description">Try to test if the available memory is enough to extract the chunk</span><pre>isEnoughMemory()</pre></a></li>
+<li class="method public "><a href="#method_saveChunk" title="saveChunk :: Save the extracted chunk on the hard disk"><span class="description">Save the extracted chunk on the hard disk</span><pre>saveChunk()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="method private "><a href="#method_getFilename" title="getFilename :: Get the filename (include the path) of the current wav file."><span class="description">Get the filename (include the path) of the current wav file.</span><pre>getFilename()</pre></a></li></ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="property private "><a href="#property_wav" title="$wav :: The current wav file"><span class="description"></span><pre>$wav</pre></a></li></ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Audero\WavExtractor\AuderoWavExtractor"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Audero.html">Audero</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.html">WavExtractor</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Audero.WavExtractor.AuderoWavExtractor.html">AuderoWavExtractor</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">"Audero Wav Extractor" is a PHP library that allows to extract a chunk from a
+wav file.</p>
+<div class="details">
+<div class="long_description"><p>The extracted chunk of the wav file can be saved on the hard disk,
+can be forced to be prompted as download by the user's browser, returned
+as a string for a later processing or a combination of the first and second
+possibilities. It is very easy to use "Audero Wav Extractor" to extract a piece
+of audio from a wav file. All you have to do is give the name of the file,
+the start and the end time to extract (optionally you can provide a name
+for the extracted chunk).</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/Audero.WavExtractor.html">Audero\WavExtractor</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:aurelioderosa@gmail.com">Aurelio De Rosa</a></td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor">https://bitbucket.org/AurelioDeRosa/audero-wav-extractor</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>The constructor of the object.</h2>
+<pre>__construct(string $filePath) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>It loads all the required class and create
+the Wav object that represents the chosen one.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filePath</h4>
+<code>string</code><p>The filename, including the path, of the managed file wav</p></div>
+</div></div>
+</div>
+<a id="method_downloadChuck"></a><div class="element clickable method public method_downloadChuck" data-toggle="collapse" data-target=".method_downloadChuck .collapse">
+<h2>Extract a chunk and force the download to the user's browser</h2>
+<pre>downloadChuck(int $start, int $end, string $filename) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$start</h4>
+<code>int</code><p>The start time, in milliseconds, of the portion to extract</p></div>
+<div class="subelement argument">
+<h4>$end</h4>
+<code>int</code><p>The end time, in milliseconds, of the portion to extract</p></div>
+<div class="subelement argument">
+<h4>$filename</h4>
+<code>string</code><p>The filename that will be shown by the browser</p></div>
+</div></div>
+</div>
+<a id="method_extractChunk"></a><div class="element clickable method public method_extractChunk" data-toggle="collapse" data-target=".method_extractChunk .collapse">
+<h2>Extract a portion of the current, from the $start to $end.</h2>
+<pre>extractChunk(int $start, int $end, int $destination, string $filename) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>The chunk will be
+saved, with name $filename, in the local server, the browser or the user and
+so on based on the value of $Destination.</p>
+
+<p>The possible value of $Destination are:</p>
+
+<ul>
+   <li>
+      <b>1</b>: send the file to the browser and force the download
+      with the name given by $filename.
+   </li>
+   <li>
+      <b>2</b>: save into the local disk the file with the name
+      given by $filename.
+   </li>
+   <li>
+      <b>3</b>: return the wav as a string. In this case $filename is ignored.
+   </li>
+   <li>
+      <b>4</b>: both 2 and 3
+   </li>
+</ul></div>
+<table class="table table-bordered"><tr>
+<th>deprecated</th>
+<td>Since version 2.0.0</td>
+</tr></table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$start</h4>
+<code>int</code><p>The start time, in milliseconds, of the portion to extract</p></div>
+<div class="subelement argument">
+<h4>$end</h4>
+<code>int</code><p>The end time, in milliseconds, of the portion to extract</p></div>
+<div class="subelement argument">
+<h4>$destination</h4>
+<code>int</code><p>Where to save the extracted chunk</p></div>
+<div class="subelement argument">
+<h4>$filename</h4>
+<code>string</code><p>&$filename   The name to assign to the chunk. If no name is provided
+                           the method generate one using this rule:
+                           "InputFilename-Start-End.wav"</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered">
+<tr>
+<th><code><a href="http://php.net/manual/en/class.invalidargumentexception.php">\InvalidArgumentException</a></code></th>
+<td>If the give boundary is invalid (for example
+if the end is lower than start) or if the destination value isn't valid
+(for example greater than 4).</td>
+</tr>
+<tr>
+<th><code><a href="http://php.net/manual/en/class.runtimeexception.php">\RuntimeException</a></code></th>
+<td>If there's not enough memory to save the given range</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The chunk to extract, including the headers</div>
+</div></div>
+</div>
+<a id="method_getChunk"></a><div class="element clickable method public method_getChunk" data-toggle="collapse" data-target=".method_getChunk .collapse">
+<h2>Extract a portion of the current, from the $start to $end and return it as a string</h2>
+<pre>getChunk(int $start, int $end) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$start</h4>
+<code>int</code><p>The start time, in milliseconds, of the portion to extract</p></div>
+<div class="subelement argument">
+<h4>$end</h4>
+<code>int</code><p>The end time, in milliseconds, of the portion to extract</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered">
+<tr>
+<th><code><a href="http://php.net/manual/en/class.invalidargumentexception.php">\InvalidArgumentException</a></code></th>
+<td>If the give boundary is invalid (for example
+if the end is lower than start) or if the destination value isn't valid
+(for example greater than 4).</td>
+</tr>
+<tr>
+<th><code><a href="http://php.net/manual/en/class.runtimeexception.php">\RuntimeException</a></code></th>
+<td>If there's not enough memory to save the given range</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The chunk to extract, including the headers</div>
+</div></div>
+</div>
+<a id="method_getWav"></a><div class="element clickable method public method_getWav" data-toggle="collapse" data-target=".method_getWav .collapse">
+<h2>Get the instance of the current wav file</h2>
+<pre>getWav() : <a href="../classes/Audero.WavExtractor.Wav.Wav.html">\Audero\WavExtractor\Wav\Wav</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code><a href="../classes/Audero.WavExtractor.Wav.Wav.html">\Audero\WavExtractor\Wav\Wav</a></code>The current wav file</div>
+</div></div>
+</div>
+<a id="method_isEnoughMemory"></a><div class="element clickable method public method_isEnoughMemory" data-toggle="collapse" data-target=".method_isEnoughMemory .collapse">
+<h2>Try to test if the available memory is enough to extract the chunk</h2>
+<pre>isEnoughMemory(int $start, int $end) : bool</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$start</h4>
+<code>int</code><p>The start time, in milliseconds, of the chunk that
+                  has to be extracted</p></div>
+<div class="subelement argument">
+<h4>$end</h4>
+<code>int</code><p>The end time, in milliseconds, of the chunk that
+                  has to be extracted</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>bool</code><code>true</code> if the memory is enough. <code>false</code> otherwise.</div>
+</div></div>
+</div>
+<a id="method_saveChunk"></a><div class="element clickable method public method_saveChunk" data-toggle="collapse" data-target=".method_saveChunk .collapse">
+<h2>Save the extracted chunk on the hard disk</h2>
+<pre>saveChunk(int $start, int $end, string $filename) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$start</h4>
+<code>int</code><p>The start time, in milliseconds, of the portion to extract</p></div>
+<div class="subelement argument">
+<h4>$end</h4>
+<code>int</code><p>The end time, in milliseconds, of the portion to extract</p></div>
+<div class="subelement argument">
+<h4>$filename</h4>
+<code>string</code><p>The filename to use to save the file on the hard disk</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered">
+<tr>
+<th><code><a href="http://php.net/manual/en/class.invalidargumentexception.php">\InvalidArgumentException</a></code></th>
+<td>If the chunk is empty</td>
+</tr>
+<tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If the library is unable to create the file on the hard disk</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="method_getFilename"></a><div class="element clickable method private method_getFilename" data-toggle="collapse" data-target=".method_getFilename .collapse">
+<h2>Get the filename (include the path) of the current wav file.</h2>
+<pre>getFilename(boolean $includeExtension) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If false is passed, the extension of the file is stripped.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$includeExtension</h4>
+<code>boolean</code><p>Include or not the extension (.wav)
+                                 of the file. Default is true.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>string</code>The filename of the managed wav file</div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_wav"> </a><div class="element clickable property private property_wav" data-toggle="collapse" data-target=".property_wav .collapse">
+<h2></h2>
+<pre>$wav : <a href="../classes/Audero.WavExtractor.Wav.Wav.html">\Audero\WavExtractor\Wav\Wav</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-02-02T13:14:39+01:00.<br></footer></div>
+</div>
+</body>
+</html>

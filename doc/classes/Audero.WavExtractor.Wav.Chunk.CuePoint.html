@@ -1,0 +1,410 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Audero\WavExtractor\Wav\Chunk\CuePoint</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Audero.html"><i class="icon-th"></i> Audero</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Audero.html"><i class="icon-folder-open"></i> Audero</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">58</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">1</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: The default constructor"><span class="description">The default constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_getBlockStart" title="getBlockStart :: "><span class="description">getBlockStart()
+        </span><pre>getBlockStart()</pre></a></li>
+<li class="method public "><a href="#method_getChunkStart" title="getChunkStart :: "><span class="description">getChunkStart()
+        </span><pre>getChunkStart()</pre></a></li>
+<li class="method public "><a href="#method_getDataChunkId" title="getDataChunkId :: "><span class="description">getDataChunkId()
+        </span><pre>getDataChunkId()</pre></a></li>
+<li class="method public "><a href="#method_getId" title="getId :: Get the id of the point"><span class="description">Get the id of the point</span><pre>getId()</pre></a></li>
+<li class="method public "><a href="#method_getPosition" title="getPosition :: Get the position that this point has into the set of the Cue points"><span class="description">Get the position that this point has into the set of the Cue points</span><pre>getPosition()</pre></a></li>
+<li class="method public "><a href="#method_getSampleOffset" title="getSampleOffset :: "><span class="description">getSampleOffset()
+        </span><pre>getSampleOffset()</pre></a></li>
+<li class="method public "><a href="#method_getSize" title="getSize :: "><span class="description">getSize()
+        </span><pre>getSize()</pre></a></li>
+<li class="method public "><a href="#method_readData" title="readData :: Read the data inside the managed file to fill the properties of the
+current chunk."><span class="description">Read the data inside the managed file to fill the properties of the
+current chunk.</span><pre>readData()</pre></a></li>
+<li class="method public "><a href="#method_setBlockStart" title="setBlockStart :: "><span class="description">setBlockStart()
+        </span><pre>setBlockStart()</pre></a></li>
+<li class="method public "><a href="#method_setChunkStart" title="setChunkStart :: "><span class="description">setChunkStart()
+        </span><pre>setChunkStart()</pre></a></li>
+<li class="method public "><a href="#method_setDataChunkId" title="setDataChunkId :: "><span class="description">setDataChunkId()
+        </span><pre>setDataChunkId()</pre></a></li>
+<li class="method public "><a href="#method_setId" title="setId :: Set the id of the point"><span class="description">Set the id of the point</span><pre>setId()</pre></a></li>
+<li class="method public "><a href="#method_setPosition" title="setPosition :: Set the position that this point has into the set of the Cue points"><span class="description">Set the position that this point has into the set of the Cue points</span><pre>setPosition()</pre></a></li>
+<li class="method public "><a href="#method_setSampleOffset" title="setSampleOffset :: "><span class="description">setSampleOffset()
+        </span><pre>setSampleOffset()</pre></a></li>
+<li class="method public "><a href="#method_toString" title="toString :: Converts the current chunk into a string based on the values of its properties"><span class="description">Converts the current chunk into a string based on the values of its properties</span><pre>toString()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_blockStart" title="$blockStart :: "><span class="description"></span><pre>$blockStart</pre></a></li>
+<li class="property private "><a href="#property_chunkStart" title="$chunkStart :: "><span class="description"></span><pre>$chunkStart</pre></a></li>
+<li class="property private "><a href="#property_dataChunkId" title="$dataChunkId :: "><span class="description"></span><pre>$dataChunkId</pre></a></li>
+<li class="property private "><a href="#property_id" title="$id :: The id of the point"><span class="description"></span><pre>$id</pre></a></li>
+<li class="property private "><a href="#property_position" title="$position :: The position that this point has into the set of the Cue points"><span class="description"></span><pre>$position</pre></a></li>
+<li class="property private "><a href="#property_sampleOffset" title="$sampleOffset :: "><span class="description"></span><pre>$sampleOffset</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Audero\WavExtractor\Wav\Chunk\CuePoint"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Audero.html">Audero</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.html">WavExtractor</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.Wav.html">Wav</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.Wav.Chunk.html">Chunk</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">CuePoint</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">The class that maps the Cue Points which is part of the Cue chunk.</p>
+<div class="details">
+<div class="long_description"><p>More info here: http://www.sonicspot.com/guide/wavefiles.html</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/Audero.Audero.Wav.Chunk.html">Audero\Audero\Wav\Chunk</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:aurelioderosa@gmail.com">Aurelio De Rosa</a></td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor">https://bitbucket.org/AurelioDeRosa/audero-wav-extractor</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>The default constructor</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="method_getBlockStart"></a><div class="element clickable method public method_getBlockStart" data-toggle="collapse" data-target=".method_getBlockStart .collapse">
+<h2>getBlockStart()
+        </h2>
+<pre>getBlockStart() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getChunkStart"></a><div class="element clickable method public method_getChunkStart" data-toggle="collapse" data-target=".method_getChunkStart .collapse">
+<h2>getChunkStart()
+        </h2>
+<pre>getChunkStart() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getDataChunkId"></a><div class="element clickable method public method_getDataChunkId" data-toggle="collapse" data-target=".method_getDataChunkId .collapse">
+<h2>getDataChunkId()
+        </h2>
+<pre>getDataChunkId() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getId"></a><div class="element clickable method public method_getId" data-toggle="collapse" data-target=".method_getId .collapse">
+<h2>Get the id of the point</h2>
+<pre>getId() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getPosition"></a><div class="element clickable method public method_getPosition" data-toggle="collapse" data-target=".method_getPosition .collapse">
+<h2>Get the position that this point has into the set of the Cue points</h2>
+<pre>getPosition() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getSampleOffset"></a><div class="element clickable method public method_getSampleOffset" data-toggle="collapse" data-target=".method_getSampleOffset .collapse">
+<h2>getSampleOffset()
+        </h2>
+<pre>getSampleOffset() : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code></div>
+</div></div>
+</div>
+<a id="method_getSize"></a><div class="element clickable method public method_getSize" data-toggle="collapse" data-target=".method_getSize .collapse">
+<h2>getSize()
+        </h2>
+<pre>getSize() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>int</code></div>
+</div></div>
+</div>
+<a id="method_readData"></a><div class="element clickable method public method_readData" data-toggle="collapse" data-target=".method_readData .collapse">
+<h2>Read the data inside the managed file to fill the properties of the
+current chunk.</h2>
+<pre>readData(resource $handle) : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$handle</h4>
+<code>resource</code><p>The handle of the managed file</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>The amount of bytes read</div>
+</div></div>
+</div>
+<a id="method_setBlockStart"></a><div class="element clickable method public method_setBlockStart" data-toggle="collapse" data-target=".method_setBlockStart .collapse">
+<h2>setBlockStart()
+        </h2>
+<pre>setBlockStart(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $blockStart) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$blockStart</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></code></div>
+</div></div>
+</div>
+<a id="method_setChunkStart"></a><div class="element clickable method public method_setChunkStart" data-toggle="collapse" data-target=".method_setChunkStart .collapse">
+<h2>setChunkStart()
+        </h2>
+<pre>setChunkStart(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $chunkStart) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$chunkStart</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></code></div>
+</div></div>
+</div>
+<a id="method_setDataChunkId"></a><div class="element clickable method public method_setDataChunkId" data-toggle="collapse" data-target=".method_setDataChunkId .collapse">
+<h2>setDataChunkId()
+        </h2>
+<pre>setDataChunkId(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $dataChunkId) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$dataChunkId</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></code></div>
+</div></div>
+</div>
+<a id="method_setId"></a><div class="element clickable method public method_setId" data-toggle="collapse" data-target=".method_setId .collapse">
+<h2>Set the id of the point</h2>
+<pre>setId(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $id) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$id</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></code></div>
+</div></div>
+</div>
+<a id="method_setPosition"></a><div class="element clickable method public method_setPosition" data-toggle="collapse" data-target=".method_setPosition .collapse">
+<h2>Set the position that this point has into the set of the Cue points</h2>
+<pre>setPosition(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $position) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$position</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></code></div>
+</div></div>
+</div>
+<a id="method_setSampleOffset"></a><div class="element clickable method public method_setSampleOffset" data-toggle="collapse" data-target=".method_setSampleOffset .collapse">
+<h2>setSampleOffset()
+        </h2>
+<pre>setSampleOffset(<a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a> $sampleOffset) : <a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$sampleOffset</h4>
+<code><a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></code>
+</div>
+<h3>Returns</h3>
+<div class="subelement response"><code><a href="../classes/Audero.WavExtractor.Wav.Chunk.CuePoint.html">\Audero\WavExtractor\Wav\Chunk\CuePoint</a></code></div>
+</div></div>
+</div>
+<a id="method_toString"></a><div class="element clickable method public method_toString" data-toggle="collapse" data-target=".method_toString .collapse">
+<h2>Converts the current chunk into a string based on the values of its properties</h2>
+<pre>toString() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_blockStart"> </a><div class="element clickable property private property_blockStart" data-toggle="collapse" data-target=".property_blockStart .collapse">
+<h2></h2>
+<pre>$blockStart : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_chunkStart"> </a><div class="element clickable property private property_chunkStart" data-toggle="collapse" data-target=".property_chunkStart .collapse">
+<h2></h2>
+<pre>$chunkStart : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_dataChunkId"> </a><div class="element clickable property private property_dataChunkId" data-toggle="collapse" data-target=".property_dataChunkId .collapse">
+<h2></h2>
+<pre>$dataChunkId : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_id"> </a><div class="element clickable property private property_id" data-toggle="collapse" data-target=".property_id .collapse">
+<h2></h2>
+<pre>$id : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_position"> </a><div class="element clickable property private property_position" data-toggle="collapse" data-target=".property_position .collapse">
+<h2></h2>
+<pre>$position : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_sampleOffset"> </a><div class="element clickable property private property_sampleOffset" data-toggle="collapse" data-target=".property_sampleOffset .collapse">
+<h2></h2>
+<pre>$sampleOffset : <a href="../classes/Audero.WavExtractor.Wav.ChunkField.html">\Audero\WavExtractor\Wav\ChunkField</a></pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-02-02T13:14:40+01:00.<br></footer></div>
+</div>
+</body>
+</html>

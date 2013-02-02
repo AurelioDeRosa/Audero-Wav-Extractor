@@ -1,0 +1,331 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+<meta charset="utf-8">
+<title>phpDocumentor » \Audero\WavExtractor\Wav\Wav</title>
+<meta name="author" content="Mike van Riel">
+<meta name="description" content="">
+<link href="../css/template.css" rel="stylesheet" media="all">
+<script src="../js/jquery-1.7.1.min.js" type="text/javascript"></script><script src="../js/jquery-ui-1.8.2.custom.min.js" type="text/javascript"></script><script src="../js/jquery.mousewheel.min.js" type="text/javascript"></script><script src="../js/bootstrap.js" type="text/javascript"></script><script src="../js/template.js" type="text/javascript"></script><script src="../js/prettify/prettify.min.js" type="text/javascript"></script><link rel="shortcut icon" href="../img/favicon.ico">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="../img/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-touch-icon-114x114.png">
+</head>
+<body>
+<div class="navbar navbar-fixed-top">
+<div class="navbar-inner"><div class="container">
+<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a><a class="brand" href="../index.html">phpDocumentor</a><div class="nav-collapse"><ul class="nav">
+<li class="dropdown">
+<a href="#api" class="dropdown-toggle" data-toggle="dropdown">
+                                    API Documentation <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a>Namespaces</a></li>
+<li><a href="../namespaces/Audero.html"><i class="icon-th"></i> Audero</a></li>
+<li><a>Packages</a></li>
+<li><a href="../packages/Audero.html"><i class="icon-folder-open"></i> Audero</a></li>
+</ul>
+</li>
+<li class="dropdown" id="charts-menu">
+<a href="#charts" class="dropdown-toggle" data-toggle="dropdown">
+                                    Charts <b class="caret"></b></a><ul class="dropdown-menu"><li><a href="../graph_class.html"><i class="icon-list-alt"></i> Class hierarchy diagram</a></li></ul>
+</li>
+<li class="dropdown" id="reports-menu">
+<a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
+                                    Reports <b class="caret"></b></a><ul class="dropdown-menu">
+<li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
+                <span class="label label-info">58</span></a></li>
+<li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
+                <ul></ul></a></li>
+<li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
+                <span class="label label-info">1</span></a></li>
+</ul>
+</li>
+</ul></div>
+</div></div>
+<div class="go_to_top"><a href="#___" style="color: inherit">Back to top  <i class="icon-upload icon-white"></i></a></div>
+</div>
+<div id="___" class="container">
+<noscript><div class="alert alert-warning">
+                            Javascript is disabled; several features are only available
+                            if Javascript is enabled.
+                        </div></noscript>
+<div class="row">
+<div class="span4">
+<span class="btn-group visibility" data-toggle="buttons-checkbox"><button class="btn public active" title="Show public elements">Public</button><button class="btn protected" title="Show protected elements">Protected</button><button class="btn private" title="Show private elements">Private</button><button class="btn inherited active" title="Show inherited elements">Inherited</button></span><div class="btn-group view pull-right" data-toggle="buttons-radio">
+<button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
+</div>
+<ul class="side-nav nav nav-list">
+<li class="nav-header">
+<i class="icon-custom icon-method"></i> Methods
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct :: The constructor of the object."><span class="description">The constructor of the object.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_getChannelsNumber" title="getChannelsNumber :: Retrieves the number of channels of the current file."><span class="description">Retrieves the number of channels of the current file.</span><pre>getChannelsNumber()</pre></a></li>
+<li class="method public "><a href="#method_getDataRate" title="getDataRate :: Retrieves the number of sample slices per second."><span class="description">Retrieves the number of sample slices per second.</span><pre>getDataRate()</pre></a></li>
+<li class="method public "><a href="#method_getDuration" title="getDuration :: This method get the current file duration"><span class="description">This method get the current file duration</span><pre>getDuration()</pre></a></li>
+<li class="method public "><a href="#method_getFilePath" title="getFilePath :: Retrieves the path to the current file"><span class="description">Retrieves the path to the current file</span><pre>getFilePath()</pre></a></li>
+<li class="method public "><a href="#method_getHeaders" title="getHeaders :: Get the headers of the current wav file."><span class="description">Get the headers of the current wav file.</span><pre>getHeaders()</pre></a></li>
+<li class="method public "><a href="#method_getHeadersSize" title="getHeadersSize :: Get the headers size in byte"><span class="description">Get the headers size in byte</span><pre>getHeadersSize()</pre></a></li>
+<li class="method public "><a href="#method_getWavChunk" title="getWavChunk :: Extract the portion from the original audio"><span class="description">Extract the portion from the original audio</span><pre>getWavChunk()</pre></a></li>
+<li class="method public "><a href="#method_headersToString" title="headersToString :: Convert the array that contain the headers in a string"><span class="description">Convert the array that contain the headers in a string</span><pre>headersToString()</pre></a></li>
+<li class="method public "><a href="#method_setDataChunkSize" title="setDataChunkSize :: Set the size of the data chunk."><span class="description">Set the size of the data chunk.</span><pre>setDataChunkSize()</pre></a></li>
+<li class="method public "><a href="#method_setFilePath" title="setFilePath :: Set the path to the wav file that has to be managed"><span class="description">Set the path to the wav file that has to be managed</span><pre>setFilePath()</pre></a></li>
+</ul>
+</li>
+<li class="nav-header">
+<i class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_filePath" title="$filePath :: The filename, including the path, of the managed wav file"><span class="description"></span><pre>$filePath</pre></a></li>
+<li class="property private "><a href="#property_headers" title="$headers :: An array containing the headers of the wav file"><span class="description"></span><pre>$headers</pre></a></li>
+<li class="property private "><a href="#property_headersSize" title="$headersSize :: The size in byte of the wav file"><span class="description"></span><pre>$headersSize</pre></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="span8">
+<a id="\Audero\WavExtractor\Wav\Wav"></a><ul class="breadcrumb">
+<li>
+<a href="../index.html"><i class="icon-custom icon-class"></i></a><span class="divider">\</span>
+</li>
+<li><a href="../namespaces/Audero.html">Audero</a></li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.html">WavExtractor</a>
+</li>
+<li>
+<span class="divider">\</span><a href="../namespaces/Audero.WavExtractor.Wav.html">Wav</a>
+</li>
+<li class="active">
+<span class="divider">\</span><a href="../classes/Audero.WavExtractor.Wav.Wav.html">Wav</a>
+</li>
+</ul>
+<div class="element class">
+<p class="short_description">This class maps the current analyzed wav file.</p>
+<div class="details">
+<div class="long_description"><p>It has the methods to extract
+the chunk and the data from the file.</p>
+
+<p>LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/</p>
+
+<p>WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.</p></div>
+<table class="table table-bordered">
+<tr>
+<th>package</th>
+<td><a href="../packages/Audero.Audero.Wav.html">Audero\Audero\Wav</a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:aurelioderosa@gmail.com">Aurelio De Rosa</a></td>
+</tr>
+<tr>
+<th>license</th>
+<td><a href="http://creativecommons.org/licenses/by-nc/3.0/">CC BY-NC 3.0</a></td>
+</tr>
+<tr>
+<th>link</th>
+<td><a href="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor">https://bitbucket.org/AurelioDeRosa/audero-wav-extractor</a></td>
+</tr>
+</table>
+<h3>
+<i class="icon-custom icon-method"></i> Methods</h3>
+<a id="method___construct"></a><div class="element clickable method public method___construct" data-toggle="collapse" data-target=".method___construct .collapse">
+<h2>The constructor of the object.</h2>
+<pre>__construct(string $filePath) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>It initialized the object and set
+the filename of the wav file.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filePath</h4>
+<code>string</code><p>The filename, including the path, of the managed file wav</p></div>
+</div></div>
+</div>
+<a id="method_getChannelsNumber"></a><div class="element clickable method public method_getChannelsNumber" data-toggle="collapse" data-target=".method_getChannelsNumber .collapse">
+<h2>Retrieves the number of channels of the current file.</h2>
+<pre>getChannelsNumber() : int | null</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code><code>null</code>
+</div>
+</div></div>
+</div>
+<a id="method_getDataRate"></a><div class="element clickable method public method_getDataRate" data-toggle="collapse" data-target=".method_getDataRate .collapse">
+<h2>Retrieves the number of sample slices per second.</h2>
+<pre>getDataRate() : int | null</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code><code>null</code>
+</div>
+</div></div>
+</div>
+<a id="method_getDuration"></a><div class="element clickable method public method_getDuration" data-toggle="collapse" data-target=".method_getDuration .collapse">
+<h2>This method get the current file duration</h2>
+<pre>getDuration() : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>The duration of the file in milliseconds</div>
+</div></div>
+</div>
+<a id="method_getFilePath"></a><div class="element clickable method public method_getFilePath" data-toggle="collapse" data-target=".method_getFilePath .collapse">
+<h2>Retrieves the path to the current file</h2>
+<pre>getFilePath() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_getHeaders"></a><div class="element clickable method public method_getHeaders" data-toggle="collapse" data-target=".method_getHeaders .collapse">
+<h2>Get the headers of the current wav file.</h2>
+<pre>getHeaders(int $headerSize) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"><p>If the headers contains not recognize
+chunks, these will be drop.</p></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$headerSize</h4>
+<code>int</code><p>&$headerSize The amount of bytes of the current wav headers (including dropped chunks)</p>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If the wav file is not available or cannot be open.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>The array that contains the headers (excluding dropped chunks)</div>
+</div></div>
+</div>
+<a id="method_getHeadersSize"></a><div class="element clickable method public method_getHeadersSize" data-toggle="collapse" data-target=".method_getHeadersSize .collapse">
+<h2>Get the headers size in byte</h2>
+<pre>getHeadersSize(bool $onlyRecognizedChunks) : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$onlyRecognizedChunks</h4>
+<code>bool</code><p>If the value is FALSE (default), the method will
+                             calculate the size of the actual headers. This means that, if there were
+                             any dropped chunks, these will be counted. Otherwise, the method returns just
+                             the bytes of the recognized chunks.</p>
+</div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>int</code>The number of bytes</div>
+</div></div>
+</div>
+<a id="method_getWavChunk"></a><div class="element clickable method public method_getWavChunk" data-toggle="collapse" data-target=".method_getWavChunk .collapse">
+<h2>Extract the portion from the original audio</h2>
+<pre>getWavChunk(int $start, int $end) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$start</h4>
+<code>int</code><p>The time in milliseconds from which to start</p></div>
+<div class="subelement argument">
+<h4>$end</h4>
+<code>int</code><p>The time in milliseconds from which to end</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.exception.php">\Exception</a></code></th>
+<td>If the file wav is not available or cannot be open.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_headersToString"></a><div class="element clickable method public method_headersToString" data-toggle="collapse" data-target=".method_headersToString .collapse">
+<h2>Convert the array that contain the headers in a string</h2>
+<pre>headersToString() : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_setDataChunkSize"></a><div class="element clickable method public method_setDataChunkSize" data-toggle="collapse" data-target=".method_setDataChunkSize .collapse">
+<h2>Set the size of the data chunk.</h2>
+<pre>setDataChunkSize(int $size) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$size</h4>
+<code>int</code><p>The size of the data chunk</p></div>
+</div></div>
+</div>
+<a id="method_setFilePath"></a><div class="element clickable method public method_setFilePath" data-toggle="collapse" data-target=".method_setFilePath .collapse">
+<h2>Set the path to the wav file that has to be managed</h2>
+<pre>setFilePath(string $filePath) : void</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$filePath</h4>
+<code>string</code><p>The filename, including the path, of the managed file wav</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code><a href="http://php.net/manual/en/class.invalidargumentexception.php">\InvalidArgumentException</a></code></th>
+<td>If the file does not exist or if the file
+does not appear to be a wav.</td>
+</tr></table>
+</div></div>
+</div>
+<h3>
+<i class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_filePath"> </a><div class="element clickable property private property_filePath" data-toggle="collapse" data-target=".property_filePath .collapse">
+<h2></h2>
+<pre>$filePath : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_headers"> </a><div class="element clickable property private property_headers" data-toggle="collapse" data-target=".property_headers .collapse">
+<h2></h2>
+<pre>$headers : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_headersSize"> </a><div class="element clickable property private property_headersSize" data-toggle="collapse" data-target=".property_headersSize .collapse">
+<h2></h2>
+<pre>$headersSize : int</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><footer class="span12">
+            Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
+            Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.0.0a12</a> and<br>
+            generated on 2013-02-02T13:14:40+01:00.<br></footer></div>
+</div>
+</body>
+</html>
