@@ -2,7 +2,7 @@
 namespace Audero\WavExtractor;
 
 use Audero\WavExtractor\Wav\Wav;
-use Audero\Utility\Converter;
+use Audero\WavExtractor\Utility\Converter;
 
 /**
  * "Audero Wav Extractor" is a PHP library that allows to extract a chunk from a

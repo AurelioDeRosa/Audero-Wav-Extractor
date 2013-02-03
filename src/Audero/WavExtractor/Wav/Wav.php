@@ -2,7 +2,7 @@
 namespace Audero\WavExtractor\Wav;
 
 use Audero\WavExtractor\Wav\Chunk;
-use Audero\Utility\Converter;
+use Audero\WavExtractor\Utility\Converter;
 
 /**
  * This class maps the current analyzed wav file. It has the methods to extract

@@ -1,5 +1,5 @@
 <?php
-namespace Audero\Utility;
+namespace Audero\WavExtractor\Utility;
 
 /**
  * This class allows to make some conversion and it is used as an utility by
