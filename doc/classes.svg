@@ -31,27 +31,27 @@
 <path fill="none" stroke="gray" d="M177,-676C177,-670 183,-664 189,-664"/>
 <text text-anchor="middle" x="227" y="-723.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">Loader</text>
 </g>
-<g id="graph4" class="cluster"><title>cluster_Audero\Utility</title>
-<polyline fill="none" stroke="gray" points="192,-584 262,-584 "/>
-<path fill="none" stroke="gray" d="M262,-584C268,-584 274,-590 274,-596"/>
-<polyline fill="none" stroke="gray" points="274,-596 274,-644 "/>
-<path fill="none" stroke="gray" d="M274,-644C274,-650 268,-656 262,-656"/>
-<polyline fill="none" stroke="gray" points="262,-656 192,-656 "/>
-<path fill="none" stroke="gray" d="M192,-656C186,-656 180,-650 180,-644"/>
-<polyline fill="none" stroke="gray" points="180,-644 180,-596 "/>
-<path fill="none" stroke="gray" d="M180,-596C180,-590 186,-584 192,-584"/>
-<text text-anchor="middle" x="227" y="-643.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">Utility</text>
-</g>
-<g id="graph5" class="cluster"><title>cluster_Audero\WavExtractor</title>
+<g id="graph4" class="cluster"><title>cluster_Audero\WavExtractor</title>
 <polyline fill="none" stroke="gray" points="28,-16 292,-16 "/>
 <path fill="none" stroke="gray" d="M292,-16C298,-16 304,-22 304,-28"/>
-<polyline fill="none" stroke="gray" points="304,-28 304,-564 "/>
-<path fill="none" stroke="gray" d="M304,-564C304,-570 298,-576 292,-576"/>
-<polyline fill="none" stroke="gray" points="292,-576 28,-576 "/>
-<path fill="none" stroke="gray" d="M28,-576C22,-576 16,-570 16,-564"/>
-<polyline fill="none" stroke="gray" points="16,-564 16,-28 "/>
+<polyline fill="none" stroke="gray" points="304,-28 304,-644 "/>
+<path fill="none" stroke="gray" d="M304,-644C304,-650 298,-656 292,-656"/>
+<polyline fill="none" stroke="gray" points="292,-656 28,-656 "/>
+<path fill="none" stroke="gray" d="M28,-656C22,-656 16,-650 16,-644"/>
+<polyline fill="none" stroke="gray" points="16,-644 16,-28 "/>
 <path fill="none" stroke="gray" d="M16,-28C16,-22 22,-16 28,-16"/>
-<text text-anchor="middle" x="160" y="-563.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">WavExtractor</text>
+<text text-anchor="middle" x="160" y="-643.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">WavExtractor</text>
+</g>
+<g id="graph5" class="cluster"><title>cluster_Audero\WavExtractor\Utility</title>
+<polyline fill="none" stroke="gray" points="192,-556 262,-556 "/>
+<path fill="none" stroke="gray" d="M262,-556C268,-556 274,-562 274,-568"/>
+<polyline fill="none" stroke="gray" points="274,-568 274,-616 "/>
+<path fill="none" stroke="gray" d="M274,-616C274,-622 268,-628 262,-628"/>
+<polyline fill="none" stroke="gray" points="262,-628 192,-628 "/>
+<path fill="none" stroke="gray" d="M192,-628C186,-628 180,-622 180,-616"/>
+<polyline fill="none" stroke="gray" points="180,-616 180,-568 "/>
+<path fill="none" stroke="gray" d="M180,-568C180,-562 186,-556 192,-556"/>
+<text text-anchor="middle" x="227" y="-615.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">Utility</text>
 </g>
 <g id="graph6" class="cluster"><title>cluster_Audero\WavExtractor\Wav</title>
 <polyline fill="none" stroke="gray" points="36,-70 267,-70 "/>
@@ -82,11 +82,11 @@
 <text text-anchor="middle" x="227" y="-687.2" font-family="Courier,monospace" font-size="11.00">AutoLoader</text>
 </a>
 </g>
-<!-- \\Audero\\Utility\\Converter -->
-<g id="node5" class="node"><title>\\Audero\\Utility\\Converter</title>
-<a xlink:href="Utility.Converter.html" xlink:title="Converter" target="_parent">
-<polygon fill="none" stroke="black" points="265.5,-628 188.5,-628 188.5,-592 265.5,-592 265.5,-628"/>
-<text text-anchor="middle" x="227" y="-607.2" font-family="Courier,monospace" font-size="11.00">Converter</text>
+<!-- \\Audero\\WavExtractor\\Utility\\Converter -->
+<g id="node6" class="node"><title>\\Audero\\WavExtractor\\Utility\\Converter</title>
+<a xlink:href="WavExtractor.Utility.Converter.html" xlink:title="Converter" target="_parent">
+<polygon fill="none" stroke="black" points="265.5,-600 188.5,-600 188.5,-564 265.5,-564 265.5,-600"/>
+<text text-anchor="middle" x="227" y="-579.2" font-family="Courier,monospace" font-size="11.00">Converter</text>
 </a>
 </g>
 <!-- \\Audero\\WavExtractor\\Wav\\Chunk\\Cue -->
@@ -104,7 +104,7 @@
 </a>
 </g>
 <!-- \\Audero\\WavExtractor\\Wav\\Chunk\\Cue&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk -->
-<g id="edge12" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Cue&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
+<g id="edge13" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Cue&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
 <path fill="none" stroke="black" d="M200,-467.47C186.518,-463.192 170.338,-456.584 158,-447 120.025,-417.502 90.0865,-369.481 73.7335,-339.372"/>
 <polygon fill="none" stroke="black" points="76.6852,-337.467 68.9085,-330.272 70.5007,-340.746 76.6852,-337.467"/>
 </g>
@@ -123,7 +123,7 @@
 </a>
 </g>
 <!-- \\Audero\\WavExtractor\\Wav\\Chunk\\Data&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk -->
-<g id="edge14" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Data&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
+<g id="edge15" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Data&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
 <path fill="none" stroke="black" d="M199.697,-357.444C171.649,-348.32 127.056,-333.813 95.8158,-323.651"/>
 <polygon fill="none" stroke="black" points="96.7724,-320.282 86.1801,-320.516 94.6069,-326.938 96.7724,-320.282"/>
 </g>
@@ -135,7 +135,7 @@
 </a>
 </g>
 <!-- \\Audero\\WavExtractor\\Wav\\Chunk\\Fact&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk -->
-<g id="edge16" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Fact&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
+<g id="edge17" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Fact&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
 <path fill="none" stroke="black" d="M199.697,-312C171.771,-312 127.441,-312 96.2223,-312"/>
 <polygon fill="none" stroke="black" points="96.1802,-308.5 86.1801,-312 96.1801,-315.5 96.1802,-308.5"/>
 </g>
@@ -147,7 +147,7 @@
 </a>
 </g>
 <!-- \\Audero\\WavExtractor\\Wav\\Chunk\\Fmt&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk -->
-<g id="edge18" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Fmt&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
+<g id="edge19" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Fmt&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
 <path fill="none" stroke="black" d="M199.697,-266.556C171.649,-275.68 127.056,-290.187 95.8158,-300.349"/>
 <polygon fill="none" stroke="black" points="94.6069,-297.062 86.1801,-303.484 96.7724,-303.718 94.6069,-297.062"/>
 </g>
@@ -159,7 +159,7 @@
 </a>
 </g>
 <!-- \\Audero\\WavExtractor\\Wav\\Chunk\\Riff&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk -->
-<g id="edge20" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Riff&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
+<g id="edge21" class="edge"><title>\\Audero\\WavExtractor\\Wav\\Chunk\\Riff&#45;&gt;\\Audero\\WavExtractor\\Wav\\Chunk</title>
 <path fill="none" stroke="black" d="M199.923,-212.192C186.879,-216.82 171.118,-223.237 158,-231 131.405,-246.738 104.589,-269.487 85.748,-286.873"/>
 <polygon fill="none" stroke="black" points="83.0893,-284.567 78.1853,-293.959 87.8756,-289.675 83.0893,-284.567"/>
 </g>

@@ -31,14 +31,14 @@ the software.&lt;/p&gt;</long-description>
         <full_name>autoload</full_name>
         <docblock line="26">
           <description>This method allow to load a class based on its namespace</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="26" name="param" description="The fully-qualified name of the class" type="string" variable="$className">
             <type by_reference="false">string</type>
           </tag>
         </docblock>
         <argument line="31">
           <name>$className</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -47,124 +47,7 @@ the software.&lt;/p&gt;</long-description>
       <error line="0" code="50007">No page-level DocBlock was found in file Loader\AutoLoader.php</error>
     </parse_markers>
   </file>
-  <file path="Utility\Converter.php" hash="4ee1b57960235b9d29e5dd140f962ed2" package="Default">
-    <class final="false" abstract="false" namespace="Audero\Utility" line="26" package="Audero\Utility">
-      <extends/>
-      <name>Converter</name>
-      <full_name>\Audero\Utility\Converter</full_name>
-      <docblock line="4">
-        <description>This class allows to make some conversion and it is used as an utility by
-other classes of the library.</description>
-        <long-description>&lt;p&gt;For example, this class allows to convert
-an hex string into a decimal one and viceversa.&lt;/p&gt;
-
-&lt;p&gt;LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
-the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
-More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/&lt;/p&gt;
-
-&lt;p&gt;WARRANTY: The software is provided "as is", without warranty of any kind,
-express or implied, including but not limited to the warranties of merchantability,
-fitness for a particular purpose and noninfringement. In no event shall the
-authors or copyright holders be liable for any claim, damages or other
-liability, whether in an action of contract, tort or otherwise, arising from,
-out of or in connection with the software or the use or other dealings in
-the software.&lt;/p&gt;</long-description>
-        <tag line="4" name="package" description="Audero\Utility"/>
-        <tag line="4" name="author" description="Aurelio De Rosa &lt;aurelioderosa@gmail.com&gt;"/>
-        <tag line="4" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
-        <tag line="4" name="link" description="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor" link="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor"/>
-      </docblock>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\Utility" line="35" package="Audero\Utility">
-        <name>hexToString</name>
-        <full_name>hexToString</full_name>
-        <docblock line="28">
-          <description>Converts a string composed of hex chars into a string of decimal chars</description>
-          <long-description></long-description>
-          <tag line="28" name="param" description="A string of hex chars" type="string" variable="$hex">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="28" name="return" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="35">
-          <name>$hex</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\Utility" line="52" package="Audero\Utility">
-        <name>stringToHex</name>
-        <full_name>stringToHex</full_name>
-        <docblock line="45">
-          <description>Converts a string composed of decimal chars into a string of hex chars</description>
-          <long-description></long-description>
-          <tag line="45" name="param" description="A string of decimal chars" type="string" variable="$string">
-            <type by_reference="false">string</type>
-          </tag>
-          <tag line="45" name="return" description="" type="string">
-            <type by_reference="false">string</type>
-          </tag>
-        </docblock>
-        <argument line="52">
-          <name>$string</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\Utility" line="69" package="Audero\Utility">
-        <name>megabyteToByte</name>
-        <full_name>megabyteToByte</full_name>
-        <docblock line="62">
-          <description>Converts a number expressed in megabyte into one expressed in bytes</description>
-          <long-description></long-description>
-          <tag line="62" name="param" description="The number to convert" type="float" variable="$megabyte">
-            <type by_reference="false">float</type>
-          </tag>
-          <tag line="62" name="return" description="The corresponding number of bytes" type="int">
-            <type by_reference="false">int</type>
-          </tag>
-        </docblock>
-        <argument line="69">
-          <name>$megabyte</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\Utility" line="90" package="Audero\Utility">
-        <name>millisecondsToByte</name>
-        <full_name>millisecondsToByte</full_name>
-        <docblock line="81">
-          <description>Converts a number expressed in milliseconds into the corresponding number
-of bytes which is dependent by the data rate of the wav current file.</description>
-          <long-description></long-description>
-          <tag line="81" name="param" description="The number of milliseconds to convert" type="int" variable="$milliseconds">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="81" name="param" description="The data rate of the current wav file" type="int" variable="$dataRate">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="81" name="return" description="The corresponding number of bytes" type="int">
-            <type by_reference="false">int</type>
-          </tag>
-        </docblock>
-        <argument line="90">
-          <name>$milliseconds</name>
-          <default></default>
-          <type/>
-        </argument>
-        <argument line="90">
-          <name>$dataRate</name>
-          <default></default>
-          <type/>
-        </argument>
-      </method>
-    </class>
-    <parse_markers>
-      <error line="0" code="50007">No page-level DocBlock was found in file Utility\Converter.php</error>
-    </parse_markers>
-  </file>
-  <file path="WavExtractor\AuderoWavExtractor.php" hash="129b4bc7472ce1540cac54317204bdf3" package="Default">
+  <file path="WavExtractor\AuderoWavExtractor.php" hash="aa42b8ceead9e168e14af064929eeb7d" package="Default">
     <class final="false" abstract="false" namespace="Audero\WavExtractor" line="34" package="Audero\WavExtractor">
       <extends/>
       <name>AuderoWavExtractor</name>
@@ -466,6 +349,123 @@ so on based on the value of $Destination.&lt;/p&gt;
       <error line="0" code="50007">No page-level DocBlock was found in file WavExtractor\AuderoWavExtractor.php</error>
     </parse_markers>
   </file>
+  <file path="WavExtractor\Utility\Converter.php" hash="2b4bd43ae080b4f0e3a3c6d6cb90943e" package="Default">
+    <class final="false" abstract="false" namespace="Audero\WavExtractor\Utility" line="26" package="Audero\Utility">
+      <extends/>
+      <name>Converter</name>
+      <full_name>\Audero\WavExtractor\Utility\Converter</full_name>
+      <docblock line="4">
+        <description>This class allows to make some conversion and it is used as an utility by
+other classes of the library.</description>
+        <long-description>&lt;p&gt;For example, this class allows to convert
+an hex string into a decimal one and viceversa.&lt;/p&gt;
+
+&lt;p&gt;LICENSE: "Audero Wav Extractor" (from now on "The software") is released under
+the CC BY-NC 3.0 ("Creative Commons Attribution NonCommercial 3.0") license.
+More details can be found here: http://creativecommons.org/licenses/by-nc/3.0/&lt;/p&gt;
+
+&lt;p&gt;WARRANTY: The software is provided "as is", without warranty of any kind,
+express or implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall the
+authors or copyright holders be liable for any claim, damages or other
+liability, whether in an action of contract, tort or otherwise, arising from,
+out of or in connection with the software or the use or other dealings in
+the software.&lt;/p&gt;</long-description>
+        <tag line="4" name="package" description="Audero\Utility"/>
+        <tag line="4" name="author" description="Aurelio De Rosa &lt;aurelioderosa@gmail.com&gt;"/>
+        <tag line="4" name="license" description="http://creativecommons.org/licenses/by-nc/3.0/ CC BY-NC 3.0"/>
+        <tag line="4" name="link" description="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor" link="https://bitbucket.org/AurelioDeRosa/audero-wav-extractor"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\WavExtractor\Utility" line="35" package="Audero\Utility">
+        <name>hexToString</name>
+        <full_name>hexToString</full_name>
+        <docblock line="28">
+          <description>Converts a string composed of hex chars into a string of decimal chars</description>
+          <long-description></long-description>
+          <tag line="28" name="param" description="A string of hex chars" type="string" variable="$hex">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="28" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="35">
+          <name>$hex</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\WavExtractor\Utility" line="52" package="Audero\Utility">
+        <name>stringToHex</name>
+        <full_name>stringToHex</full_name>
+        <docblock line="45">
+          <description>Converts a string composed of decimal chars into a string of hex chars</description>
+          <long-description></long-description>
+          <tag line="45" name="param" description="A string of decimal chars" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="45" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="52">
+          <name>$string</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\WavExtractor\Utility" line="69" package="Audero\Utility">
+        <name>megabyteToByte</name>
+        <full_name>megabyteToByte</full_name>
+        <docblock line="62">
+          <description>Converts a number expressed in megabyte into one expressed in bytes</description>
+          <long-description></long-description>
+          <tag line="62" name="param" description="The number to convert" type="float" variable="$megabyte">
+            <type by_reference="false">float</type>
+          </tag>
+          <tag line="62" name="return" description="The corresponding number of bytes" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="69">
+          <name>$megabyte</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Audero\WavExtractor\Utility" line="90" package="Audero\Utility">
+        <name>millisecondsToByte</name>
+        <full_name>millisecondsToByte</full_name>
+        <docblock line="81">
+          <description>Converts a number expressed in milliseconds into the corresponding number
+of bytes which is dependent by the data rate of the wav current file.</description>
+          <long-description></long-description>
+          <tag line="81" name="param" description="The number of milliseconds to convert" type="int" variable="$milliseconds">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="81" name="param" description="The data rate of the current wav file" type="int" variable="$dataRate">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="81" name="return" description="The corresponding number of bytes" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+        <argument line="90">
+          <name>$milliseconds</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="90">
+          <name>$dataRate</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file WavExtractor\Utility\Converter.php</error>
+    </parse_markers>
+  </file>
   <file path="WavExtractor\Wav\Chunk\Cue.php" hash="6fad6cc373c396aeb1b20a9f750aae2e" package="Default">
     <class final="false" abstract="false" namespace="Audero\WavExtractor\Wav\Chunk" line="25" package="Audero\Audero\Wav\Chunk">
       <extends>\Audero\WavExtractor\Wav\Chunk</extends>
@@ -498,10 +498,10 @@ the software.&lt;/p&gt;</long-description>
       </constant>
       <property final="false" static="false" visibility="private" line="34" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$cuePointsNumber</name>
-        <default></default>
+        <default/>
         <docblock line="29">
           <description>The number of Cue Points in the wav file</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="29" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -509,10 +509,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="41" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$cuePoints</name>
-        <default></default>
+        <default/>
         <docblock line="36">
           <description>The cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="36" name="var" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
@@ -523,7 +523,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="43">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Audero\WavExtractor\Wav\Chunk" line="59" package="Audero\Audero\Wav\Chunk">
@@ -531,7 +531,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getCuePointsNumber</full_name>
         <docblock line="54">
           <description>Get the number of Cue Points in the wav file</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="54" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -542,7 +542,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setCuePointsNumber</full_name>
         <docblock line="64">
           <description>Set the number of Cue Points in the wav file</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="64" name="param" description="The number of Cue Points in the wav file" type="\Audero\WavExtractor\Wav\ChunkField" variable="$cuePointsNumber">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -552,7 +552,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="71">
           <name>$cuePointsNumber</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -561,7 +561,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getCuePoints</full_name>
         <docblock line="78">
           <description>Get the cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="78" name="return" description="" type="array">
             <type by_reference="false">array</type>
           </tag>
@@ -572,7 +572,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setCuePoints</full_name>
         <docblock line="88">
           <description>Set the cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="88" name="param" description="The cue points" type="array" variable="$cuePoints">
             <type by_reference="false">array</type>
           </tag>
@@ -582,7 +582,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="95">
           <name>$cuePoints</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -591,7 +591,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>addCuePoint</full_name>
         <docblock line="102">
           <description>Push a new CuePoint into the current set of Cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="102" name="param" description="The Cue point to add" type="\Audero\WavExtractor\Wav\Chunk\CuePoint" variable="$cuePoint">
             <type by_reference="false">\Audero\WavExtractor\Wav\Chunk\CuePoint</type>
           </tag>
@@ -601,7 +601,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="109">
           <name>$cuePoint</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -610,7 +610,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>calculateCuePointsNumber</full_name>
         <docblock line="114">
           <description>Retrieves the actual number of cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="114" name="param" description="The size of the cue points chunk in bytes" type="int" variable="$cueSize">
             <type by_reference="false">int</type>
           </tag>
@@ -620,7 +620,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="121">
           <name>$cueSize</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -629,7 +629,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>toString</full_name>
         <docblock line="128">
           <description>Converts the current chunk into a string based on the values of its properties</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="128" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -641,7 +641,7 @@ the software.&lt;/p&gt;</long-description>
         <docblock line="152">
           <description>Read the data inside the managed file to fill the properties of the
 current chunk.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="152" name="param" description="The handle of the managed file" type="resource" variable="$handle">
             <type by_reference="false">resource</type>
           </tag>
@@ -651,7 +651,7 @@ current chunk.</description>
         </docblock>
         <argument line="160">
           <name>$handle</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -660,7 +660,7 @@ current chunk.</description>
         <full_name>getChunkSize</full_name>
         <docblock line="185">
           <description>Calculate the size of the chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="185" name="return" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
@@ -698,10 +698,10 @@ the software.&lt;/p&gt;</long-description>
       </docblock>
       <property final="false" static="false" visibility="private" line="33" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$id</name>
-        <default></default>
+        <default/>
         <docblock line="28">
           <description>The id of the point</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="28" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -709,10 +709,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="40" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$position</name>
-        <default></default>
+        <default/>
         <docblock line="35">
           <description>The position that this point has into the set of the Cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="35" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -720,10 +720,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="47" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$dataChunkId</name>
-        <default></default>
+        <default/>
         <docblock line="42">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="42" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -731,10 +731,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="53" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$chunkStart</name>
-        <default></default>
+        <default/>
         <docblock line="49">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="49" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -742,10 +742,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="59" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$blockStart</name>
-        <default></default>
+        <default/>
         <docblock line="55">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="55" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -753,10 +753,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="65" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$sampleOffset</name>
-        <default></default>
+        <default/>
         <docblock line="61">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="61" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -767,7 +767,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="67">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Audero\WavExtractor\Wav\Chunk" line="85" package="Audero\Audero\Wav\Chunk">
@@ -775,7 +775,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getId</full_name>
         <docblock line="80">
           <description>Get the id of the point</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="80" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -786,7 +786,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setId</full_name>
         <docblock line="90">
           <description>Set the id of the point</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="90" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$id">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -796,7 +796,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="97">
           <name>$id</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -805,7 +805,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getPosition</full_name>
         <docblock line="104">
           <description>Get the position that this point has into the set of the Cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="104" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -816,7 +816,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setPosition</full_name>
         <docblock line="114">
           <description>Set the position that this point has into the set of the Cue points</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="114" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$position">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -826,7 +826,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="121">
           <name>$position</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -834,8 +834,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getDataChunkId</name>
         <full_name>getDataChunkId</full_name>
         <docblock line="128">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="128" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -845,8 +845,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setDataChunkId</name>
         <full_name>setDataChunkId</full_name>
         <docblock line="137">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="137" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$dataChunkId">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -856,7 +856,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="143">
           <name>$dataChunkId</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -864,8 +864,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getChunkStart</name>
         <full_name>getChunkStart</full_name>
         <docblock line="150">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="150" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -875,8 +875,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setChunkStart</name>
         <full_name>setChunkStart</full_name>
         <docblock line="159">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="159" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$chunkStart">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -886,7 +886,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="165">
           <name>$chunkStart</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -894,8 +894,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getBlockStart</name>
         <full_name>getBlockStart</full_name>
         <docblock line="172">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="172" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -905,8 +905,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setBlockStart</name>
         <full_name>setBlockStart</full_name>
         <docblock line="181">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="181" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$blockStart">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -916,7 +916,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="187">
           <name>$blockStart</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -924,8 +924,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getSampleOffset</name>
         <full_name>getSampleOffset</full_name>
         <docblock line="194">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="194" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -935,8 +935,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setSampleOffset</name>
         <full_name>setSampleOffset</full_name>
         <docblock line="203">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="203" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$sampleOffset">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -946,7 +946,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="209">
           <name>$sampleOffset</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -956,7 +956,7 @@ the software.&lt;/p&gt;</long-description>
         <docblock line="216">
           <description>Read the data inside the managed file to fill the properties of the
 current chunk.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="216" name="param" description="The handle of the managed file" type="resource" variable="$handle">
             <type by_reference="false">resource</type>
           </tag>
@@ -966,7 +966,7 @@ current chunk.</description>
         </docblock>
         <argument line="224">
           <name>$handle</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -975,7 +975,7 @@ current chunk.</description>
         <full_name>toString</full_name>
         <docblock line="238">
           <description>Converts the current chunk into a string based on the values of its properties</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="238" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -985,8 +985,8 @@ current chunk.</description>
         <name>getSize</name>
         <full_name>getSize</full_name>
         <docblock line="254">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="254" name="return" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
@@ -1045,7 +1045,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="30">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
         </docblock>
       </method>
     </class>
@@ -1085,10 +1085,10 @@ the software.&lt;/p&gt;</long-description>
       </constant>
       <property final="false" static="false" visibility="private" line="33" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$data</name>
-        <default></default>
+        <default/>
         <docblock line="29">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="29" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1099,15 +1099,15 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="35">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Audero\WavExtractor\Wav\Chunk" line="48" package="Audero\Audero\Wav\Chunk">
         <name>getData</name>
         <full_name>getData</full_name>
         <docblock line="44">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="44" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1117,8 +1117,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setData</name>
         <full_name>setData</full_name>
         <docblock line="53">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="53" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$data">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1128,7 +1128,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="59">
           <name>$data</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1172,10 +1172,10 @@ the software.&lt;/p&gt;</long-description>
       </constant>
       <property final="false" static="false" visibility="private" line="34" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$compressionCode</name>
-        <default></default>
+        <default/>
         <docblock line="30">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="30" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1183,10 +1183,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="40" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$channelsNumber</name>
-        <default></default>
+        <default/>
         <docblock line="36">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="36" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1194,10 +1194,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="46" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$sampleRate</name>
-        <default></default>
+        <default/>
         <docblock line="42">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="42" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1205,10 +1205,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="52" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$dataRate</name>
-        <default></default>
+        <default/>
         <docblock line="48">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="48" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1216,10 +1216,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="58" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$blockSize</name>
-        <default></default>
+        <default/>
         <docblock line="54">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="54" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1227,10 +1227,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="64" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$bitsPerSample</name>
-        <default></default>
+        <default/>
         <docblock line="60">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="60" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1238,10 +1238,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="70" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$extensionSize</name>
-        <default></default>
+        <default/>
         <docblock line="66">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="66" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1249,10 +1249,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="76" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$validBitsPerSample</name>
-        <default></default>
+        <default/>
         <docblock line="72">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="72" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1260,10 +1260,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="82" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$channelMask</name>
-        <default></default>
+        <default/>
         <docblock line="78">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="78" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1271,10 +1271,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="88" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$subFormat</name>
-        <default></default>
+        <default/>
         <docblock line="84">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="84" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1285,15 +1285,15 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="90">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Audero\WavExtractor\Wav\Chunk" line="112" package="Audero\Audero\Wav\Chunk">
         <name>getCompressionCode</name>
         <full_name>getCompressionCode</full_name>
         <docblock line="108">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="108" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1303,8 +1303,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setCompressionCode</name>
         <full_name>setCompressionCode</full_name>
         <docblock line="117">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="117" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$compressionCode">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1314,7 +1314,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="123">
           <name>$compressionCode</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1322,8 +1322,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getChannelsNumber</name>
         <full_name>getChannelsNumber</full_name>
         <docblock line="130">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="130" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1333,8 +1333,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setChannelsNumber</name>
         <full_name>setChannelsNumber</full_name>
         <docblock line="139">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="139" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$channelsNumber">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1344,7 +1344,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="145">
           <name>$channelsNumber</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1352,8 +1352,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getSampleRate</name>
         <full_name>getSampleRate</full_name>
         <docblock line="152">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="152" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1363,8 +1363,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setSampleRate</name>
         <full_name>setSampleRate</full_name>
         <docblock line="161">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="161" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$sampleRate">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1374,7 +1374,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="167">
           <name>$sampleRate</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1382,8 +1382,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getDataRate</name>
         <full_name>getDataRate</full_name>
         <docblock line="174">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="174" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1393,8 +1393,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setDataRate</name>
         <full_name>setDataRate</full_name>
         <docblock line="183">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="183" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$dataRate">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1404,7 +1404,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="189">
           <name>$dataRate</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1412,8 +1412,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getBlockSize</name>
         <full_name>getBlockSize</full_name>
         <docblock line="196">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="196" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1423,8 +1423,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setBlockSize</name>
         <full_name>setBlockSize</full_name>
         <docblock line="205">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="205" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$blockSize">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1434,7 +1434,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="211">
           <name>$blockSize</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1442,8 +1442,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getBitsPerSample</name>
         <full_name>getBitsPerSample</full_name>
         <docblock line="218">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="218" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1453,8 +1453,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setBitsPerSample</name>
         <full_name>setBitsPerSample</full_name>
         <docblock line="227">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="227" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$bitsPerSample">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1464,7 +1464,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="233">
           <name>$bitsPerSample</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1472,8 +1472,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getExtensionSize</name>
         <full_name>getExtensionSize</full_name>
         <docblock line="240">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="240" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1483,8 +1483,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setExtensionSize</name>
         <full_name>setExtensionSize</full_name>
         <docblock line="249">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="249" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$extensionSize">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1494,7 +1494,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="255">
           <name>$extensionSize</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1502,8 +1502,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getValidBitsPerSample</name>
         <full_name>getValidBitsPerSample</full_name>
         <docblock line="262">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="262" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1513,8 +1513,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setValidBitsPerSample</name>
         <full_name>setValidBitsPerSample</full_name>
         <docblock line="271">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="271" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$validBitsPerSample">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1524,7 +1524,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="277">
           <name>$validBitsPerSample</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1532,8 +1532,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getChannelMask</name>
         <full_name>getChannelMask</full_name>
         <docblock line="284">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="284" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1543,8 +1543,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setChannelMask</name>
         <full_name>setChannelMask</full_name>
         <docblock line="293">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="293" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$channelMask">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1554,7 +1554,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="299">
           <name>$channelMask</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1562,8 +1562,8 @@ the software.&lt;/p&gt;</long-description>
         <name>getSubFormat</name>
         <full_name>getSubFormat</full_name>
         <docblock line="306">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="306" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1573,8 +1573,8 @@ the software.&lt;/p&gt;</long-description>
         <name>setSubFormat</name>
         <full_name>setSubFormat</full_name>
         <docblock line="315">
-          <description></description>
-          <long-description></long-description>
+          <description/>
+          <long-description/>
           <tag line="315" name="param" description="" type="\Audero\WavExtractor\Wav\ChunkField" variable="$subFormat">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1584,7 +1584,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="321">
           <name>$subFormat</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1660,7 +1660,7 @@ the software.&lt;/p&gt;</long-description>
       </constant>
       <property final="false" static="false" visibility="private" line="36" namespace="Audero\WavExtractor\Wav\Chunk" package="Default">
         <name>$format</name>
-        <default></default>
+        <default/>
         <docblock line="30">
           <description>The format of the file.</description>
           <long-description>&lt;p&gt;This property should always contains
@@ -1675,7 +1675,7 @@ as value the string "WAVE"&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="38">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
         </docblock>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" namespace="Audero\WavExtractor\Wav\Chunk" line="52" package="Audero\Audero\Wav\Chunk">
@@ -1683,7 +1683,7 @@ as value the string "WAVE"&lt;/p&gt;</long-description>
         <full_name>getFormat</full_name>
         <docblock line="47">
           <description>Get the format of the wav file</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="47" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1694,7 +1694,7 @@ as value the string "WAVE"&lt;/p&gt;</long-description>
         <full_name>setFormat</full_name>
         <docblock line="57">
           <description>Set the format of the wav file</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="57" name="param" description="The format of the wav file" type="\Audero\WavExtractor\Wav\ChunkField" variable="$format">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1704,7 +1704,7 @@ as value the string "WAVE"&lt;/p&gt;</long-description>
         </docblock>
         <argument line="64">
           <name>$format</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1754,10 +1754,10 @@ the software.&lt;/p&gt;</long-description>
       </constant>
       <property final="false" static="false" visibility="protected" line="38" namespace="Audero\WavExtractor\Wav" package="Default">
         <name>$id</name>
-        <default></default>
+        <default/>
         <docblock line="33">
           <description>The id of the chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="33" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1765,10 +1765,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="protected" line="45" namespace="Audero\WavExtractor\Wav" package="Default">
         <name>$size</name>
-        <default></default>
+        <default/>
         <docblock line="40">
           <description>The size of the chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="40" name="var" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1779,7 +1779,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__get</full_name>
         <docblock line="47">
           <description>Magic method to execute the getter associated to the property name given</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="47" name="param" description="The name of the property" type="string" variable="$name">
             <type by_reference="false">string</type>
           </tag>
@@ -1792,7 +1792,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="56">
           <name>$name</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1801,7 +1801,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="66">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="66" name="param" description="The id of the chunk. If not provided 0 will be used" type="int" variable="$id">
             <type by_reference="false">int</type>
           </tag>
@@ -1817,7 +1817,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getId</full_name>
         <docblock line="78">
           <description>Get the id of the chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="78" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1828,7 +1828,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setId</full_name>
         <docblock line="88">
           <description>Set the id of the chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="88" name="param" description="The id of the chunk" type="\Audero\WavExtractor\Wav\ChunkField" variable="$id">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1838,7 +1838,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="95">
           <name>$id</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1847,7 +1847,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getSize</full_name>
         <docblock line="102">
           <description>Get the size of the chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="102" name="return" description="" type="\Audero\WavExtractor\Wav\ChunkField">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1858,7 +1858,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setSize</full_name>
         <docblock line="112">
           <description>Set the size of the chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="112" name="param" description="The size of the chunk" type="\Audero\WavExtractor\Wav\ChunkField" variable="$size">
             <type by_reference="false">\Audero\WavExtractor\Wav\ChunkField</type>
           </tag>
@@ -1868,7 +1868,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="119">
           <name>$size</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1877,7 +1877,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getChunkType</full_name>
         <docblock line="126">
           <description>Retrieves the chunk type based on the given id</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="126" name="param" description="The id of the chunk" type="string" variable="$id">
             <type by_reference="false">string</type>
           </tag>
@@ -1887,7 +1887,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="133">
           <name>$id</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1896,7 +1896,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>toString</full_name>
         <docblock line="160">
           <description>Converts the current chunk into a string based on the values of its properties</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="160" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -1908,7 +1908,7 @@ the software.&lt;/p&gt;</long-description>
         <docblock line="192">
           <description>Read the data inside the managed file to fill the properties of the
 current chunk.</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="192" name="param" description="The handle of the managed file" type="resource" variable="$handle">
             <type by_reference="false">resource</type>
           </tag>
@@ -1918,7 +1918,7 @@ current chunk.</description>
         </docblock>
         <argument line="200">
           <name>$handle</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -1927,7 +1927,7 @@ current chunk.</description>
         <full_name>getChunkSize</full_name>
         <docblock line="230">
           <description>Retrieves the size of the current chunk</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="230" name="return" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
@@ -1970,10 +1970,10 @@ the software.&lt;/p&gt;</long-description>
       </docblock>
       <property final="false" static="false" visibility="private" line="36" namespace="Audero\WavExtractor\Wav" package="Default">
         <name>$format</name>
-        <default></default>
+        <default/>
         <docblock line="31">
           <description>The format of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="31" name="var" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -1981,10 +1981,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="43" namespace="Audero\WavExtractor\Wav" package="Default">
         <name>$bytes</name>
-        <default></default>
+        <default/>
         <docblock line="38">
           <description>The size in bytes of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="38" name="var" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
@@ -1992,10 +1992,10 @@ the software.&lt;/p&gt;</long-description>
       </property>
       <property final="false" static="false" visibility="private" line="50" namespace="Audero\WavExtractor\Wav" package="Default">
         <name>$value</name>
-        <default></default>
+        <default/>
         <docblock line="45">
           <description>The value of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="45" name="var" description="" type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
@@ -2006,7 +2006,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>__construct</full_name>
         <docblock line="52">
           <description>The default constructor</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="52" name="param" description="The format of the field" type="string" variable="$format">
             <type by_reference="false">string</type>
           </tag>
@@ -2016,12 +2016,12 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="58">
           <name>$format</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
         <argument line="58">
           <name>$bytes</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -2030,7 +2030,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getFormat</full_name>
         <docblock line="64">
           <description>Get the format of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="64" name="return" description="" type="string">
             <type by_reference="false">string</type>
           </tag>
@@ -2041,7 +2041,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setFormat</full_name>
         <docblock line="74">
           <description>Set the format of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="74" name="param" description="The format of the field" type="string" variable="$format">
             <type by_reference="false">string</type>
           </tag>
@@ -2051,7 +2051,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="81">
           <name>$format</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -2060,7 +2060,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getBytes</full_name>
         <docblock line="86">
           <description>Get the size of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="86" name="return" description="" type="int">
             <type by_reference="false">int</type>
           </tag>
@@ -2071,7 +2071,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setBytes</full_name>
         <docblock line="96">
           <description>Set the size of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="96" name="param" description="The size of the field" type="int" variable="$bytes">
             <type by_reference="false">int</type>
           </tag>
@@ -2084,7 +2084,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="105">
           <name>$bytes</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -2093,7 +2093,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>getValue</full_name>
         <docblock line="116">
           <description>Get the value of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="116" name="return" description="" type="mixed">
             <type by_reference="false">mixed</type>
           </tag>
@@ -2104,7 +2104,7 @@ the software.&lt;/p&gt;</long-description>
         <full_name>setValue</full_name>
         <docblock line="126">
           <description>Set the value of the field</description>
-          <long-description></long-description>
+          <long-description/>
           <tag line="126" name="param" description="The value of the field" type="mixed" variable="$value">
             <type by_reference="false">mixed</type>
           </tag>
@@ -2114,7 +2114,7 @@ the software.&lt;/p&gt;</long-description>
         </docblock>
         <argument line="133">
           <name>$value</name>
-          <default></default>
+          <default/>
           <type/>
         </argument>
       </method>
@@ -2123,7 +2123,7 @@ the software.&lt;/p&gt;</long-description>
       <error line="0" code="50007">No page-level DocBlock was found in file WavExtractor\Wav\ChunkField.php</error>
     </parse_markers>
   </file>
-  <file path="WavExtractor\Wav\Wav.php" hash="9080f28e2412e44978901b1a4adda0c8" package="Default">
+  <file path="WavExtractor\Wav\Wav.php" hash="38a63ad76d48da572a23bb1081579299" package="Default">
     <class final="false" abstract="false" namespace="Audero\WavExtractor\Wav" line="28" package="Audero\Audero\Wav">
       <extends/>
       <name>Wav</name>
@@ -2387,8 +2387,8 @@ chunks, these will be drop.&lt;/p&gt;</long-description>
   <package name="Default" full_name="Default"/>
   <namespace name="Audero" full_name="Audero">
     <namespace name="Loader" full_name="Audero\Loader"/>
-    <namespace name="Utility" full_name="Audero\Utility"/>
     <namespace name="WavExtractor" full_name="Audero\WavExtractor">
+      <namespace name="Utility" full_name="Audero\WavExtractor\Utility"/>
       <namespace name="Wav" full_name="Audero\WavExtractor\Wav">
         <namespace name="Chunk" full_name="Audero\WavExtractor\Wav\Chunk"/>
       </namespace>
