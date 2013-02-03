@@ -27,7 +27,7 @@ If you haven't or don't want to use [Composer](http://getcomposer.org/), you can
 "Audero Wav Extractor" is very easy to use. However, since the library uses namespaces and follows the [PSR standards](https://github.com/php-fig/fig-standards), you've to use an autoloader to dynamically load the classes needed. After that, you have to create an `AuderoWavExtractor` instance and call the method that better fits your needs. With [Audero Wav Extractor](https://bitbucket.org/AurelioDeRosa/audero-wav-extractor) you can download the chunk using `downloadChunk()`, save it on the hard disk using `saveChunk()` or retrieve it as a string using `getChunk()`.
 
 ### Installed via [Composer](http://getcomposer.org/) ###
-If you installed "Audero Wav Extractor" using [Composer](http://getcomposer.org/), you can rely on the built autoloader. So, after included the latter, you can use one of the previously cited method as shown in the following example.
+If you installed "Audero Wav Extractor" using [Composer](http://getcomposer.org/), you can rely on the built autoloader. So, after included the latter, you can use one of the previously cited methods as shown in the following example.
 
 #### Extract a chunk from a wav file and force the download to the user's browser ####
     <?php
