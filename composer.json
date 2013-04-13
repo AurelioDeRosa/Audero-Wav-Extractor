@@ -3,7 +3,7 @@
     "description": "Audero Wav Extractor is a PHP library that allows to extract a chunk from a wav file. The extracted chunk can be saved on the hard disk, can be forced to be prompted as download by the user's browser or returned as a string for a later processing.",
     "type": "library",
     "keywords": ["wav", "extractor", "wave", "audio"],
-    "homepage": "https://bitbucket.org/AurelioDeRosa/audero-wav-extractor",
+    "homepage": "https://github.com/AurelioDeRosa/Audero-Wav-Extractor/",
     "license": "CC-BY-NC-3.0",
     "authors": [
         {
@@ -15,8 +15,8 @@
     ],
     "support": {
         "email": "aurelioderosa@gmail.com",
-        "issues": "https://bitbucket.org/AurelioDeRosa/audero-wav-extractor/issues",
-        "source": "https://bitbucket.org/AurelioDeRosa/audero-wav-extractor/src"
+        "issues": "https://github.com/AurelioDeRosa/Audero-Wav-Extractor/issues",
+        "source": "https://github.com/AurelioDeRosa/Audero-Wav-Extractor/"
     },
     "require": {
         "php": ">=5.3.0"
