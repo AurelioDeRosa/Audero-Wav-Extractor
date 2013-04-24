@@ -42,7 +42,7 @@ If you installed "Audero Wav Extractor" using [Composer](http://getcomposer.org/
         // Extract the chunk and save it on the hard disk
         try {
            $extractor = new \Audero\WavExtractor\AuderoWavExtractor($inputFile);
-           $extractor->saveChunk($start, $end, $outputFile);
+           $extractor->downloadChunk($start, $end, $outputFile);
            echo 'Chunk extraction completed.';
         } catch (\Exception $ex) {
            echo 'An error has occurred: ' . $ex->getMessage();
@@ -69,7 +69,7 @@ If you obtained the code via [Git](http://git-scm.com/), you can use the autoloa
         // Extract the chunk and force the download to the user browser
         try {
            $extractor = new \Audero\WavExtractor\AuderoWavExtractor($inputFile);
-           $extractor->downloadChunk($start, $end, $outputFile);
+           $extractor->saveChunk($start, $end, $outputFile);
            echo 'Chunk extraction completed.';
         } catch (\Exception $ex) {
            echo 'An error has occurred: ' . $ex->getMessage();
