@@ -19,12 +19,12 @@ And then run the `install` command to resolve and download the dependencies:
 Composer will install the library to your project's `vendor/audero` directory.
 
 ### Download via [Git](http://git-scm.com/) ###
-If you haven't or don't want to use [Composer](http://getcomposer.org/), you can download the library from its [repository](https://bitbucket.org/AurelioDeRosa/audero-wav-extractor) via [Git](http://git-scm.com/) running the following command:
+If you haven't or don't want to use [Composer](http://getcomposer.org/), you can download the library from its [repository](https://github.com/AurelioDeRosa/Audero-Wav-Extractor) via [Git](http://git-scm.com/) running the following command:
 
-    git clone https://bitbucket.org/AurelioDeRosa/audero-wav-extractor.git
+    git clone https://github.com/AurelioDeRosa/Audero-Wav-Extractor.git
 
 ## Usage ##
-"Audero Wav Extractor" is very easy to use. However, since the library uses namespaces and follows the [PSR standards](https://github.com/php-fig/fig-standards), you've to use an autoloader to dynamically load the classes needed. After that, you have to create an `AuderoWavExtractor` instance and call the method that better fits your needs. With [Audero Wav Extractor](https://bitbucket.org/AurelioDeRosa/audero-wav-extractor) you can download the chunk using `downloadChunk()`, save it on the hard disk using `saveChunk()` or retrieve it as a string using `getChunk()`.
+"Audero Wav Extractor" is very easy to use. However, since the library uses namespaces and follows the [PSR standards](https://github.com/php-fig/fig-standards), you've to use an autoloader to dynamically load the classes needed. After that, you have to create an `AuderoWavExtractor` instance and call the method that better fits your needs. With [Audero Wav Extractor](https://github.com/AurelioDeRosa/Audero-Wav-Extractor) you can download the chunk using `downloadChunk()`, save it on the hard disk using `saveChunk()` or retrieve it as a string using `getChunk()`.
 
 ### Installed via [Composer](http://getcomposer.org/) ###
 If you installed "Audero Wav Extractor" using [Composer](http://getcomposer.org/), you can rely on the built autoloader. So, after included the latter, you can use one of the previously cited methods as shown in the following example.
